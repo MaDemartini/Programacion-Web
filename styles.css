@@ -1,0 +1,238 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url(Img/Fondo/FondoPiedra.jpg);
+    background-size: cover;
+    background-position: center;
+    font-family: sans-serif;
+}
+
+/* Estilos del encabezado */
+
+.bg-bordeaux {
+    background-color: #720312; /* Cambia este valor al color burdeos deseado */
+    border-radius: 20px;
+}
+
+.bg-black {
+    background-color: #000; /* Color de fondo negro */
+    
+}
+
+.logo img {
+    width: 120px; 
+    height: 120px;
+    display: flex;
+    justify-content: left;
+    
+}
+
+nav {
+    flex: 2;
+    text-align: center; /
+}
+
+.search {
+    flex: 1;
+}
+
+.search-form {
+    display: flex;
+    align-items: center; /* Centra verticalmente los elementos */
+    justify-content: center; /* Centra horizontalmente los elementos */
+    margin-right: auto;
+}
+
+.search-button {
+    margin-left: 5px; /* Ajuste de margen para separar el botón del cuadro de búsqueda */
+}
+
+.auth-links {
+    margin-right: 10px; 
+}
+
+.auth-links a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    color: #fff;
+    display: inline;
+    margin-right: 50px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px; 
+    border-radius: 5px; 
+    transition: background-color 0.3s, color 0.3s; 
+}
+
+nav ul li a:hover {
+    background-color: #b1b1b1; /* color de fondo al pasar el cursor */
+    color: #fff; /*color del texto al pasar el cursor */
+}
+
+/* Carrusel de noticias destacadas */
+.swiper-container {
+    width: 100%;
+    height: auto;
+}
+
+.swiper-slide img {
+    max-width: 100%;
+    height: auto;
+}
+
+.cont-txt {
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+
+.tit {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.baj {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.btn-main {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.btn-main:hover {
+    background-color: #0056b3;
+}
+
+.carousel-item {
+    flex: 0 0 auto;
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin-right: 20px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.carousel-item img {
+    max-width: 500%;
+    max-height: 540px;
+    border-radius: 0px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); 
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    width: 100%;
+    height: auto;
+    object-fit: cover; 
+}
+
+/* Style contenido principal */
+main {
+    padding: 20px;
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 4px 80px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+
+.block-grid {
+    padding: 60px 0;
+}
+
+
+.row .col:first-child {
+    margin-left: 0;
+} 
+
+.col {
+    border-left-width: 18px;
+    padding: 0 0px;
+}
+
+.img-wrap img {
+    -ms-flex-item-align: center;
+    -webkit-align-self: center;
+    align-self: center;
+    -webkit-flex: 0 0 auto;
+    flex: 0 0 auto;
+}
+
+img {
+    display: block;
+    width: 100%;
+    -ms-flex-item-align: center;
+    -webkit-align-self: center;
+    align-self: center;
+    -webkit-flex: 0 0 auto;
+    flex: 0 0 auto;
+}
+
+/* Pie de página */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.palabra-clave {
+    text-decoration: underline;
+    cursor: pointer;
+    position: relative;
+}
+
+.palabra-clave::after {
+    content: attr(data-content);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s ease;
+}
+
+.palabra-clave:hover::after {
+    visibility: visible;
+    opacity: 1;
+}

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caos News</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        .search-form {
+            margin-right: auto;
+        }
+        .search-button {
+            color: white;
+            background-color: #720312;
+        }
+        .noticia-card {
+            background-color: #f8f9fa; /* Color de fondo para resaltar las noticias */
+        }
+    </style>
+</head>
+<body style="background-color: #DBE0E3;">
+    <!-- Encabezado con Navbar -->
+    <header class="bg-black text-white py-2">
+    <nav class="navbar navbar-expand-lg bg-black p-3">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <div class="logo">
+                    <img src="Img/Logo.png" alt="Logo" width="120" height="120" class="d-inline-block align-text-top">
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item bg-bordeaux">
+                        <a class="nav-link active text-white" aria-current="page" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item bg-bordeaux">
+                        <a class="nav-link text-white" href="#categorias">Categorías</a>
+                    </li>
+                    <li class="nav-item bg-bordeaux">
+                        <a class="nav-link text-white" href="contacto.html">Contacto</a>
+                    </li>
+                    <li class="nav-item dropdown bg-bordeaux">
+                        <a class="nav-link text-white dropdown-toggle" href="#unete" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Unete
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Iniciar Sesión</a></li>
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal2">Registrarte</a></li>                            
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Nosotros</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="d-flex search-form" role="search">
+                    <input class="form-control me-2 search-input" type="search" placeholder="Buscar" aria-label="Search">
+                    <button class="btn btn-outline-light search-button" type="submit">Buscar</button>
+                </form>
+                <!-- Ícono de carrito de compras -->
+                <a href="#" class="text-white">
+                    <i class="bi bi-cart-fill fs-4"></i> <!-- Ícono de carrito de compras -->
+                </a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+    <!-- Modal Iniciar Sesión -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Iniciar Sesión</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+          <form>
+              <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Correo Electrónico</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              </div>
+              <div class="mb-3">
+                  <label for="contraseña" class="form-label">Contraseña</label>
+                  <input type="password" class="form-control" id="contraseña" required>
+              </div>
+              <div class="text-center"> 
+                  <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+              </div>
+          </form>
+          <hr>
+          <p class="text-center">O inicia sesión con:</p>
+          <div class="d-grid gap-2">
+              <button class="btn btn-outline-danger" type="button">Google</button>
+              <button class="btn btn-outline-primary" type="button">iCloud</button>
+          </div>
+          </div>
+          <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+      </div>
+      </div>
+  </div>
+  
+  <!-- Modal de Registro -->
+  <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Registro</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <form>
+                      <div class="mb-3">
+                          <label for="nombre" class="form-label">Nombre</label>
+                          <input type="text" class="form-control" id="nombre" required>
+                      </div>
+                      <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">Correo Electrónico</label>
+                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      </div>
+                      <div class="mb-3">
+                          <label for="contraseña" class="form-label">Contraseña</label>
+                          <input type="password" class="form-control" id="contraseña" required>
+                      </div>
+                      <div class="mb-3">
+                          <label for="confirmarContraseña" class="form-label">Confirmar Contraseña</label>
+                          <input type="password" class="form-control" id="confirmarContraseña" required>
+                      </div>
+                      <div class="text-center">
+                          <button type="submit" class="btn btn-primary">Registrarse</button>
+                      </div>
+                  </form>
+                  <hr>
+                  <p class="text-center">O Registrarse con:</p>
+                  <div class="d-grid gap-2">
+                      <button class="btn btn-outline-danger" type="button">Google</button>
+                      <button class="btn btn-outline-primary" type="button">iCloud</button>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <main>
+    <!-- Noticia 1 -->
+    <div class="noticia1-Info">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="Img/Noticias/ronaldpolitico.jpg" class="img-fluid" alt="Imagen de la noticia">
+                </div>
+                <div class="col-md-6">
+                    <h2>Diputados piden romper relaciones con Venezuela: "Chile debe tener consecuencia con su tradición democrática"</h2>
+                    <p>Desde la UDI al Partido Socialista, los parlamentarios emplazaron al Ejecutivo a exigir la extradición de los sospechosos del asesinato del exmilitar.</p>
+                    <div class="info">Autor: Ruben Dario Contreras | Fecha: 12 de abril de 2024 | Categoría: Política</div>
+                    <hr>
+                    <p>Luego de que la Fiscalía y la ministra del Interior, Carolina Tohá, señalaran que el asesinato del exmilitar Ronald Ojeda Moreno tendría un "móvil político" y que fue orquestado desde Venezuela, varios parlamentarios emplazaron al Gobierno a "romper las relaciones diplomáticas" con dicho país.</p>
+                    <p>"Según la investigación, la víctima no tiene vínculos con el crimen organizado, no hay ningún elemento para considerar, por ejemplo, un autosecuestro y ninguna otra hipótesis. Y eso es lo que ha llevado a la Fiscalía a pensar que la hipótesis más plausible es que haya habido un móvil político. Ahora de quién es ese móvil político, eso es lo que la investigación debe aclarar, y quienes tienen la clave de eso son estas personas que se fugaron de Chile", puntualizó la secretaria de Estado. </p>
+                    <p>A partir de esas declaraciones, desde la UDI al Partido Socialista se generó un "apoyo transversal" para que el Ejecutivo exija la extradición de los sospechosos del asesinato del exmilitar.</p>
+                    <p>"Chile no puede sostener relaciones diplomáticas con la dictadura de Venezuela. Lo que hizo el dictador Maduro es lo mismo que hizo el dictador Pinochet en tiempos pasado. Por lo tanto, Chile debe tener consecuencia con su tradición democrática y romper sus relaciones <span id="palabraclave" class="palabra-clave" data-content="Institución secular mantenida entre dos Estados sobre la base del consentimiento mutuo, con las finalidades de representación, protección de intereses, negociación, información y fomento de la cooperación entre el sujeto acreditante y el sujeto receptor.">diplomáticas</span>", señaló el jefe de la bancada de diputados del Partido por la Democracia (PPD), Jaime Araya</p>
+                    <p>Con similar opinión, Tomás de Rementería (PS), presidente de la Comisión de Relaciones Exteriores, manifestó que "Venezuela no está cooperando con Chile en relación al asesinato y secuestro del teniene Ojeda. Hay indicios claros de participación incluso de grupos afines del gobierno venezolano en esto". </p>
+                    <p>Ante los antecedentes revelados por la investigación, la ministra Tohá aseveró que "el Gobierno va a demandar que Venezuela cumpla con sus responsabilidades. Esto es importante para Chile, pero también para venezuela. Los ojos van a estar puestos sobre su comportamiento".  </p>
+                    <p>Por su parte, Cristián Labbé (UDI) criticó que "una vez más, las relaciones exteriores de Chile no han estado a la altura de lo que Chile necesita. El famoso convenio fue un tongo y una <span id="palabraclave" class="palabra-clave" data-content="Descuido o falta de esmero.">desprolijidad</span> tremenda (...) Lo que hay que hacer es cortar toda relación diplomática con Venezuela y con la dictadura de Maduro, y endurecer el tono de Chile".</p>
+                    <p>En tanto, Rojo Edwards (IND - exrepublicano) emplazó a la ministra Tohá a renunciar. "Usted es un escollo para el combate contra el crimen organizado. Hasta cuándo siguen muriendo Carabineros. Si la ministra Tohá nos va a seguir tomando el pelo, debe renunciar. Hasta cuándo nos engaña diciendo que Maduro nos va a colaborar contra el crimen organizado cuando dice que ni siquiera existe", aseveró.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+  
+    <!-- Pie de página -->
+    <footer class="bg-dark text-white mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <p class="text-center">SANTIAGO, CHILE FONO (562) 2 854 6300 © TODOS LOS DERECHOS RESERVADOS.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts de Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

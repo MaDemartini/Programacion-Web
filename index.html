@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caos News</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        .search-form {
+            margin-right: auto;
+        }
+        .search-button {
+            color: white;
+            background-color: #720312;
+        }
+        .noticia-card {
+            background-color: #f8f9fa; /* Color de fondo para resaltar las noticias */
+        }
+    </style>
+</head>
+<body>
+    <!-- Encabezado con Navbar -->
+    <header class="bg-black text-white py">
+    <nav class="navbar navbar-expand-lg bg-black p">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <div class="logo">
+                    <img src="Img/Logo.png" alt="Logo" width="120" height="120" class="d-inline-block align-text-top">
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item bg-bordeaux">
+                        <a class="nav-link active text-white" aria-current="page" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item bg-bordeaux">
+                        <a class="nav-link text-white" href="#categorias">Categorías</a>
+                    </li>
+                    <li class="nav-item bg-bordeaux">
+                        <a class="nav-link text-white" href="contacto.html">Contacto</a>
+                    </li>
+                    <li class="nav-item dropdown bg-bordeaux">
+                        <a class="nav-link text-white dropdown-toggle" href="#unete" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Unete
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Iniciar Sesión</a></li>
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal2">Registrarte</a></li>                            
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="UneNosotros.html">Unete a Nosotros</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="d-flex search-form" role="search">
+                    <input class="form-control me-2 search-input" type="search" placeholder="Buscar" aria-label="Search">
+                    <button class="btn btn-outline-light search-button" type="submit">Buscar</button>
+                </form>
+                <!-- Ícono de carrito de compras -->
+                <a href="#" class="text-white">
+                    <i class="bi bi-cart-fill fs-4"></i> <!-- Ícono de carrito de compras -->
+                </a>
+            </div>
+        </div>
+    </nav>
+    </header>
+
+    <!-- Modal Iniciar Sesión -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Iniciar Sesión</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            <form>
+                <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Correo Electrónico</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                    <label for="contraseña" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="contraseña" required>
+                </div>
+                <div class="text-center"> 
+                    <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                </div>
+            </form>
+            <hr>
+            <p class="text-center">O inicia sesión con:</p>
+            <div class="d-grid gap-2">
+                <button class="btn btn-outline-danger" type="button">Google</button>
+                <button class="btn btn-outline-primary" type="button">iCloud</button>
+            </div>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Modal de Registro -->
+    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Registro</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="nombre" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Correo Electrónico</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <label for="contraseña" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="contraseña" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="confirmarContraseña" class="form-label">Confirmar Contraseña</label>
+                            <input type="password" class="form-control" id="confirmarContraseña" required>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Registrarse</button>
+                        </div>
+                    </form>
+                    <hr>
+                    <p class="text-center">O Registrarse con:</p>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-outline-danger" type="button">Google</button>
+                        <button class="btn btn-outline-primary" type="button">iCloud</button>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+      
+
+    <!-- Contenido Carrusel -->
+    <div id="carouselExampleCaptions" class="carousel slide">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <a href="noticiaAntarticarealidadvirtual.html">
+                <img src="Img/Carrusel/Antarticarealidadvirtual.jpg" class="d-block w-100" alt="Noticia destacada 1">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Una experiencia inmersiva en la Antártida gracias a la realidad virtual.</h5>
+                </div>
+                </a>
+            </div>
+            <div class="carousel-item">
+                <a href="noticiaChilecaidanegocios.html">
+                <img src="Img/Carrusel/Chilecaidanegocios.jpg" class="d-block w-100" alt="Noticia destacada 2">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Chile sufre dura caída: los 10 mejores países del mundo para hacer negocios</h5>
+                </div>
+                </a>
+            </div>
+            <div class="carousel-item">
+                <a href="noticiasYolviGonzalez.html">
+                <img src="Img/Carrusel/yolvigonzalez.jpg" class="d-block w-100" alt="Noticia destacada 3">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Familia de carabinero asesinado a Yolvi González: "No tiene idea lo que se le viene"</h5>
+                </div>
+                </a>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+     
+    <!-- Columna de noticias -->
+    <section class="container-fluid mt-5" style="padding-left: 15px; padding-right: 15px;">
+        <div class="row justify-content-end">
+            <!-- Tarjeta de Yolvi González -->
+            <div class="col-md-6 mb-4">
+                <a href="noticiasYolviGonzalez.html" style="text-decoration: none; color: inherit;">
+                    <div class="card">
+                        <img src="Img/Noticias/YOLVI/yolvigonzalez.jpg" class="card-img-top" alt="noticiasYolviGonzalez">
+                        <div class="card-body">
+                            <h5 class="card-title">Familia de carabinero asesinado a Yolvi González: "No tiene idea lo que se le viene"</h5>
+                            <p class="card-text">El antisocial, de nacionalidad venezolana, mostró una actitud desafiante e incluso sonrió tras su detención por el crimen del teniente Emmanuel Sánchez.</p>
+                            <p class="card-text"><small class="text-body-secondary">Autor: Ana Espinoza Contreras| Fecha: 11 de Abril, 2024 | Categoría: Seguridad</small></p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!-- Tarjeta de Yolvi González -->
+            <div class="col-md-6 mb-4">
+                <a href="noticiaMonjanunoa.html" style="text-decoration: none; color: inherit;">
+                    <div class="card">
+                        <img src="Img/Noticias/Monjanunoa.jpg" class="card-img-top" alt="Monjanunoa">
+                        <div class="card-body">
+                            <h5 class="card-title">Hallazgo de cuerpo en Ñuñoa: Arzobispado afirma que mujer que dejó restos en la calle “no es religiosa” y que no hay registros de que fallecida sea monja</h5>
+                            <p class="card-text">De acuerdo al organismo de la Iglesia Católica solo la hija de la mujer de 80 años pertenece a su Arquidiócesis, y retornó al país desde Italia hace poco tiempo para cuidar a su madre.</p>
+                            <p class="card-text"><small class="text-body-secondary">Autor: Luis Cerda | Fecha: 10 de Abril, 2024 | Categoría: Seguridad</small></p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!-- Tarjeta de Chile Negocio -->
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <a href="noticiaChilecaidanegocios.html" style="text-decoration: none; color: inherit;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="Img/Noticias/SingapurRanking.jpg" class="img-fluid rounded-start" alt="noticiaFiltracion">
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card-body">
+                                    <h5 class="card-title">Chile sufre dura caída: los 10 mejores países del mundo para hacer negocios</h5>
+                                    <p class="card-text">El ránking de los mejores lugares del mundo para hacer negocios elaborado por el centro de análisis Economist Intelligence Unit (EIU) trae cambios para Argentina y Chile.</p>
+                                    <p class="card-text"><small class="text-body-secondary">Autor: BBC News Mundo | Fecha: 12 de abril de 2024 | Categoría: Economía</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <!-- Tarjeta de Ronald Político -->
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <a href="noticiaronaldpolitico.html" style="text-decoration: none; color: inherit;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="Img/Noticias/ronaldpolitico.jpg" class="img-fluid rounded-start" alt="ronaldpolitico">
+                            </div>
+                            <div class="col-md-7">
+                                <div class="card-body">
+                                    <h5 class="card-title">Diputados piden romper relaciones con Venezuela: "Chile debe tener consecuencia con su tradición democrática"</h5>
+                                    <p class="card-text">Desde la UDI al Partido Socialista, los parlamentarios emplazaron al Ejecutivo a exigir la extradición de los sospechosos del asesinato del exmilitar.</p>
+                                    <p class="card-text"><small class="text-body-secondary">Autor: Pedro Uribe Cuevas | Fecha: 12 de abril de 2024 | Categoría: Política</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="card-group">
+            <div class="card">
+                <!-- Filtración Steam -->
+                <a href="noticiaFiltracion.html" style="text-decoration: none; color: black;">
+                    <img src="Img/Noticias/filtracion.jpeg" class="card-img-top" alt="noticiaFiltracion" style="height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">Acabamos de descubrir la mayor filtración de datos de la historia: 26.000 millones de cuentas, al descubierto</h5>
+                        <p class="card-text">La madre de todas las filtraciones de datos. Así es como la han bautizado sus descubridores.</p>
+                        <p class="card-text"><small class="text-body-secondary">Autor: Juan Carlos López | Fecha: 18 de Febrero, 2024 | Categoría: Seguridad</small></p>
+                    </div>
+                </a>
+            </div>
+            <div class="card">
+                <!-- Tarjeta de Ronald Político -->
+                <a href="noticiaAntarticarealidadvirtual.html" style="text-decoration: none; color: black;">
+                    <img src="Img/Noticias/Antarticarealidadvirtual.jpg" class="card-img-top" alt="noticiaAntartica" style="height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">Una experiencia inmersiva en la Antártida gracias a la realidad virtual</h5>
+                        <p class="card-text">Una fundación británica ha reunido datos geográficos, fotografías, IA y la narración de un explorador para trasladar al usuario a una base antártica.</p>
+                        <p class="card-text"><small class="text-body-secondary">Autor: Fernando Tapia | Fecha: 09 de Abril, 2024 | Categoría: Tecnología</small></p>
+                    </div>
+                </a>
+            </div>
+            <div class="card">
+                <a href="noticiaSteam.html" style="text-decoration: none; color: black;">
+                    <img src="Img/Noticias/FundadorSteam.jpeg" class="card-img-top" alt="..." style="height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">El fundador de Steam pidió en 2011 que alguien hackeara su cuenta. Nadie lo ha conseguido (y con razón)</h5>
+                        <p class="card-text">"Mi usuario es gaben@valvesoftware.com y mi contraseña es MoolyFTW", confesó el fundador de Valve en 2011. Así de confiado se mostraba Gabe Newell con su tecnología Steam Guard.</p>
+                        <p class="card-text"><small class="text-body-secondary">Autor: Francisco Solís | Fecha: 19 de Marzo, 2024 | Categoría: Videojuegos</small></p>
+                    </div>
+                </a>
+            </div>
+    </div>
+    </div>
+    
+
+    <!-- Pie de página -->
+    <footer class="bg-dark text-white mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <p class="text-center">SANTIAGO, CHILE FONO (562) 2 854 6300 © TODOS LOS DERECHOS RESERVADOS.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts de Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caos News</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        .search-form {
+            margin-right: auto;
+        }
+        .search-button {
+            color: white;
+            background-color: #720312;
+        }
+        .noticia-card {
+            background-color: #f8f9fa; /* Color de fondo para resaltar las noticias */
+        }
+    </style>
+</head>
+<body style="background-color: #DBE0E3;">
+    <!-- Encabezado con Navbar -->
+    <header class="bg-black text-white py-2">
+    <nav class="navbar navbar-expand-lg bg-black p-3">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <div class="logo">
+                    <img src="Img/Logo.png" alt="Logo" width="120" height="120" class="d-inline-block align-text-top">
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item bg-bordeaux">
+                        <a class="nav-link active text-white" aria-current="page" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item bg-bordeaux">
+                        <a class="nav-link text-white" href="#categorias">Categorías</a>
+                    </li>
+                    <li class="nav-item bg-bordeaux">
+                        <a class="nav-link text-white" href="contacto.html">Contacto</a>
+                    </li>
+                    <li class="nav-item dropdown bg-bordeaux">
+                        <a class="nav-link text-white dropdown-toggle" href="#unete" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Unete
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Iniciar Sesión</a></li>
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal2">Registrarte</a></li>                            
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Nosotros</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="d-flex search-form" role="search">
+                    <input class="form-control me-2 search-input" type="search" placeholder="Buscar" aria-label="Search">
+                    <button class="btn btn-outline-light search-button" type="submit">Buscar</button>
+                </form>
+                <!-- Ícono de carrito de compras -->
+                <a href="#" class="text-white">
+                    <i class="bi bi-cart-fill fs-4"></i> <!-- Ícono de carrito de compras -->
+                </a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+    <!-- Modal Iniciar Sesión -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Iniciar Sesión</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+          <form>
+              <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Correo Electrónico</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              </div>
+              <div class="mb-3">
+                  <label for="contraseña" class="form-label">Contraseña</label>
+                  <input type="password" class="form-control" id="contraseña" required>
+              </div>
+              <div class="text-center"> 
+                  <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+              </div>
+          </form>
+          <hr>
+          <p class="text-center">O inicia sesión con:</p>
+          <div class="d-grid gap-2">
+              <button class="btn btn-outline-danger" type="button">Google</button>
+              <button class="btn btn-outline-primary" type="button">iCloud</button>
+          </div>
+          </div>
+          <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+      </div>
+      </div>
+  </div>
+  
+  <!-- Modal de Registro -->
+  <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Registro</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <form>
+                      <div class="mb-3">
+                          <label for="nombre" class="form-label">Nombre</label>
+                          <input type="text" class="form-control" id="nombre" required>
+                      </div>
+                      <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">Correo Electrónico</label>
+                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      </div>
+                      <div class="mb-3">
+                          <label for="contraseña" class="form-label">Contraseña</label>
+                          <input type="password" class="form-control" id="contraseña" required>
+                      </div>
+                      <div class="mb-3">
+                          <label for="confirmarContraseña" class="form-label">Confirmar Contraseña</label>
+                          <input type="password" class="form-control" id="confirmarContraseña" required>
+                      </div>
+                      <div class="text-center">
+                          <button type="submit" class="btn btn-primary">Registrarse</button>
+                      </div>
+                  </form>
+                  <hr>
+                  <p class="text-center">O Registrarse con:</p>
+                  <div class="d-grid gap-2">
+                      <button class="btn btn-outline-danger" type="button">Google</button>
+                      <button class="btn btn-outline-primary" type="button">iCloud</button>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+    <main>
+        <!-- Noticia 1 -->
+        <div class="noticia1-Info">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="Img/Noticias/FundadorSteam.jpeg" class="img-fluid" alt="Imagen de la noticia">
+                    </div>
+                    <div class="col-md-6">
+                        <h2>El fundador de Steam pidió en 2011 que alguien hackeara su cuenta. Nadie lo ha conseguido (y con razón)</h2>
+                        <div class="info">Autor: Francisco Solís | Fecha: 19 de Marzo, 2024 | Categoría: Videojuegos</div>
+                        <hr>
+                        <p>La CeBIT era una de las exposiciones de tecnología más grandes del mundo. Con unos 450.000 metros cuadrados de exhibición, por sus pabellones se pasearon personas de la talla de Steve Wozniak, Eugene Karpersky y Gabe Newell, fundador de Valve y creador de Steam. De hecho, fue durante una CeBIT, en la de 2011 y en la rueda de prensa de Intel, precisamente, cuando Newell anunció Steam Guard e hizo un experimento de lo más interesante.</p>
+                        <p>Revelar su usuario y contraseña de Steam.</p>
+                        <p>Llega Steam Guard. Steam Guard fue uno de los grandes anuncios de Valve en 2011. Puedo haber sido 'Half-Life 3', pero no. Esta función es un nivel adicional de seguridad para las cuentas que, básicamente, consiste en recibir un código de acceso especial para verificar que somos nosotros. Cuando se anunció en 2011, Steam Guard se basaba en Intel's Identity Protection Technology, una función lanzada en los Intel Sandy Bridge que permitía vincular la cuenta de Steam a un ordenador concreto y autorizar (o no) otros PCs en la distancia.</p>
+                        <p>Gabe Newell, confiadísimo. Para dar muestra de la confianza depositada en esta tecnología, el creador de Steam no hizo otra cosa que revelar sus credenciales de Steam. "Mi usuario es gaben@valvesoftware.com y mi contraseña es MoolyFTW, así que puedes intentar entrar y robarme la cuenta si puedes, ¡pero no puedes!", dijo el fundador de Valve durante la presentación.</p>
+                        <p>No es tanto Steam, sino el correo. La cosa es que este reto no era tanto acceder a la cuenta de Steam, sino al correo de Newell, y eso ya era otro cantar. Además, Valve se guardó la espaldas porque puede que Steam Guard no sea infalible, pero su punto crítico, que es el correo electrónico, no depende de Valve. Actualmente, Steam Guard funciona vía correo o vía Steam Mobile y, a expensas de que Steam sume soporte para Passkeys, Steam Guard a.k.a. la autenticación en dos pasos es la mejor forma de asegurar nuestra cuenta.</p>
+                        <p>El fin del mito. La cosa es que, que se sepa, nadie ha conseguido entrar en la cuenta de Steam de Gabe Newell. Sin embargo, hay un dato que normalmente se nos escapa y es que las credenciales reveladas por Newell son, ahora mismo, incorrectas. La cuenta da error al acceder y advierte de que el correo o la contraseña no son válidas. De hecho, hay posts del año 2017 que indican que algo, seguramente la contraseña, se había cambiado.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    
+    <!-- Pie de página -->
+    <footer class="bg-dark text-white mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <p class="text-center">SANTIAGO, CHILE FONO (562) 2 854 6300 © TODOS LOS DERECHOS RESERVADOS.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts de Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

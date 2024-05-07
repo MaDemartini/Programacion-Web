@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caos News</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        .search-form {
+            margin-right: auto;
+        }
+        .search-button {
+            color: white;
+            background-color: #720312;
+        }
+        .noticia-card {
+            background-color: #f8f9fa; /* Color de fondo para resaltar las noticias */
+        }
+    </style>
+</head>
+<body style="background-color: #DBE0E3;">
+    <!-- Encabezado con Navbar -->
+    <header class="bg-black text-white py-2">
+    <nav class="navbar navbar-expand-lg bg-black p-3">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <div class="logo">
+                    <img src="Img/Logo.png" alt="Logo" width="120" height="120" class="d-inline-block align-text-top">
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item bg-bordeaux">
+                        <a class="nav-link active text-white" aria-current="page" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item bg-bordeaux">
+                        <a class="nav-link text-white" href="#categorias">Categorías</a>
+                    </li>
+                    <li class="nav-item bg-bordeaux">
+                        <a class="nav-link text-white" href="contacto.html">Contacto</a>
+                    </li>
+                    <li class="nav-item dropdown bg-bordeaux">
+                        <a class="nav-link text-white dropdown-toggle" href="#unete" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Unete
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Iniciar Sesión</a></li>
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal2">Registrarte</a></li>                            
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Nosotros</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="d-flex search-form" role="search">
+                    <input class="form-control me-2 search-input" type="search" placeholder="Buscar" aria-label="Search">
+                    <button class="btn btn-outline-light search-button" type="submit">Buscar</button>
+                </form>
+                <!-- Ícono de carrito de compras -->
+                <a href="#" class="text-white">
+                    <i class="bi bi-cart-fill fs-4"></i> <!-- Ícono de carrito de compras -->
+                </a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+  <!-- Modal Iniciar Sesión -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Iniciar Sesión</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        <form>
+            <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Correo Electrónico</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+                <label for="contraseña" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="contraseña" required>
+            </div>
+            <div class="text-center"> 
+                <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+            </div>
+        </form>
+        <hr>
+        <p class="text-center">O inicia sesión con:</p>
+        <div class="d-grid gap-2">
+            <button class="btn btn-outline-danger" type="button">Google</button>
+            <button class="btn btn-outline-primary" type="button">iCloud</button>
+        </div>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+    </div>
+    </div>
+</div>
+
+
+<!-- Modal de Registro -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Registro</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="nombre" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Correo Electrónico</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="contraseña" class="form-label">Contraseña</label>
+                        <input type="password" class="form-control" id="contraseña" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="confirmarContraseña" class="form-label">Confirmar Contraseña</label>
+                        <input type="password" class="form-control" id="confirmarContraseña" required>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Registrarse</button>
+                    </div>
+                </form>
+                <hr>
+                <p class="text-center">O Registrarse con:</p>
+                <div class="d-grid gap-2">
+                    <button class="btn btn-outline-danger" type="button">Google</button>
+                    <button class="btn btn-outline-primary" type="button">iCloud</button>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<main>
+    <!-- Noticia 1 -->
+    <div class="noticia1-Info">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="Img/Noticias/Antarticarealidadvirtual.jpg" class="img-fluid" alt="Imagen de la noticia">
+                </div>
+                <div class="col-md-6">
+                    <h2>Una experiencia inmersiva en la Antártida gracias a la realidad virtual</h2>
+                    <div class="info">Autor: Fernando Tapia | Fecha: 09 de Abril, 2024 | Categoría: Tecnología</div>
+                    <hr>
+                    <p>Cuenta la leyenda que Ernest Shackleton, en preparación de su pionera expedición antártica, publicó un anuncio que rezaba así: “Se buscan hombres para viaje peligroso. Sueldo escaso. Frío extremo. Largos meses de completa oscuridad. Peligro constante. No se asegura el regreso. Honor y reconocimiento en caso de éxito”.</p>
+                    <p>Con independencia de que sea una historia apócrifa, lo cierto es que la hostilidad climática de la Antártida no ha cambiado mucho desde entonces. Por suerte, hoy puede visitarse sin peligro para los viajeros y, lo más importante, sin perjuicios medioambientales para el continente blanco. El salvoconducto es una experiencia inmersiva desarrollada en VR por la fundación británica UKAHT.</p>
+                    <b>La experiencia inmersiva de la isla de Stonington</b>
+                    <p>En la Antártida existen diversos asentamientos estables, la mayoría de ellos creados a lo largo del siglo XX. En el caso de la Isla de Stonington, ubicada en la bahía de Margarita, los británicos crearon su primer asentamiento en 1946. Los edificios de la conocida como Base E acogieron, además, a las primeras mujeres que pasaron un invierno en la Antártida: Edith Ronne y Jennie Darlington, en 1947.</p>
+                </div>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="Img/Noticias/Antartica2.jpg" alt="Imagen Antartica" class="floatLeft img-fluid">
+                </div>
+                <div class="col-md-6">
+                    <p>Para ello han combinado fotografías de época, escaneados láser y un programa de IA que da vida a los entornos virtuales. Así, los usuarios, por medio de unas gafas de realidad virtual, pueden comprobar el estado original de las cabañas, subir a un trineo tirado por perros y recorrer la isla como si visitasen el asentamiento en persona. Este ejemplo de turismo por realidad virtual queda reforzado por la narración de dos de los científicos que trabajaron en la isla en los años sesenta del siglo XX.</p>
+                    <p>En un primer momento, la experiencia inmersiva antártica solo estará disponible en el Museo Polar de Cambridge, en el Reino Unido. Sin embargo, la fundación prevé poner los materiales a disposición del público general a lo largo del año 2024.</p>
+                    <hr>
+                    <b>Otras experiencias inmersivas en la Antártida</b>
+                    <ol>
+                        <li>Antarctica 360 VR. Una experiencia inmersiva creada por el Antarctica Heritage Trust que transporta al espectador a una expedición virtual por la Península Antártica en 2019. Vive la experiencia de navegar en kayak por aguas heladas e interactuar con pingüinos.</li>
+                        <li>Thin Ice VR en el Centro Internacional Antártico. Un documental de realidad virtual que sigue las huellas de la expedición de Sir Ernest Shackleton y la recreación de Tim Jarvis, destacando el impacto del cambio climático en la región.</li>
+                        <li>Experiencia Virtual 360° de Quark Expeditions en la Antártida. Permite descubrir el paisaje antártico con videos en VR que simulan la experiencia de estar en una expedición.</li>
+                        <li>La Experiencia Antártica en el Museo Nacional de Australia. Ofrece la posibilidad de vivir una aventura en VR que muestra un día en la vida de los científicos antárticos, desde vuelos en helicóptero sobre glaciares hasta el descubrimiento de colonias de pingüinos.</li>
+                        <li>Exploración Antártica en VR de National Geographic: El espectador acompaña al fotógrafo de National Geographic, Paul Nicklen, en un tour en realidad virtual por la Antártida, con imágenes de 360 grados del paisaje y encuentros con la fauna del lugar.</li>
+                    </ol>
+                </div>
+                         
+            </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+    
+    <!-- Pie de página -->
+    <footer class="bg-dark text-white mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <p class="text-center">SANTIAGO, CHILE FONO (562) 2 854 6300 © TODOS LOS DERECHOS RESERVADOS.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts de Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
