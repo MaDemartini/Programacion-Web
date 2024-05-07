@@ -12,13 +12,8 @@ body {
 /* Estilos del encabezado */
 
 .bg-bordeaux {
-    background-color: #720312; /* Cambia este valor al color burdeos deseado */
+    background-color: #720312;
     border-radius: 20px;
-}
-
-.bg-black {
-    background-color: #000; /* Color de fondo negro */
-    
 }
 
 .logo img {
@@ -202,12 +197,14 @@ img {
 
 /* Pie de página */
 footer {
-    background-color: #333;
+    background-color: #1a1919;
     color: #fff;
     padding: 10px 0;
     text-align: center;
 }
 
+
+/* Popover */
 .palabra-clave {
     text-decoration: underline;
     cursor: pointer;
@@ -236,3 +233,4 @@ footer {
     visibility: visible;
     opacity: 1;
 }
+
