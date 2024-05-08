@@ -234,3 +234,55 @@ footer {
     opacity: 1;
 }
 
+
+/* Carrusel Categorias */
+.category-carousel {
+    margin-top: 30px; /* Espaciado entre secciones */
+}
+
+.swiper-container {
+    width: 100%; /* Ocupa el ancho completo */
+    height: 300px; /* Altura del carrusel */
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center; /* Centra las tarjetas */
+}
+
+.category-card {
+    width: 250px; /* Ancho de la tarjeta */
+    height: 100%; /* Altura total */
+    background-color: #ffffff; /* Fondo blanco */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Sombra sutil */
+    transition: 0.3s; /* Transición suave para efectos */
+    border-radius: 10px; /* Bordes redondeados */
+    overflow: hidden; /* Para mantener el contenido dentro */
+}
+
+.category-card img {
+    width: 100%; /* Ancho completo de la imagen */
+    height: auto; /* Ajusta la altura según el contenido */
+}
+
+.category-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); /* Sombra más grande al pasar el mouse */
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: #333; /* Color de las flechas */
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo translúcido */
+    border-radius: 50%; /* Flechas circulares */
+    top: 50%; /* Centra las flechas verticalmente */
+    transform: translateY(-50%); /* Ajusta para centrar */
+    z-index: 10; /* Asegura que esté por encima */
+}
+
+.swiper-pagination-bullet {
+    background-color: #333; /* Color de los puntos */
+}
+
+.swiper-pagination {
+    bottom: 10px; /* Ubicación de la paginación */
+}

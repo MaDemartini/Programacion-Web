@@ -1,22 +1,5 @@
-
-const footer = document.querySelector("footer");
-// Código JavaScript para actualizar el encabezado
 const header = document.querySelector("header");
 
-const footerHTML = '
-<div class="container">
-            <div class="row">
-                <div class="col">
-                    <p class="text-center">SANTIAGO, CHILE FONO (562) 2 854 6300 © TODOS LOS DERECHOS RESERVADOS.</p>
-                </div>
-            </div>
-        </div>
-        `;
-        
-footer.innerHTML = headerHTML;
-
-
-// HTML del encabezado con la barra de navegación y los modales
 const headerHTML = `
 <nav class="navbar navbar-expand-lg bg-black p">
   <div class="container-fluid">
@@ -122,6 +105,12 @@ const headerHTML = `
             <button type="submit" class="btn btn-primary">Registrarse</button>
           </div>
         </form>
+        <hr>
+        <p class="text-center">O Registra con:</p>
+        <div class="d-grid gap-2">
+          <button class="btn btn-outline-danger" type="button">Google</button>
+          <button class="btn btn-outline-primary" type="button">iCloud</button>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -130,4 +119,18 @@ const headerHTML = `
   </div>
 </div>
 `;
+
 header.innerHTML = headerHTML; // Inserta el encabezado con los modales
+
+
+const footer = document.querySelector("footer");
+
+footer.innerHTML = `
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <p class="text-center">SANTIAGO, CHILE FONO (562) 2 854 6300 © TODOS LOS DERECHOS RESERVADOS.</p>
+      </div>
+    </div>
+  </div>
+`;
