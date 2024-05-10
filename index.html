@@ -2,12 +2,11 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Caso News</title>
+    <title>Caos News</title>
     <link rel="icon" href="Img/Logo.png">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css"> <!-- Hoja de estilos -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">  
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet"> 
     <style>
         .search-form {
             margin-right: auto;
@@ -22,12 +21,29 @@
     </style>
 </head>
 <body>
-    <!-- Encabezado con Navbar -->
-    <header>
-    </header>
 
-    <!-- Contenido Carrusel -->
-    <div id="carouselExampleCaptions" class="carousel slide">
+    <!-- Modal de Bienvenida -->
+    <div class="modal fade" id="welcomeModal" tabindex="-1" aria-labelledby="welcomeModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="welcomeModalLabel">¡Bienvenidos a Caso News!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ¡Gracias por visitar nuestra plataforma de noticias! Aquí encontrarás las últimas noticias sobre seguridad, economía, política, tecnología y mucho más. Navega por nuestro sitio para descubrir lo último en noticias y eventos importantes.                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Fin de Ventana Modal-->
+
+    <header></header>
+
+    <!-- Carrusel auto-slide -->
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-interval="5000"> <!-- Auto-slide cada 5 segundos -->
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -36,26 +52,26 @@
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <a href="noticiaAntarticarealidadvirtual.html">
-                <img src="Img/Carrusel/Antarticarealidadvirtual.jpg" class="d-block w-100" alt="Noticia destacada 1">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Una experiencia inmersiva en la Antártida gracias a la realidad virtual.</h5>
-                </div>
+                    <img src="Img/Carrusel/Antarticarealidadvirtual.jpg" class="d-block w-100" alt="Noticia destacada 1">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Una experiencia inmersiva en la Antártida gracias a la realidad virtual.</h5>
+                    </div>
                 </a>
             </div>
             <div class="carousel-item">
                 <a href="noticiaChilecaidanegocios.html">
-                <img src="Img/Carrusel/Chilecaidanegocios.jpg" class="d-block w-100" alt="Noticia destacada 2">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Chile sufre dura caída: los 10 mejores países del mundo para hacer negocios</h5>
-                </div>
+                    <img src="Img/Carrusel/Chilecaidanegocios.jpg" class="d-block w-100" alt="Noticia destacada 2">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Chile sufre dura caída: los 10 mejores países del mundo para hacer negocios.</h5>
+                    </div>
                 </a>
             </div>
             <div class="carousel-item">
                 <a href="noticiasYolviGonzalez.html">
-                <img src="Img/Carrusel/yolvigonzalez.jpg" class="d-block w-100" alt="Noticia destacada 3">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Familia de carabinero asesinado a Yolvi González: "No tiene idea lo que se le viene"</h5>
-                </div>
+                    <img src="Img/Carrusel/yolvigonzalez.jpg" class="d-block w-100" alt="Noticia destacada 3">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Familia de carabinero asesinado a Yolvi González: "No tiene idea lo que se le viene."</h5>
+                    </div>
                 </a>
             </div>
         </div>
@@ -68,122 +84,229 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-
-     
-    <!-- Columna de noticias -->
+    
+    <!-- Tarjetas de Noticias Primarias -->
     <section class="container-fluid mt-5" style="padding-left: 15px; padding-right: 15px;">
         <div class="row justify-content-end">
-            <!-- Tarjeta de Yolvi González -->
-            <div class="col-md-6 mb-4">
-                <a href="noticiasYolviGonzalez.html" style="text-decoration: none; color: inherit;">
+                <!-- Noticia 1 -->
+                <div class="col-md-6 mb-4">
                     <div class="card">
-                        <img src="Img/Noticias/YOLVI/yolvigonzalez.jpg" class="card-img-top" alt="noticiasYolviGonzalez">
-                        <div class="card-body">
-                            <h5 class="card-title">Familia de carabinero asesinado a Yolvi González: "No tiene idea lo que se le viene"</h5>
-                            <p class="card-text">El antisocial, de nacionalidad venezolana, mostró una actitud desafiante e incluso sonrió tras su detención por el crimen del teniente Emmanuel Sánchez.</p>
-                            <p class="card-text"><small class="text-body-secondary">Autor: Ana Espinoza Contreras| Fecha: 11 de Abril, 2024 | Categoría: Seguridad</small></p>
-                        </div>
+                        <a href="noticiasYolviGonzalez.html" style="text-decoration: none; color: inherit;">
+                            <img src="Img/Noticias/YOLVI/yolvigonzalez.jpg" class="card-img-top" alt="noticiasYolviGonzalez">
+                            <div class="card-body">
+                                <h5 class="card-title">Familia de carabinero asesinado a Yolvi González: "No tiene idea lo que se le viene"</h5>
+                                <p class="card-text">El antisocial, de nacionalidad venezolana, mostró una actitud desafiante e incluso sonrió tras su detención por el crimen del teniente Emmanuel Sánchez.</p>
+                                <p class="card-text"><small class="text-body-secondary">Autor: Ana Espinoza Contreras| Fecha: 11 de Abril, 2024 | Categoría: Seguridad</small></p>
+                            </div>
+                        </a>
                     </div>
-                </a>
-            </div>
-            <!-- Tarjeta de Yolvi González -->
-            <div class="col-md-6 mb-4">
-                <a href="noticiaMonjanunoa.html" style="text-decoration: none; color: inherit;">
+                </div>
+                
+                <!-- Noticia 2 -->
+                <div class="col-md-6 mb-4">
                     <div class="card">
-                        <img src="Img/Noticias/Monjanunoa.jpg" class="card-img-top" alt="Monjanunoa">
-                        <div class="card-body">
-                            <h5 class="card-title">Hallazgo de cuerpo en Ñuñoa: Arzobispado afirma que mujer que dejó restos en la calle “no es religiosa” y que no hay registros de que fallecida sea monja</h5>
-                            <p class="card-text">De acuerdo al organismo de la Iglesia Católica solo la hija de la mujer de 80 años pertenece a su Arquidiócesis, y retornó al país desde Italia hace poco tiempo para cuidar a su madre.</p>
-                            <p class="card-text"><small class="text-body-secondary">Autor: Luis Cerda | Fecha: 10 de Abril, 2024 | Categoría: Seguridad</small></p>
-                        </div>
+                        <a href="noticiaMonjanunoa.html" style="text-decoration: none; color: inherit;">
+                            <img src="Img/Noticias/Monjanunoa.jpg" class="card-img-top" alt="Monjanunoa">
+                            <div class="card-body">
+                                <h5 class="card-title">Hallazgo de cuerpo en Ñuñoa: Arzobispado afirma que mujer que dejó restos en la calle “no es religiosa”.</h5>
+                                <p class="card-text">De acuerdo al organismo de la Iglesia Católica solo la hija de la mujer de 80 años pertenece a su Arquidiócesis.</p>
+                                <p class="card-text"><small class="text-body-secondary">Autor: Luis Cerda | Fecha: 10 de Abril, 2024 | Categoría: Seguridad</small></p>
+                            </div>
+                        </a>
                     </div>
-                </a>
-            </div>
-            <!-- Tarjeta de Chile Negocio -->
-            <div class="col-md-6 mb-4">
-                <div class="card">
-                    <a href="noticiaChilecaidanegocios.html" style="text-decoration: none; color: inherit;">
-                        <div class="row g-0">
-                            <div class="col-md-4">
-                                <img src="Img/Noticias/SingapurRanking.jpg" class="img-fluid rounded-start" alt="noticiaFiltracion">
-                            </div>
-                            <div class="col-md-6">
-                                <div class="card-body">
-                                    <h5 class="card-title">Chile sufre dura caída: los 10 mejores países del mundo para hacer negocios</h5>
-                                    <p class="card-text">El ránking de los mejores lugares del mundo para hacer negocios elaborado por el centro de análisis Economist Intelligence Unit (EIU) trae cambios para Argentina y Chile.</p>
-                                    <p class="card-text"><small class="text-body-secondary">Autor: BBC News Mundo | Fecha: 12 de abril de 2024 | Categoría: Economía</small></p>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
                 </div>
-            </div>
-            <!-- Tarjeta de Ronald Político -->
-            <div class="col-md-6 mb-4">
-                <div class="card">
-                    <a href="noticiaronaldpolitico.html" style="text-decoration: none; color: inherit;">
-                        <div class="row g-0">
-                            <div class="col-md-4">
-                                <img src="Img/Noticias/ronaldpolitico.jpg" class="img-fluid rounded-start" alt="ronaldpolitico">
+
+                <!-- Noticia 3 -->
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <a href="noticiaChilecaidanegocios.html" style="text-decoration: none; color: inherit;">
+                            <img src="Img/Noticias/SingapurRanking.jpg" class="img-fluid rounded-start" alt="noticiaFiltracion">
+                            <div class="card-body">
+                                <h5 class="card-title">Chile sufre dura caída: los 10 mejores países del mundo para hacer negocios</h5>
+                                <p class="card-text">El ránking de los mejores lugares del mundo para hacer negocios elaborado trae cambios para Argentina y Chile.</p>
+                                <p class="card-text"><small class="text-body-secondary">Autor: BBC News Mundo | Fecha: 12 de abril de 2024 | Categoría: Economía</small></p>
                             </div>
-                            <div class="col-md-7">
-                                <div class="card-body">
-                                    <h5 class="card-title">Diputados piden romper relaciones con Venezuela: "Chile debe tener consecuencia con su tradición democrática"</h5>
-                                    <p class="card-text">Desde la UDI al Partido Socialista, los parlamentarios emplazaron al Ejecutivo a exigir la extradición de los sospechosos del asesinato del exmilitar.</p>
-                                    <p class="card-text"><small class="text-body-secondary">Autor: Pedro Uribe Cuevas | Fecha: 12 de abril de 2024 | Categoría: Política</small></p>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
+                        </a>
+                    </div>
                 </div>
-            </div>
+
+                <!-- Noticia 4 -->
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <a href="noticiaronaldpolitico.html" style="text-decoration: none; color: inherit;">
+                            <img src="Img/Noticias/ronaldpolitico.jpg" class="img-fluid rounded-start" alt="ronaldpolitico">
+                            <div class="card-body">
+                                <h5 class="card-title">Diputados piden romper relaciones con Venezuela: "Chile debe tener consecuencia con su tradición democrática"</h5>
+                                <p class="card-text">Desde la UDI al Partido Socialista, los parlamentarios emplazaron al Ejecutivo a exigir la extradición de los sospechosos del asesinato del exmilitar.</p>
+                                <p class="card-text"><small class="text-body-secondary">Autor: Pedro Uribe Cuevas | Fecha: 12 de abril de 2024 | Categoría: Política</small></p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
         </div>
-    </section>
-
-
-    <div class="card-group">
-            <div class="card">
-                <!-- Filtración Steam -->
+    <!-- Tarjetas de Noticias -->
+        <div class="container mt-5">
+        <!-- Tarjetas de Noticias Secundarias -->
+        <div class="card-group">
+            <!-- Noticia 1 -->
+            <div class="card mb-4">
                 <a href="noticiaFiltracion.html" style="text-decoration: none; color: black;">
                     <img src="Img/Noticias/filtracion.jpeg" class="card-img-top" alt="noticiaFiltracion" style="height: 200px; object-fit: cover;">
                     <div class="card-body">
-                        <h5 class="card-title">Acabamos de descubrir la mayor filtración de datos de la historia: 26.000 millones de cuentas, al descubierto</h5>
-                        <p class="card-text">La madre de todas las filtraciones de datos. Así es como la han bautizado sus descubridores.</p>
-                        <p class="card-text"><small class="text-body-secondary">Autor: Juan Carlos López | Fecha: 18 de Febrero, 2024 | Categoría: Seguridad</small></p>
+                        <h5>Acabamos de descubrir la mayor filtración de datos de la historia: 26.000 millones de cuentas, al descubierto</h5>
+                        <p>La madre de todas las filtraciones de datos.</p>
                     </div>
                 </a>
             </div>
-            <div class="card">
-                <!-- Tarjeta de Ronald Político -->
+            
+            <!-- Noticia 2 -->
+            <div class="card mb-4">
                 <a href="noticiaAntarticarealidadvirtual.html" style="text-decoration: none; color: black;">
                     <img src="Img/Noticias/Antarticarealidadvirtual.jpg" class="card-img-top" alt="noticiaAntartica" style="height: 200px; object-fit: cover;">
                     <div class="card-body">
-                        <h5 class="card-title">Una experiencia inmersiva en la Antártida gracias a la realidad virtual</h5>
-                        <p class="card-text">Una fundación británica ha reunido datos geográficos, fotografías, IA y la narración de un explorador para trasladar al usuario a una base antártica.</p>
-                        <p class="card-text"><small class="text-body-secondary">Autor: Fernando Tapia | Fecha: 09 de Abril, 2024 | Categoría: Tecnología</small></p>
+                        <h5>Una experiencia inmersiva en la Antártida gracias a la realidad virtual</h5>
+                        <p>Una fundación británica ha reunido datos geográficos, fotografías, IA y la narración de un explorador para trasladar al usuario a una base antártica.</p>
                     </div>
                 </a>
             </div>
-            <div class="card">
+            
+            <!-- Noticia 3 -->
+            <div class="card mb-4">
                 <a href="noticiaSteam.html" style="text-decoration: none; color: black;">
-                    <img src="Img/Noticias/FundadorSteam.jpeg" class="card-img-top" alt="..." style="height: 200px; object-fit: cover;">
+                    <img src="Img/Noticias/FundadorSteam.jpeg" class="card-img-top" alt="noticiaSteam" style="height: 200px; object-fit: cover;">
                     <div class="card-body">
-                        <h5 class="card-title">El fundador de Steam pidió en 2011 que alguien hackeara su cuenta. Nadie lo ha conseguido (y con razón)</h5>
-                        <p class="card-text">"Mi usuario es gaben@valvesoftware.com y mi contraseña es MoolyFTW", confesó el fundador de Valve en 2011. Así de confiado se mostraba Gabe Newell con su tecnología Steam Guard.</p>
-                        <p class="card-text"><small class="text-body-secondary">Autor: Francisco Solís | Fecha: 19 de Marzo, 2024 | Categoría: Videojuegos</small></p>
+                        <h5>El fundador de Steam pidió en 2011 que alguien hackeara su cuenta. Nadie lo ha conseguido (y con razón)</h5>
+                        <p>"Mi usuario es gaben@valvesoftware.com y mi contraseña es MoolyFTW", confesó Gabe Newell en 2011.</p>
                     </div>
                 </a>
             </div>
-    </div>
+        </div>
+        </div>
+        </section>
     </div>
     
+    <!-- Clima -->
+    <div class="weatherWidgetContainer">
+        <!-- Clima en Santiago -->
+        <div class="weatherCard" id="weather-santiago">
+            <p class="weatherCity" id="city-name-santiago">Nombre Ciudad</p>
+            <p class="weatherDescription" id="weather-description-santiago">Descripcion Clima</p>
+            <svg
+                class="weatherIcon"
+                version="1.1"
+                x="0px"
+                y="0px"
+                width="50px"
+                height="50px"
+                viewBox="0 0 100 100"
+                xml:space="preserve"
+              >
+                <image
+                id="weather-icon-santiago"
+                width="100"
+                height="100"
+                x="0"
+                y="0"
+                href=""
+                ></image>
+            </svg>
+          <p class="weatherTemp" id="temperature-santiago">XX°</p>
+          <div class="minMaxContainer">
+            <div class="min">
+              <p class="minHeading">Min</p>
+              <p class="minTemp" id="min-temp-santiago">XX°</p>
+            </div>
+            <div class="max">
+              <p class="maxHeading">Max</p>
+              <p class="maxTemp" id="max-temp-santiago">XX°</p>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Clima en Viña del Mar -->
+        <div class="weatherCard" id="weather-vina">
+          <p class="weatherCity" id="city-name-vina">City Name</p>
+          <p class="weatherDescription" id="weather-description-vina">Weather Description</p>
+          <svg
+            class="weatherIcon"
+            version="1.1"
+            x="0px"
+            y="0px"
+            width="50px"
+            height="50px"
+            viewBox="0 0 100 100"
+            xml:space="preserve"
+          >
+            <image
+              id="weather-icon-vina"
+              width="100"
+              height="100"
+              x="0"
+              y="0"
+              href=""
+            ></image>
+          </svg>
+          <p class="weatherTemp" id="temperature-vina">XX°</p>
+          <div class="minMaxContainer">
+            <div class="min">
+              <p class="minHeading">Min</p>
+              <p class="minTemp" id="min-temp-vina">XX°</p>
+            </div>
+            <div class="max">
+              <p class="maxHeading">Max</p>
+              <p class="maxTemp" id="max-temp-vina">XX°</p>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Clima en Valparaíso -->
+        <div class="weatherCard" id="weather-valparaiso">
+          <p class="weatherCity" id="city-name-valparaiso">City Name</p>
+          <p class="weatherDescription" id="weather-description-valparaiso">Weather Description</p>
+          <svg
+            class="weatherIcon"
+            version="1.1"
+            x="0px"
+            y="0px"
+            width="50px"
+            height="50px"
+            viewBox="0 0 100 100"
+            xml:space="preserve"
+          >
+            <image
+              id="weather-icon-valparaiso"
+              width="100"
+              height="100"
+              x="0"
+              y="0"
+              href=""
+            ></image>
+          </svg>
+          <p class="weatherTemp" id="temperature-valparaiso">XX°</p>
+          <div class="minMaxContainer">
+            <div class="min">
+              <p class="minHeading">Min</p>
+              <p class="minTemp" id="min-temp-valparaiso">XX°</p>
+            </div>
+            <div class="max">
+              <p class="maxHeading">Max</p>
+              <p class="maxTemp" id="max-temp-valparaiso">XX°</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    <!-- Espacio entre footer  -->
+    <div class="spacer" style="height: 50px;"></div>
 
     <!-- Pie de página -->
-    <footer>
-    </footer>
+    <footer></footer>
 
-    <!-- Scripts de Bootstrap -->
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
+    
 </body>
 </html>
+
