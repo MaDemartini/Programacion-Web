@@ -18,7 +18,7 @@ const header = document.querySelector("header");
 const headerHTML = `
 <nav class="navbar navbar-expand-lg bg-black p">
   <div class="container-fluid">
-    <a class="navbar-brand" href="index.html">
+    <a class="navbar-brand" href="index.html" id="enlace-index">
       <div class="logo">
         <img src="Img/Logo.png" alt="Logo" width="120" height="120" class="d-inline-block align-text-top">
       </div>
@@ -32,10 +32,10 @@ const headerHTML = `
           <a class="nav-link active text-white" href="index.html">Inicio</a>
         </li>
         <li class="nav-item bg-bordeaux">
-          <a class="nav-link text-white" href="categoria.html">Categorías</a>
+          <a class="nav-link text-white" href="categoria.html" id="enlace-categoria">Categorías</a>
         </li>
         <li class="nav-item bg-bordeaux">
-          <a class="nav-link text-white" href="contacto.html">Contacto</a>
+          <a class="nav-link text-white" href="contacto.html" id="enlace-enlace-contacto">Contacto</a>
         </li>
         <li class="nav-item dropdown bg-bordeaux">
           <a class="nav-link text-white dropdown-toggle" href="#unete" role="button" data-bs-toggle="dropdown" aria-expanded="false">Unete</a>
@@ -43,14 +43,14 @@ const headerHTML = `
             <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Iniciar Sesión</a></li>
             <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal2">Registrarse</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="UneNosotros.html">Unete a Nosotros</a></li>
-            <li><a class="dropdown-item" href="sobreNosotros.html">Quienes somos?</a></li>
+            <li><a class="dropdown-item" href="UneNosotros.html" id="enlace-UneNosotros">Unete a Nosotros</a></li>
+            <li><a class="dropdown-item" href="sobreNosotros.html" id="enlace-sobreNosotros">Quienes somos?</a></li>
           </ul>
         </li>
       </ul>
       <form class="d-flex search-form" role="search">
         <input class="input form-control me-2 search-input" type="search" placeholder="Qué buscas?" aria-label="Search">
-        <button class="btn btn-outline-light search-button" type="submit">Buscar</button>
+        <button class="custom-btn btn-1 search-button" type="submit">Buscar</button>
       </form>
       <a href="#" class="text-white">
         <i class="bi bi-cart-fill fs-4"></i>
@@ -78,7 +78,7 @@ const headerHTML = `
             <input type="password" class="form-control" id="contraseña" required>
           </div>
           <div class="text-center">
-            <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+            <button type="submit" class="custom-btn btn-1">Iniciar Sesión</button>
           </div>
         </form>
         <hr>
@@ -118,7 +118,7 @@ const headerHTML = `
             <input type="password" class="form-control" required>
           </div>
           <div class="text-center">
-            <button type="submit" class="btn btn-primary">Registrarse</button>
+            <button type="submit" class="custom-btn btn-1">Registrarse</button>
           </div>
         </form>
         <hr>
@@ -212,3 +212,81 @@ cities.forEach((city, index) => {
             document.getElementById(`temperature-${prefix}`).textContent = 'N/A';
         });
 });
+
+// Validacion js en uneNosotros.html
+document.addEventListener('DOMContentLoaded', function() {
+  // Obtener referencia al formulario
+  const form = document.getElementById('joinForm');
+
+  // Evento de escucha para el envío del formulario
+  form.addEventListener('submit', function(event) {
+      // Detener el envío del formulario
+      event.preventDefault();
+
+      // Variable para rastrear si todas las validaciones son exitosas
+      let formValid = true;
+
+      // Validar los campos del formulario
+      const nombre = form.querySelector('#nombre').value.trim();
+      const apellidos = form.querySelector('#apellidos').value.trim();
+      const email = form.querySelector('#email').value.trim();
+      const celular = form.querySelector('#celular').value.trim();
+      const genero = form.querySelector('input[name="genero"]:checked');
+      const fechaNacimiento = form.querySelector('#fecha-nacimiento').value.trim();
+      const mensaje = form.querySelector('#mensaje').value.trim();
+
+      // Validar que haya dos apellidos
+      const apellidoArray = apellidos.split(' ');
+      if (apellidoArray.length !== 2) {
+          alert('Por favor ingresa dos apellidos.');
+          formValid = false;
+      }
+
+      // Validar que el número de celular tenga 9 dígitos
+      const celularNumber = Number(celular); // Convertir a número
+      if (isNaN(celularNumber) || celular.length !== 9) {
+          alert('Por favor ingresa un número de celular válido.');
+          formValid = false;
+      }
+
+      // Validar que la fecha de nacimiento sea mayor de 18 años
+      const fechaNacimientoDate = new Date(fechaNacimiento);
+      const fechaActual = new Date();
+      const edad = fechaActual.getFullYear() - fechaNacimientoDate.getFullYear();
+      const mes = fechaActual.getMonth() - fechaNacimientoDate.getMonth();
+      if (mes < 0 || (mes === 0 && fechaActual.getDate() < fechaNacimientoDate.getDate())) {
+          edad--;
+      }
+      if (edad < 18) {
+          alert('Debes ser mayor de 18 años para registrarte.');
+          formValid = false;
+      }
+
+      // Si todas las validaciones son exitosas, enviar el formulario
+      if (formValid) {
+          alert('Formulario válido. Enviando solicitud...');
+          form.reset(); // Reiniciar el formulario después del envío
+      }
+  });
+});
+
+
+// Cuando se hace clic en un enlace para ir a categoria.html
+document.getElementById('enlace-categoria').addEventListener('click', function(event) {
+  // Previene la acción por defecto del enlace
+  event.preventDefault();
+
+  // Muestra el loader
+  document.querySelector('.loader').style.display = 'block';
+
+  // Simula un retraso antes de redireccionar (por ejemplo, 1 segundo)
+  setTimeout(function() {
+    // Redirecciona a categoria.html
+    window.location.href = 'categoria.html';
+  }, 1000); // 1000 milisegundos = 1 segundo
+
+  return false;
+});
+
+
+

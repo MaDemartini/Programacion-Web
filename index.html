@@ -187,11 +187,49 @@
     </div>
     
     <!-- Clima -->
-    <div class="weatherWidgetContainer">
-        <!-- Clima en Santiago -->
-        <div class="weatherCard" id="weather-santiago">
-            <p class="weatherCity" id="city-name-santiago">Nombre Ciudad</p>
-            <p class="weatherDescription" id="weather-description-santiago">Descripcion Clima</p>
+    <div class="weatherRectangle">
+        <button class="weatherTitleButton">CLIMA</button>
+        <div class="weatherWidgetContainer">
+            <!-- Clima en Santiago -->
+            <div class="weatherCard" id="weather-santiago">
+                <p class="weatherCity" id="city-name-santiago">Nombre Ciudad</p>
+                <p class="weatherDescription" id="weather-description-santiago">Descripcion Clima</p>
+                <svg
+                    class="weatherIcon"
+                    version="1.1"
+                    x="0px"
+                    y="0px"
+                    width="50px"
+                    height="50px"
+                    viewBox="0 0 100 100"
+                    xml:space="preserve"
+                >
+                    <image
+                    id="weather-icon-santiago"
+                    width="100"
+                    height="100"
+                    x="0"
+                    y="0"
+                    href=""
+                    ></image>
+                </svg>
+            <p class="weatherTemp" id="temperature-santiago">XX°</p>
+            <div class="minMaxContainer">
+                <div class="min">
+                <p class="minHeading">Min</p>
+                <p class="minTemp" id="min-temp-santiago">XX°</p>
+                </div>
+                <div class="max">
+                <p class="maxHeading">Max</p>
+                <p class="maxTemp" id="max-temp-santiago">XX°</p>
+                </div>
+            </div>
+            </div>
+        
+            <!-- Clima en Viña del Mar -->
+            <div class="weatherCard" id="weather-vina">
+            <p class="weatherCity" id="city-name-vina">City Name</p>
+            <p class="weatherDescription" id="weather-description-vina">Weather Description</p>
             <svg
                 class="weatherIcon"
                 version="1.1"
@@ -201,9 +239,9 @@
                 height="50px"
                 viewBox="0 0 100 100"
                 xml:space="preserve"
-              >
+            >
                 <image
-                id="weather-icon-santiago"
+                id="weather-icon-vina"
                 width="100"
                 height="100"
                 x="0"
@@ -211,92 +249,101 @@
                 href=""
                 ></image>
             </svg>
-          <p class="weatherTemp" id="temperature-santiago">XX°</p>
-          <div class="minMaxContainer">
-            <div class="min">
-              <p class="minHeading">Min</p>
-              <p class="minTemp" id="min-temp-santiago">XX°</p>
+            <p class="weatherTemp" id="temperature-vina">XX°</p>
+            <div class="minMaxContainer">
+                <div class="min">
+                <p class="minHeading">Min</p>
+                <p class="minTemp" id="min-temp-vina">XX°</p>
+                </div>
+                <div class="max">
+                <p class="maxHeading">Max</p>
+                <p class="maxTemp" id="max-temp-vina">XX°</p>
+                </div>
             </div>
-            <div class="max">
-              <p class="maxHeading">Max</p>
-              <p class="maxTemp" id="max-temp-santiago">XX°</p>
             </div>
-          </div>
+        
+            <!-- Clima en Valparaíso -->
+            <div class="weatherCard" id="weather-valparaiso">
+            <p class="weatherCity" id="city-name-valparaiso">City Name</p>
+            <p class="weatherDescription" id="weather-description-valparaiso">Weather Description</p>
+            <svg
+                class="weatherIcon"
+                version="1.1"
+                x="0px"
+                y="0px"
+                width="50px"
+                height="50px"
+                viewBox="0 0 100 100"
+                xml:space="preserve"
+            >
+                <image
+                id="weather-icon-valparaiso"
+                width="100"
+                height="100"
+                x="0"
+                y="0"
+                href=""
+                ></image>
+            </svg>
+            <p class="weatherTemp" id="temperature-valparaiso">XX°</p>
+            <div class="minMaxContainer">
+                <div class="min">
+                <p class="minHeading">Min</p>
+                <p class="minTemp" id="min-temp-valparaiso">XX°</p>
+                </div>
+                <div class="max">
+                <p class="maxHeading">Max</p>
+                <p class="maxTemp" id="max-temp-valparaiso">XX°</p>
+                </div>
+            </div>
+            </div>
         </div>
+    </div>
+
+    <!-- Espacio entre footer  -->
+    <div class="spacer" style="height: 50px;"></div>
       
-        <!-- Clima en Viña del Mar -->
-        <div class="weatherCard" id="weather-vina">
-          <p class="weatherCity" id="city-name-vina">City Name</p>
-          <p class="weatherDescription" id="weather-description-vina">Weather Description</p>
-          <svg
-            class="weatherIcon"
-            version="1.1"
-            x="0px"
-            y="0px"
-            width="50px"
-            height="50px"
-            viewBox="0 0 100 100"
-            xml:space="preserve"
-          >
-            <image
-              id="weather-icon-vina"
-              width="100"
-              height="100"
-              x="0"
-              y="0"
-              href=""
-            ></image>
-          </svg>
-          <p class="weatherTemp" id="temperature-vina">XX°</p>
-          <div class="minMaxContainer">
-            <div class="min">
-              <p class="minHeading">Min</p>
-              <p class="minTemp" id="min-temp-vina">XX°</p>
+    <!-- Tarjetas de Noticias -->
+    <div class="container mt-5">
+        <!-- Tarjetas de Noticias Secundarias -->
+        <div class="card-group">
+            <!-- Noticia 1 -->
+            <div class="card mb-4">
+                <a href="noticiaFiltracion.html" style="text-decoration: none; color: black;">
+                    <img src="Img/Noticias/filtracion.jpeg" class="card-img-top" alt="noticiaFiltracion" style="height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5>Acabamos de descubrir la mayor filtración de datos de la historia: 26.000 millones de cuentas, al descubierto</h5>
+                        <p>La madre de todas las filtraciones de datos.</p>
+                    </div>
+                </a>
             </div>
-            <div class="max">
-              <p class="maxHeading">Max</p>
-              <p class="maxTemp" id="max-temp-vina">XX°</p>
+            
+            <!-- Noticia 2 -->
+            <div class="card mb-4">
+                <a href="noticiaAntarticarealidadvirtual.html" style="text-decoration: none; color: black;">
+                    <img src="Img/Noticias/Antarticarealidadvirtual.jpg" class="card-img-top" alt="noticiaAntartica" style="height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5>Una experiencia inmersiva en la Antártida gracias a la realidad virtual</h5>
+                        <p>Una fundación británica ha reunido datos geográficos, fotografías, IA y la narración de un explorador para trasladar al usuario a una base antártica.</p>
+                    </div>
+                </a>
             </div>
-          </div>
+            
+            <!-- Noticia 3 -->
+            <div class="card mb-4">
+                <a href="noticiaSteam.html" style="text-decoration: none; color: black;">
+                    <img src="Img/Noticias/FundadorSteam.jpeg" class="card-img-top" alt="noticiaSteam" style="height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5>El fundador de Steam pidió en 2011 que alguien hackeara su cuenta. Nadie lo ha conseguido (y con razón)</h5>
+                        <p>"Mi usuario es gaben@valvesoftware.com y mi contraseña es MoolyFTW", confesó Gabe Newell en 2011.</p>
+                    </div>
+                </a>
+            </div>
         </div>
-      
-        <!-- Clima en Valparaíso -->
-        <div class="weatherCard" id="weather-valparaiso">
-          <p class="weatherCity" id="city-name-valparaiso">City Name</p>
-          <p class="weatherDescription" id="weather-description-valparaiso">Weather Description</p>
-          <svg
-            class="weatherIcon"
-            version="1.1"
-            x="0px"
-            y="0px"
-            width="50px"
-            height="50px"
-            viewBox="0 0 100 100"
-            xml:space="preserve"
-          >
-            <image
-              id="weather-icon-valparaiso"
-              width="100"
-              height="100"
-              x="0"
-              y="0"
-              href=""
-            ></image>
-          </svg>
-          <p class="weatherTemp" id="temperature-valparaiso">XX°</p>
-          <div class="minMaxContainer">
-            <div class="min">
-              <p class="minHeading">Min</p>
-              <p class="minTemp" id="min-temp-valparaiso">XX°</p>
-            </div>
-            <div class="max">
-              <p class="maxHeading">Max</p>
-              <p class="maxTemp" id="max-temp-valparaiso">XX°</p>
-            </div>
-          </div>
         </div>
-      </div>
-      
+        </section>
+    </div>
+
     <!-- Espacio entre footer  -->
     <div class="spacer" style="height: 50px;"></div>
 
@@ -306,6 +353,115 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
+
+    <!-- Loader para categoria.html-->
+    <div id="loader-categoria" class="loader">
+    <div class="square" id="sq1"></div>
+    <div class="square" id="sq2"></div>
+    <div class="square" id="sq3"></div>
+    <div class="square" id="sq4"></div>
+    <div class="square" id="sq5"></div>
+    <div class="square" id="sq6"></div>
+    <div class="square" id="sq7"></div>
+    <div class="square" id="sq8"></div>
+    <div class="square" id="sq9"></div>
+        </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                // Ocultar el loader al cargar la página
+                document.getElementById("loader-categoria").style.display = "none";
+        
+                // Obtener el enlace de categoría
+                var enlaceCategoria = document.getElementById("enlace-categoria");
+        
+                // Agregar un evento de clic al enlace
+                enlaceCategoria.addEventListener("click", function() {
+                    // Mostrar el loader al hacer clic en el enlace
+                    document.getElementById("loader-categoria").style.display = "block";
+                });
+            });
+        </script>
+    <!-- Loader para contacto.html -->
+    <div id="loader-contacto" class="loader">
+        <div class="square" id="sq1"></div>
+        <div class="square" id="sq2"></div>
+        <div class="square" id="sq3"></div>
+        <div class="square" id="sq4"></div>
+        <div class="square" id="sq5"></div>
+        <div class="square" id="sq6"></div>
+        <div class="square" id="sq7"></div>
+        <div class="square" id="sq8"></div>
+        <div class="square" id="sq9"></div>
+        </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                // Ocultar el loader al cargar la página
+                document.getElementById("loader-contacto").style.display = "none";
+        
+                // Obtener el enlace para contacto.html
+                var enlaceContacto = document.getElementById("enlace-contacto");
+        
+                // Agregar un evento de clic al enlace
+                enlaceContacto.addEventListener("click", function() {
+                    // Mostrar el loader al hacer clic en el enlace
+                    document.getElementById("loader-contacto").style.display = "block";
+                });
+            });
+        </script>
+    <!-- Loader para UneNosotros.html -->
+    <div id="loader-UneNosotros" class="loader">
+        <div class="square" id="sq1"></div>
+        <div class="square" id="sq2"></div>
+        <div class="square" id="sq3"></div>
+        <div class="square" id="sq4"></div>
+        <div class="square" id="sq5"></div>
+        <div class="square" id="sq6"></div>
+        <div class="square" id="sq7"></div>
+        <div class="square" id="sq8"></div>
+        <div class="square" id="sq9"></div>
+        </div>
+        <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Ocultar el loader al cargar la página
+            document.getElementById("loader-UneNosotros").style.display = "none";
+    
+            // Obtener el enlace para contacto.html
+            var enlaceContacto = document.getElementById("enlace-UneNosotros");
+    
+            // Agregar un evento de clic al enlace
+            enlaceContacto.addEventListener("click", function() {
+                // Mostrar el loader al hacer clic en el enlace
+                document.getElementById("loader-UneNosotros").style.display = "block";
+            });
+        });
+        </script>
+    <!-- Loader para sobreNosotros.html -->
+    <div id="loader-sobreNosotros" class="loader">
+        <div class="square" id="sq1"></div>
+        <div class="square" id="sq2"></div>
+        <div class="square" id="sq3"></div>
+        <div class="square" id="sq4"></div>
+        <div class="square" id="sq5"></div>
+        <div class="square" id="sq6"></div>
+        <div class="square" id="sq7"></div>
+        <div class="square" id="sq8"></div>
+        <div class="square" id="sq9"></div>
+        </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                // Ocultar el loader al cargar la página
+                document.getElementById("loader-sobreNosotros").style.display = "none";
+        
+                // Obtener el enlace para contacto.html
+                var enlaceContacto = document.getElementById("enlace-sobreNosotros");
+        
+                // Agregar un evento de clic al enlace
+                enlaceContacto.addEventListener("click", function() {
+                    // Mostrar el loader al hacer clic en el enlace
+                    document.getElementById("loader-sobreNosotros").style.display = "block";
+                });
+            });
+        </script>
     
 </body>
 </html>

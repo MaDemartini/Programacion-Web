@@ -1,3 +1,83 @@
+
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: none; /* Inicialmente oculto */
+    z-index: 9999; /* Asegura que esté por encima de todo */
+  }
+  
+  .square {
+    background: #ddd;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -5px;
+    margin-left: -5px;
+  }
+  @keyframes loader_5191 {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+  
+  #sq1 {
+    margin-top: -25px;
+    margin-left: -25px;
+    animation: loader_5191 675ms ease-in-out 0s infinite alternate;
+  }
+  
+  #sq2 {
+    margin-top: -25px;
+    animation: loader_5191 675ms ease-in-out 75ms infinite alternate;
+  }
+  
+  #sq3 {
+    margin-top: -25px;
+    margin-left: 15px;
+    animation: loader_5191 675ms ease-in-out 150ms infinite;
+  }
+  
+  #sq4 {
+    margin-left: -25px;
+    animation: loader_5191 675ms ease-in-out 225ms infinite;
+  }
+  
+  #sq5 {
+    animation: loader_5191 675ms ease-in-out 300ms infinite;
+  }
+  
+  #sq6 {
+    margin-left: 15px;
+    animation: loader_5191 675ms ease-in-out 375ms infinite;
+  }
+  
+  #sq7 {
+    margin-top: 15px;
+    margin-left: -25px;
+    animation: loader_5191 675ms ease-in-out 450ms infinite;
+  }
+  
+  #sq8 {
+    margin-top: 15px;
+    animation: loader_5191 675ms ease-in-out 525ms infinite;
+  }
+  
+  #sq9 {
+    margin-top: 15px;
+    margin-left: 15px;
+    animation: loader_5191 675ms ease-in-out 600ms infinite;
+  }
+
 /* Estilos generales */
 .close-modal {
     font-size: 1.5rem;
@@ -369,12 +449,19 @@ img {
 
 
 /* Carrusel Categorias */
+.container {
+    max-width: 1200px; /* Ancho máximo del contenedor principal */
+    margin: 0 auto; /* Centra el contenedor en la página */
+    padding: 20px; /* Añade espacio alrededor del contenido */
+}
+
 .category-carousel {
     margin-top: 30px; /* Espaciado entre secciones */
+    overflow: hidden; /* Oculta el contenido que se desborde */
 }
 
 .swiper-container {
-    width: 100%; /* Ocupa el ancho completo */
+    width: 100%; /* Ocupa el ancho completo del contenedor */
     height: 300px; /* Altura del carrusel */
 }
 
@@ -402,25 +489,79 @@ img {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); /* Sombra más grande al pasar el mouse */
 }
 
-.swiper-button-next,
-.swiper-button-prev {
-    color: #333; /* Color de las flechas */
-    background-color: rgba(255, 255, 255, 0.8); /* Fondo translúcido */
-    border-radius: 50%; /* Flechas circulares */
-    top: 50%; /* Centra las flechas verticalmente */
-    transform: translateY(-50%); /* Ajusta para centrar */
-    z-index: 10; /* Asegura que esté por encima */
+.swiper-button-prev,
+.swiper-button-next {
+    color: #333;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
 }
 
-.swiper-pagination-bullet {
-    background-color: #333; /* Color de los puntos */
+.swiper-button-prev {
+    left: 10px; /* Ajusta la posición de la flecha izquierda */
+}
+
+.swiper-button-next {
+    right: 10px; /* Ajusta la posición de la flecha derecha */
 }
 
 .swiper-pagination {
     bottom: 10px; /* Ubicación de la paginación */
+    z-index: 10; /* Asegura que esté por encima */
 }
 
+
 /* Clima */
+.weatherRectangle {
+    display: flex;
+    flex-wrap: wrap; /* Elementos se envuelvan en filas adicionales si no caben en una sola fila */
+    justify-content: center; /* Centra los elementos horizontalmente */
+    gap: 20px; /* Espacio entre los elementos */
+    margin-top: 80px; /* Espacio superior */
+    padding: 300px; /* Espacio interno */
+    background-image: url('Img/index/clima.jpg'); /* Cambiar 'ruta/de/la/imagen.jpg' por la ruta de tu imagen */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el contenedor */
+    border-radius: 0px; /* Bordes redondeados */
+    position: relative;  /* Permitirá posicionar el botón de título de forma absoluta */
+}
+
+.weatherTitleButton {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    background: none;
+    position: absolute;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 20px 40px; /* Espaciado interno del botón ajustado */
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 5em; /* Tamaño de la fuente ajustado */
+    letter-spacing: 2px; /* Ajusta el espacio entre las letras */
+    cursor: pointer;
+}
+    .weatherTitleButton::before {
+        margin-left: auto;
+    }
+
+    .weatherTitleButton::after,
+    .weatherTitleButton::before {
+        content: '';
+        width: 0%;
+        height: 2px;
+        background: #36d8f4;
+        display: block;
+        transition: 0.5s;
+    }
+
+    .weatherTitleButton:hover::after,
+    .weatherTitleButton:hover::before {
+        width: 100%;
+    }
+
 .weatherWidgetContainer {
     display: flex;
     justify-content: center; /* Centra las tarjetas en el contenedor */
@@ -437,8 +578,8 @@ img {
     justify-content: space-between;
     padding: 20px 10px;
     border-radius: 10px;
-    backdrop-filter: blur(30px);
-    background-color: rgba(65, 65, 65, 0.722);
+    backdrop-filter: blur(2px); /* Aplica un efecto de desenfoque */
+    background-color: rgba(65, 65, 65, 0.5); /* Ajusta la transparencia */
     border: 1px solid rgba(255, 255, 255, 0.789);
     cursor: pointer;
   }
@@ -495,4 +636,44 @@ img {
     font-weight: 500;
     color: rgb(197, 197, 197);
   }
+
+
+/* uneNosotros */
+.custom-btn {
+    width: 130px;
+    height: 40px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-family: 'Lato', sans-serif;
+    font-size: 12px; /* Tamaño de la fuente ajustado */
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    box-shadow: inset 2px 2px 2px 0px rgba(255,255,255,.5),
+    7px 7px 20px 0px rgba(0,0,0,.1),
+    4px 4px 5px 0px rgba(0,0,0,.1);
+    outline: none;
+}
+
+.btn-1 {
+    background: #720312;
+    background: linear-gradient(0deg, #720312 0%, #b3283a 100%);
+    border: none;
+}
+
+.btn-1:before {
+    height: 0%;
+    width: 2px;
+}
+
+.btn-1:hover {
+    box-shadow: 4px 4px 6px 0 rgba(255,255,255,.5),
+              -4px -4px 6px 0 rgba(116, 125, 136, .5), 
+    inset -4px -4px 6px 0 rgba(255,255,255,.2),
+    inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
+}
 
