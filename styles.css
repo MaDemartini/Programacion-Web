@@ -638,6 +638,64 @@ img {
   }
 
 
+/* Sismologia */
+.sismologiaRectangle {
+  display: flex;
+  flex-wrap: wrap; /* Elementos se envuelvan en filas adicionales si no caben en una sola fila */
+  justify-content: center; /* Centra los elementos horizontalmente */
+  gap: 20px; /* Espacio entre los elementos */
+  margin-top: 80px; /* Espacio superior */
+  padding: 380px; /* Espacio interno */
+  background-image: url('Img/index/sismologia.jpg'); /* Cambiar 'ruta/de/la/imagen.jpg' por la ruta de tu imagen */
+  background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el contenedor */
+  border-radius: 0px; /* Bordes redondeados */
+  position: relative;  /* Permitirá posicionar el botón de título de forma absoluta */
+}
+
+.sismologiaTitleButton {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  background: none;
+  position: absolute;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 20px 40px; /* Espaciado interno del botón ajustado */
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 6em; /* Tamaño de la fuente ajustado */
+  letter-spacing: 2px; /* Ajusta el espacio entre las letras */
+  cursor: pointer;
+}
+  .sismologiaTitleButton::before {
+      margin-left: auto;
+  }
+
+  .sismologiaTitleButton::after,
+  .sismologiaTitleButton::before {
+      content: '';
+      width: 0%;
+      height: 2px;
+      background: #36d8f4;
+      display: block;
+      transition: 0.5s;
+  }
+
+  .sismologiaTitleButton:hover::after,
+  .sismologiaTitleButton:hover::before {
+      width: 100%;
+  }
+
+.sismologiaWidgetContainer {
+  display: flex;
+  justify-content: center; /* Centra las tarjetas en el contenedor */
+  align-items: center; /* Asegura que las tarjetas estén alineadas verticalmente */
+  gap: 20px; /* Espacio entre las tarjetas */
+}
+
+
+
 /* uneNosotros */
 .custom-btn {
     width: 130px;
