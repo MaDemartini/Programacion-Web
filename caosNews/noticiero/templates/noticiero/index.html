@@ -1,12 +1,16 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Caos News</title>
-    <link rel="icon" href="Img/Logo.png">
-    <link rel="stylesheet" href="styles.css"> <!-- Hoja de estilos -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">  
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet"> 
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <link rel="icon" href="{% static 'Img/Logo.png' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"> <!-- Hoja de estilos -->
+      
+    
     <style>
         .search-form {
             margin-right: auto;
@@ -51,24 +55,24 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <a href="noticiaAntarticarealidadvirtual.html">
-                    <img src="Img/Carrusel/Antarticarealidadvirtual.jpg" class="d-block w-100" alt="Noticia destacada 1">
+                <a href="{% static 'noticiero/noticiaAntarticarealidadvirtual.html' %}">
+                    <img src="{% static 'Img/Carrusel/Antarticarealidadvirtual.jpg' %}" class="d-block w-100" alt="Noticia destacada 1">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Una experiencia inmersiva en la Antártida gracias a la realidad virtual.</h5>
                     </div>
                 </a>
             </div>
             <div class="carousel-item">
-                <a href="noticiaChilecaidanegocios.html">
-                    <img src="Img/Carrusel/Chilecaidanegocios.jpg" class="d-block w-100" alt="Noticia destacada 2">
+                <a href="{% static 'noticiero/noticiaChilecaidanegocios.html' %}">
+                    <img src="{% static 'Img/Carrusel/Chilecaidanegocios.jpg' %}" class="d-block w-100" alt="Noticia destacada 2">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Chile sufre dura caída: los 10 mejores países del mundo para hacer negocios.</h5>
                     </div>
                 </a>
             </div>
             <div class="carousel-item">
-                <a href="noticiasYolviGonzalez.html">
-                    <img src="Img/Carrusel/yolvigonzalez.jpg" class="d-block w-100" alt="Noticia destacada 3">
+                <a href="{% static 'noticiero/noticiasYolviGonzalez.html' %}">
+                    <img src="{% static 'Img/Carrusel/yolvigonzalez.jpg' %}" class="d-block w-100" alt="Noticia destacada 3">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Familia de carabinero asesinado a Yolvi González: "No tiene idea lo que se le viene."</h5>
                     </div>
@@ -91,8 +95,8 @@
                 <!-- Noticia 1 -->
                 <div class="col-md-6 mb-4">
                     <div class="card">
-                        <a href="noticiasYolviGonzalez.html" style="text-decoration: none; color: inherit;">
-                            <img src="Img/Noticias/YOLVI/yolvigonzalez.jpg" class="card-img-top" alt="noticiasYolviGonzalez">
+                        <a href="{% static 'noticiero/noticiasYolviGonzalez.html' %}" style="text-decoration: none; color: inherit;">
+                            <img src="{% static 'Img/Noticias/YOLVI/yolvigonzalez.jpg' %}" class="card-img-top" alt="noticiasYolviGonzalez">
                             <div class="card-body">
                                 <h5 class="card-title">Familia de carabinero asesinado a Yolvi González: "No tiene idea lo que se le viene"</h5>
                                 <p class="card-text">El antisocial, de nacionalidad venezolana, mostró una actitud desafiante e incluso sonrió tras su detención por el crimen del teniente Emmanuel Sánchez.</p>
@@ -105,8 +109,8 @@
                 <!-- Noticia 2 -->
                 <div class="col-md-6 mb-4">
                     <div class="card">
-                        <a href="noticiaMonjanunoa.html" style="text-decoration: none; color: inherit;">
-                            <img src="Img/Noticias/Monjanunoa.jpg" class="card-img-top" alt="Monjanunoa">
+                        <a href="{% static 'noticiero/noticiaMonjanunoa.html' %}" style="text-decoration: none; color: inherit;">
+                            <img src="{% static 'Img/Noticias/Monjanunoa.jpg' %}" class="card-img-top" alt="Monjanunoa">
                             <div class="card-body">
                                 <h5 class="card-title">Hallazgo de cuerpo en Ñuñoa: Arzobispado afirma que mujer que dejó restos en la calle “no es religiosa”.</h5>
                                 <p class="card-text">De acuerdo al organismo de la Iglesia Católica solo la hija de la mujer de 80 años pertenece a su Arquidiócesis.</p>
@@ -119,8 +123,8 @@
                 <!-- Noticia 3 -->
                 <div class="col-md-6 mb-4">
                     <div class="card">
-                        <a href="noticiaChilecaidanegocios.html" style="text-decoration: none; color: inherit;">
-                            <img src="Img/Noticias/SingapurRanking.jpg" class="img-fluid rounded-start" alt="noticiaFiltracion">
+                        <a href="{% static 'noticiero/noticiaChilecaidanegocios.html' %}" style="text-decoration: none; color: inherit;">
+                            <img src="{% static 'Img/Noticias/SingapurRanking.jpg' %}" class="img-fluid rounded-start" alt="noticiaFiltracion">
                             <div class="card-body">
                                 <h5 class="card-title">Chile sufre dura caída: los 10 mejores países del mundo para hacer negocios</h5>
                                 <p class="card-text">El ránking de los mejores lugares del mundo para hacer negocios elaborado trae cambios para Argentina y Chile.</p>
@@ -133,8 +137,8 @@
                 <!-- Noticia 4 -->
                 <div class="col-md-6 mb-4">
                     <div class="card">
-                        <a href="noticiaronaldpolitico.html" style="text-decoration: none; color: inherit;">
-                            <img src="Img/Noticias/ronaldpolitico.jpg" class="img-fluid rounded-start" alt="ronaldpolitico">
+                        <a href="{% static 'noticiero/noticiaronaldpolitico.html' %}" style="text-decoration: none; color: inherit;">
+                            <img src="{% static 'Img/Noticias/ronaldpolitico.jpg' %}" class="img-fluid rounded-start" alt="ronaldpolitico">
                             <div class="card-body">
                                 <h5 class="card-title">Diputados piden romper relaciones con Venezuela: "Chile debe tener consecuencia con su tradición democrática"</h5>
                                 <p class="card-text">Desde la UDI al Partido Socialista, los parlamentarios emplazaron al Ejecutivo a exigir la extradición de los sospechosos del asesinato del exmilitar.</p>
@@ -151,8 +155,8 @@
         <div class="card-group">
             <!-- Noticia 1 -->
             <div class="card mb-4">
-                <a href="noticiaFiltracion.html" style="text-decoration: none; color: black;">
-                    <img src="Img/Noticias/filtracion.jpeg" class="card-img-top" alt="noticiaFiltracion" style="height: 200px; object-fit: cover;">
+                <a href="{% static 'noticiero/noticiaFiltracion.html' %}" style="text-decoration: none; color: black;">
+                    <img src="{% static 'Img/Noticias/filtracion.jpeg' %}" class="card-img-top" alt="noticiaFiltracion" style="height: 200px; object-fit: cover;">
                     <div class="card-body">
                         <h5>Acabamos de descubrir la mayor filtración de datos de la historia: 26.000 millones de cuentas, al descubierto</h5>
                         <p>La madre de todas las filtraciones de datos.</p>
@@ -162,8 +166,8 @@
             
             <!-- Noticia 2 -->
             <div class="card mb-4">
-                <a href="noticiaAntarticarealidadvirtual.html" style="text-decoration: none; color: black;">
-                    <img src="Img/Noticias/Antarticarealidadvirtual.jpg" class="card-img-top" alt="noticiaAntartica" style="height: 200px; object-fit: cover;">
+                <a href="{% static 'noticiero/noticiaAntarticarealidadvirtual.html' %}" style="text-decoration: none; color: black;">
+                    <img src="{% static 'Img/Noticias/Antarticarealidadvirtual.jpg' %}" class="card-img-top" alt="noticiaAntartica" style="height: 200px; object-fit: cover;">
                     <div class="card-body">
                         <h5>Una experiencia inmersiva en la Antártida gracias a la realidad virtual</h5>
                         <p>Una fundación británica ha reunido datos geográficos, fotografías, IA y la narración de un explorador para trasladar al usuario a una base antártica.</p>
@@ -173,8 +177,8 @@
             
             <!-- Noticia 3 -->
             <div class="card mb-4">
-                <a href="noticiaSteam.html" style="text-decoration: none; color: black;">
-                    <img src="Img/Noticias/FundadorSteam.jpeg" class="card-img-top" alt="noticiaSteam" style="height: 200px; object-fit: cover;">
+                <a href="{% static 'noticiero/noticiaSteam.html' %}" style="text-decoration: none; color: black;">
+                    <img src="{% static 'Img/Noticias/FundadorSteam.jpeg' %}" class="card-img-top" alt="noticiaSteam" style="height: 200px; object-fit: cover;">
                     <div class="card-body">
                         <h5>El fundador de Steam pidió en 2011 que alguien hackeara su cuenta. Nadie lo ha conseguido (y con razón)</h5>
                         <p>"Mi usuario es gaben@valvesoftware.com y mi contraseña es MoolyFTW", confesó Gabe Newell en 2011.</p>
@@ -309,8 +313,8 @@
         <div class="card-group">
             <!-- Noticia 1 -->
             <div class="card mb-4">
-                <a href="noticiaFiltracion.html" style="text-decoration: none; color: black;">
-                    <img src="Img/Noticias/filtracion.jpeg" class="card-img-top" alt="noticiaFiltracion" style="height: 200px; object-fit: cover;">
+                <a href="{% static 'noticiero/noticiaFiltracion.html'}" style="text-decoration: none; color: black;">
+                    <img src="{% static 'Img/Noticias/filtracion.jpeg' %}" class="card-img-top" alt="noticiaFiltracion" style="height: 200px; object-fit: cover;">
                     <div class="card-body">
                         <h5>Acabamos de descubrir la mayor filtración de datos de la historia: 26.000 millones de cuentas, al descubierto</h5>
                         <p>La madre de todas las filtraciones de datos.</p>
@@ -320,8 +324,8 @@
             
             <!-- Noticia 2 -->
             <div class="card mb-4">
-                <a href="noticiaAntarticarealidadvirtual.html" style="text-decoration: none; color: black;">
-                    <img src="Img/Noticias/Antarticarealidadvirtual.jpg" class="card-img-top" alt="noticiaAntartica" style="height: 200px; object-fit: cover;">
+                <a href="{% static 'noticiero/noticiaAntarticarealidadvirtual.html' %}" style="text-decoration: none; color: black;">
+                    <img src="{% static 'Img/Noticias/Antarticarealidadvirtual.jpg' %}" class="card-img-top" alt="noticiaAntartica" style="height: 200px; object-fit: cover;">
                     <div class="card-body">
                         <h5>Una experiencia inmersiva en la Antártida gracias a la realidad virtual</h5>
                         <p>Una fundación británica ha reunido datos geográficos, fotografías, IA y la narración de un explorador para trasladar al usuario a una base antártica.</p>
@@ -331,8 +335,8 @@
             
             <!-- Noticia 3 -->
             <div class="card mb-4">
-                <a href="noticiaSteam.html" style="text-decoration: none; color: black;">
-                    <img src="Img/Noticias/FundadorSteam.jpeg" class="card-img-top" alt="noticiaSteam" style="height: 200px; object-fit: cover;">
+                <a href="{% static 'noticiero/noticiaSteam.html' %}" style="text-decoration: none; color: black;">
+                    <img src="{% static 'Img/Noticias/FundadorSteam.jpeg' %}" class="card-img-top" alt="noticiaSteam" style="height: 200px; object-fit: cover;">
                     <div class="card-body">
                         <h5>El fundador de Steam pidió en 2011 que alguien hackeara su cuenta. Nadie lo ha conseguido (y con razón)</h5>
                         <p>"Mi usuario es gaben@valvesoftware.com y mi contraseña es MoolyFTW", confesó Gabe Newell en 2011.</p>
@@ -359,8 +363,7 @@
     <footer></footer>
 
     <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
+    <script src="{% static 'js/script.js' %}"></script>
 
     <!-- Loader para categoria.html-->
     <div id="loader-categoria" class="loader">

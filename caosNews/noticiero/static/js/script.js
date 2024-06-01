@@ -18,9 +18,9 @@ const header = document.querySelector("header");
 const headerHTML = `
 <nav class="navbar navbar-expand-lg bg-black p">
   <div class="container-fluid">
-    <a class="navbar-brand" href="index.html" id="enlace-index">
+    <a class="navbar-brand" href="{% static 'noticiero/index.html' %}" id="enlace-index">
       <div class="logo">
-        <img src="Img/Logo.png" alt="Logo" width="120" height="120" class="d-inline-block align-text-top">
+        <img src="{% static 'Img/Logo/Logo.png' %}" alt="Logo" width="120" height="120" class="d-inline-block align-text-top">
       </div>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
@@ -29,13 +29,13 @@ const headerHTML = `
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item bg-bordeaux">
-          <a class="nav-link active text-white" href="index.html">Inicio</a>
+          <a class="nav-link active text-white" href="{% static 'noticiero/index.html' %}">Inicio</a>
         </li>
         <li class="nav-item bg-bordeaux">
-          <a class="nav-link text-white" href="categoria.html" id="enlace-categoria">Categorías</a>
+          <a class="nav-link text-white" href="{% static 'noticiero/categoria.html' %}" id="enlace-categoria">Categorías</a>
         </li>
         <li class="nav-item bg-bordeaux">
-          <a class="nav-link text-white" href="contacto.html" id="enlace-enlace-contacto">Contacto</a>
+          <a class="nav-link text-white" href="{% static 'noticiero/contacto.html' %}" id="enlace-enlace-contacto">Contacto</a>
         </li>
         <li class="nav-item dropdown bg-bordeaux">
           <a class="nav-link text-white dropdown-toggle" href="#unete" role="button" data-bs-toggle="dropdown" aria-expanded="false">Unete</a>
@@ -43,8 +43,8 @@ const headerHTML = `
             <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Iniciar Sesión</a></li>
             <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal2">Registrarse</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="UneNosotros.html" id="enlace-UneNosotros">Unete a Nosotros</a></li>
-            <li><a class="dropdown-item" href="sobreNosotros.html" id="enlace-sobreNosotros">Quienes somos?</a></li>
+            <li><a class="dropdown-item" href="{% static 'noticiero/UneNosotros.html' %}" id="enlace-UneNosotros">Unete a Nosotros</a></li>
+            <li><a class="dropdown-item" href="{% static 'noticiero/sobreNosotros.html' %}" id="enlace-sobreNosotros">Quienes somos?</a></li>
           </ul>
         </li>
       </ul>
@@ -169,7 +169,7 @@ footer.innerHTML = `
             </div>
           </div>
         </div>
-        <img src="Img/Logo.png" class="logofooter" alt="logofooter">      
+        <img src="{% static 'Img/Logo.png' %}" class="logofooter" alt="logofooter">      
         <p class="footer-text">SANTIAGO, CHILE FONO (562) 2 854 6300 © TODOS LOS DERECHOS RESERVADOS.</p>
       </div>
     </div>
