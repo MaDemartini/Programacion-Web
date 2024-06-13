@@ -236,9 +236,7 @@ nav {
 }
 
 .input {
-    background-color: #720312;
-    border: 1ex solid none;
-    border-top-width: 1.7em;
+    background-color: #b1b1b1;
     margin: 0;
     padding: 0;
     color: #b1b1b1;
@@ -521,11 +519,12 @@ img {
     gap: 20px; /* Espacio entre los elementos */
     margin-top: 80px; /* Espacio superior */
     padding: 300px; /* Espacio interno */
-    background-image: url('Img/index/clima.jpg'); /* Cambiar 'ruta/de/la/imagen.jpg' por la ruta de tu imagen */
+    background-image: url('../img/index/clima.jpg'); /* Asegúrate de que la ruta sea correcta */
     background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el contenedor */
     border-radius: 0px; /* Bordes redondeados */
     position: relative;  /* Permitirá posicionar el botón de título de forma absoluta */
 }
+
 
 .weatherTitleButton {
     color: rgb(255, 255, 255);
@@ -637,7 +636,6 @@ img {
     color: rgb(197, 197, 197);
   }
 
-
 /* Sismologia */
 .sismologiaRectangle {
   display: flex;
@@ -646,7 +644,7 @@ img {
   gap: 20px; /* Espacio entre los elementos */
   margin-top: 80px; /* Espacio superior */
   padding: 380px; /* Espacio interno */
-  background-image: url('Img/index/sismologia.jpg'); /* Cambiar 'ruta/de/la/imagen.jpg' por la ruta de tu imagen */
+  background-image: url('../img/index/sismologia.jpg'); /* Asegúrate de que la ruta sea correcta */
   background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el contenedor */
   border-radius: 0px; /* Bordes redondeados */
   position: relative;  /* Permitirá posicionar el botón de título de forma absoluta */
@@ -687,13 +685,32 @@ img {
       width: 100%;
   }
 
+  .sismologiaRectangle {
+    border: 1px solid #000;
+    padding: 20px;
+    margin: 20px;
+}
+.sismologiaTitleButton {
+    font-size: 24px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.sismologiaTitleButton:hover {
+    background-color: #45a049;
+}
+.sismo {
+    margin: 10px 0;
+}
+
 .sismologiaWidgetContainer {
   display: flex;
   justify-content: center; /* Centra las tarjetas en el contenedor */
   align-items: center; /* Asegura que las tarjetas estén alineadas verticalmente */
   gap: 20px; /* Espacio entre las tarjetas */
 }
-
 
 
 /* uneNosotros */

@@ -13,130 +13,135 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 /* Header */
-const header = document.querySelector("header");
+document.addEventListener("DOMContentLoaded", function() {
+  /* Header */
+  const header = document.querySelector("header");
 
-const headerHTML = `
-<nav class="navbar navbar-expand-lg bg-black p">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="{% static 'noticiero/index.html' %}" id="enlace-index">
-      <div class="logo">
-        <img src="{% static 'Img/Logo/Logo.png' %}" alt="Logo" width="120" height="120" class="d-inline-block align-text-top">
-      </div>
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item bg-bordeaux">
-          <a class="nav-link active text-white" href="{% static 'noticiero/index.html' %}">Inicio</a>
-        </li>
-        <li class="nav-item bg-bordeaux">
-          <a class="nav-link text-white" href="{% static 'noticiero/categoria.html' %}" id="enlace-categoria">Categorías</a>
-        </li>
-        <li class="nav-item bg-bordeaux">
-          <a class="nav-link text-white" href="{% static 'noticiero/contacto.html' %}" id="enlace-enlace-contacto">Contacto</a>
-        </li>
-        <li class="nav-item dropdown bg-bordeaux">
-          <a class="nav-link text-white dropdown-toggle" href="#unete" role="button" data-bs-toggle="dropdown" aria-expanded="false">Unete</a>
-          <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Iniciar Sesión</a></li>
-            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal2">Registrarse</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="{% static 'noticiero/UneNosotros.html' %}" id="enlace-UneNosotros">Unete a Nosotros</a></li>
-            <li><a class="dropdown-item" href="{% static 'noticiero/sobreNosotros.html' %}" id="enlace-sobreNosotros">Quienes somos?</a></li>
-          </ul>
-        </li>
-      </ul>
-      <form class="d-flex search-form" role="search">
-        <input class="input form-control me-2 search-input" type="search" placeholder="Qué buscas?" aria-label="Search">
-        <button class="custom-btn btn-1 search-button" type="submit">Buscar</button>
-      </form>
-      <a href="#" class="text-white">
-        <i class="bi bi-cart-fill fs-4"></i>
-      </a>
-    </div>
-  </div>
-</nav>
+  const headerHTML = `
+      <nav class="navbar navbar-expand-lg bg-black p">
+          <div class="container-fluid">
+              <a class="navbar-brand" href="{% url 'index' %}" id="enlace-index">
+                  <div class="logo">
+                      <img src="{% static 'Img/Logo/Logo1.png' %}" alt="Logo" width="120" height="120" class="d-inline-block align-text-top">
+                  </div>
+              </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                      <li class="nav-item bg-bordeaux">
+                          <a class="nav-link active text-white" href="{% url 'index' %}">Inicio</a>
+                      </li>
+                      <li class="nav-item bg-bordeaux">
+                          <a class="nav-link text-white" href="{% url 'categoria' %}" id="enlace-categoria">Categorías</a>
+                      </li>
+                      <li class="nav-item bg-bordeaux">
+                          <a class="nav-link text-white" href="{% url 'contacto' %}" id="enlace-enlace-contacto">Contacto</a>
+                      </li>
+                      <li class="nav-item dropdown bg-bordeaux">
+                          <a class="nav-link text-white dropdown-toggle" href="#unete" role="button" data-bs-toggle="dropdown" aria-expanded="false">Únete</a>
+                          <ul class="dropdown-menu dropdown-menu-end">
+                              <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Iniciar Sesión</a></li>
+                              <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal2">Registrarse</a></li>
+                              <li><hr class="dropdown-divider"></li>
+                              <li><a class="dropdown-item" href="{% url 'UneNosotros' %}" id="enlace-UneNosotros">Únete a Nosotros</a></li>
+                              <li><a class="dropdown-item" href="{% url 'sobreNosotros' %}" id="enlace-sobreNosotros">¿Quiénes somos?</a></li>
+                          </ul>
+                      </li>
+                  </ul>
+                  <form class="d-flex search-form" role="search">
+                      <input class="input form-control me-2 search-input" type="search" placeholder="¿Qué buscas?" aria-label="Search">
+                      <button class="custom-btn btn-1 search-button" type="submit">Buscar</button>
+                  </form>
+                  <a href="{% url 'carrito' %}" class="text-white">
+                      <i class="bi bi-cart-fill fs-4"></i>
+                  </a>
+              </div>
+          </div>
+      </nav>
 
-<!-- Modal Iniciar Sesión -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Iniciar Sesión</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <!-- Modal Iniciar Sesión -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Iniciar Sesión</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                      <form>
+                          <div class="mb-3">
+                              <label for="exampleInputEmail1" class="form-label">Correo Electrónico</label>
+                              <input type="email" class="form-control" id="exampleInputEmail1">
+                          </div>
+                          <div class="mb-3">
+                              <label for="contraseña" class="form-label">Contraseña</label>
+                              <input type="password" class="form-control" id="contraseña" required>
+                          </div>
+                          <div class="text-center">
+                              <button type="submit" class="custom-btn btn-1">Iniciar Sesión</button>
+                          </div>
+                      </form>
+                      <hr>
+                      <p class="text-center">O inicia sesión con:</p>
+                      <div class="d-grid gap-2">
+                          <button class="btn btn-outline-danger" type="button">Google</button>
+                          <button class="btn btn-outline-primary" type="button">iCloud</button>
+                      </div>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                  </div>
+              </div>
+          </div>
       </div>
-      <div class="modal-body">
-        <form>
-          <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Correo Electrónico</label>
-            <input type="email" class="form-control" id="exampleInputEmail1">
-          </div>
-          <div class="mb-3">
-            <label for="contraseña" class="form-label">Contraseña</label>
-            <input type="password" class="form-control" id="contraseña" required>
-          </div>
-          <div class="text-center">
-            <button type="submit" class="custom-btn btn-1">Iniciar Sesión</button>
-          </div>
-        </form>
-        <hr>
-        <p class="text-center">O inicia sesión con:</p>
-        <div class="d-grid gap-2">
-          <button class="btn btn-outline-danger" type="button">Google</button>
-          <button class="btn btn-outline-primary" type="button">iCloud</button>
+
+      <!-- Modal de Registro -->
+      <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Registro</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                      <form>
+                          <div class="mb-3">
+                              <label for="nombre" class="form-label">Nombre</label>
+                              <input type="text" class="form-control" id="nombre" required>
+                          </div>
+                          <div class="mb-3">
+                              <label for="exampleInputEmail1" class="form-label">Correo Electrónico</label>
+                              <input type="email" class="form-control" id="exampleInputEmail1">
+                          </div>
+                          <div class="mb-3">
+                              <label para "contraseña" class="form-label">Contraseña</label>
+                              <input type="password" class="form-control" required>
+                          </div>
+                          <div class="text-center">
+                              <button type="submit" class="custom-btn btn-1">Registrarse</button>
+                          </div>
+                      </form>
+                      <hr>
+                      <p class="text-center">O Registra con:</p>
+                      <div class="d-grid gap-2">
+                          <button class="btn btn-outline-danger" type="button">Google</button>
+                          <button class="btn btn-outline-primary" type="button">iCloud</button>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-      </div>
-    </div>
-  </div>
-</div>
+    `;
 
-<!-- Modal de Registro -->
-<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Registro</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="mb-3">
-            <label for="nombre" class="form-label">Nombre</label>
-            <input type="text" class="form-control" id="nombre" required>
-          </div>
-          <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Correo Electrónico</label>
-            <input type="email" class="form-control" id="exampleInputEmail1">
-          </div>
-          <div class="mb-3">
-            <label para "contraseña" class="form-label">Contraseña</label>
-            <input type="password" class="form-control" required>
-          </div>
-          <div class="text-center">
-            <button type="submit" class="custom-btn btn-1">Registrarse</button>
-          </div>
-        </form>
-        <hr>
-        <p class="text-center">O Registra con:</p>
-        <div class="d-grid gap-2">
-          <button class="btn btn-outline-danger" type="button">Google</button>
-          <button class="btn btn-outline-primary" type="button">iCloud</button>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-      </div>
-    </div>
-  </div>
-</div>
-`;
+    header.innerHTML = headerHTML; // Inserta el encabezado con los modales
+});
 
-header.innerHTML = headerHTML; // Inserta el encabezado con los modales
+
 
 /* Footer */
 const footer = document.querySelector("footer");
@@ -169,7 +174,7 @@ footer.innerHTML = `
             </div>
           </div>
         </div>
-        <img src="{% static 'Img/Logo.png' %}" class="logofooter" alt="logofooter">      
+        <img src="{% static 'Img/Logo/Logo1.png' %}" class="logofooter" alt="logofooter">      
         <p class="footer-text">SANTIAGO, CHILE FONO (562) 2 854 6300 © TODOS LOS DERECHOS RESERVADOS.</p>
       </div>
     </div>
@@ -212,6 +217,34 @@ cities.forEach((city, index) => {
             document.getElementById(`temperature-${prefix}`).textContent = 'N/A';
         });
 });
+
+// API Sismologia
+async function cargarSismos() {
+  try {
+      const response = await fetch('https://api.gael.cloud/general/public/sismos');
+      const data = await response.json();
+      mostrarSismos(data);
+  } catch (error) {
+      console.error('Error al cargar los datos de sismos:', error);
+  }
+}
+
+function mostrarSismos(sismos) {
+  const sismosContainer = document.getElementById('sismosContainer');
+  sismosContainer.innerHTML = '';  // Limpiar el contenedor
+
+  sismos.forEach(sismo => {
+      const sismoDiv = document.createElement('div');
+      sismoDiv.className = 'sismo';
+      sismoDiv.innerHTML = `
+          <p><strong>Fecha:</strong> ${sismo.Fecha}</p>
+          <p><strong>Magnitud:</strong> ${sismo.Magnitud}</p>
+          <p><strong>Profundidad:</strong> ${sismo.Profundidad} km</p>
+          <p><strong>Referencia Geográfica:</strong> ${sismo.RefGeografica}</p>
+      `;
+      sismosContainer.appendChild(sismoDiv);
+  });
+}
 
 // Validacion js en uneNosotros.html
 document.addEventListener('DOMContentLoaded', function() {
