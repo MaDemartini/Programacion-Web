@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <title>Caso News - Carro</title>
+    <link rel="icon" href="{% static 'Img/Logo.png' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    
+    <style>
+        .search-form {
+            margin-right: auto;
+        }
+        .search-button {
+            color: white;
+            background-color: #720312;
+        }
+        .noticia-card {
+            background-color: #f8f9fa; /* Color de fondo para resaltar las noticias */
+        }
+    </style>
+</head>
+<body style="background-color: #DBE0E3;">
+    <!-- Encabezado con Navbar -->
+    <!-- Incluir el header desde el directorio includes -->
+    {% include 'noticiero/includes/header.html' %}
+
+    
+    <!-- Sección de contacto -->
+    <section class="container mt-5" id="carro">
+        <h2 class="text-left">Carro </h2>
+
+        <form>
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Tu carro está vacío.</label>
+            </div>
+        </form>
+
+        <button type="submit" class="custom-btn btn-1">Volver</button>
+    </section>
+        
+    <div class="spacer" style="height: 50px;"></div>
+    <div class="spacer" style="height: 50px;"></div>    
+    <div class="spacer" style="height: 50px;"></div>    
+    <div class="spacer" style="height: 50px;"></div>    
+
+    <!-- Pie de página -->
+    <!-- Incluir el footer desde el directorio includes -->
+    {% include 'noticiero/includes/footer.html' %}
+    
+    <!-- Scripts de Bootstrap -->
+    <script src="{% static 'js/script.js' %}"></script>
+
+    <!-- Loader Buscare otro-->
+
+</body>
+</html>
+

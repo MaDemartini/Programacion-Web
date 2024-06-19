@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <title>Caso News - Registro</title>
+    <link rel="icon" href="{% static 'Img/Logo.png' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"> 
+    
+    <style>
+        .search-form {
+            margin-right: auto;
+        }
+        .search-button {
+            color: white;
+            background-color: #720312;
+        }
+        .noticia-card {
+            background-color: #f8f9fa; /* Color de fondo para resaltar las noticias */
+        }
+    </style>
+</head>
+<body style="background-color: #DBE0E3;">
+    <!-- Encabezado con Navbar -->
+    <header>
+    </header>
+
+
+    <button type="button">
+        <a href="{% url 'noticieroAdd' %}"> Agregar</a>
+    </button>
+
+    <div id="idMensajes">
+        {% if mensaje %}
+            {{mensaje}}
+        {% endif %}
+    </div>
+
+
+    <table>
+        {% if noticiero%}
+            <th>Rut</th>
+            <th>Nombre</th>
+            <th>Apellido P.</th>
+            <th>Eliminar</th>
+            <th>Modificar</th>
+            {% for x in noticiero %}
+                <tr>
+                    <td>{{ x.rut }}</td>
+                    <td>{{ x.nombre }}</td>
+                    <td>{{ x.apellido_paterno }}</td>
+                    <td>  <a href="{% url 'noticiero_del' pk=x.rut %}"></a> Eliminar </td>
+                    <td>  <a href="{% url 'noticiero_findEdit' pk=x.rut %}"></a> Modificar </td>
+
+                </tr>
+            {% endfor %}
+        {% endif %}
+    </table>
+  
+
+<div class="spacer" style="height: 50px;"></div>
+<div class="spacer" style="height: 50px;"></div>    
+<div class="spacer" style="height: 50px;"></div>    
+<div class="spacer" style="height: 50px;"></div>    
+
+   
+    <!-- Pie de página -->
+    <footer>
+    </footer>
+        
+    <!-- Scripts de Bootstrap -->
+    <script src="{% static 'js/script.js' %}"></script>
+
+{% block content %}
+{% endblock %}
+</body>
+</html>

@@ -25,9 +25,9 @@
     </head>
 <body>
 
-  <header>
-  </header>
-  
+  <!-- Incluir el header desde el directorio includes -->
+  {% include 'noticiero/includes/header.html' %}
+
   <main>
     <div class="container">
       <h1>Sobre Nosotros</h1>
@@ -45,8 +45,8 @@
   <div class="spacer" style="height: 50px;"></div>
   <div class="spacer" style="height: 50px;"></div>
 
-  <footer>
-  </footer>
+  <!-- Incluir el footer desde el directorio includes -->
+  {% include 'noticiero/includes/footer.html' %}
 
    <!-- Scripts -->
    <script src="{% static 'js/script.js' %}"></script>

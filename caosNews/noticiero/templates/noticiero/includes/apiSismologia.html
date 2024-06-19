@@ -1,0 +1,22 @@
+{% load static %}
+
+<div class="sismologiaRectangle">
+    <button class="sismologiaTitleButton" onclick="cargarSismos()">Sismología</button>
+    <div class="sismosWidgetContainer" id="sismosWidgetContainer">
+        <div class="sismosTableContainer">
+            <table class="sismosTable">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Magnitud</th>
+                        <th>Profundidad (km)</th>
+                        <th>Referencia Geográfica</th>
+                    </tr>
+                </thead>
+                <tbody id="sismosBody">
+                    <!-- Aquí se insertarán las filas de datos -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

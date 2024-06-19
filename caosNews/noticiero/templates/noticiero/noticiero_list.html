@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <h2>Listado de Noticieros</h2>
+    <a class="btn btn-primary mb-3" href="{% url 'noticiero_add' %}">Agregar Noticiero</a>
+    
+    <ul class="list-group">
+      {% for noticiero in noticieros %}
+        <li class="list-group-item">{{ noticiero.nombre }} {{ noticiero.apellido_paterno }} {{ noticiero.apellido_materno }}
+          <div class="btn-group float-end" role="group" aria-label="Basic example">
+            <a href="{% url 'noticiero_edit' noticiero.rut %}" class="btn btn-warning">Editar</a>
+            <a href="{% url 'noticiero_delete' noticiero.rut %}" class="btn btn-danger">Eliminar</a>
+          </div>
+        </li>
+      {% empty %}
+        <li class="list-group-item">No hay noticieros disponibles.</li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}

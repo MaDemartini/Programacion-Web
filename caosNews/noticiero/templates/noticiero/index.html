@@ -10,6 +10,7 @@
     {% bootstrap_javascript %}
     <link rel="icon" href="{% static 'Img/Logo/Logo.png' %}">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}"> <!-- Hoja de estilos -->
+    <link rel="stylesheet" href="{% static 'css/stylesApi.css' %}">
     
     <style>
         .search-form {
@@ -43,8 +44,8 @@
         </div>
     </div>
     <!--Fin de Ventana Modal-->
-
-    <header></header>
+    <!-- Incluir el header desde el directorio includes -->
+    {% include 'noticiero/includes/header.html' %}
 
     <!-- Carrusel auto-slide -->
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-interval="5000"> <!-- Auto-slide cada 5 segundos -->
@@ -188,123 +189,11 @@
         </div>
         </div>
         </section>
-    </div>
     
     <!-- Clima -->
-    <div class="weatherRectangle">
-        <button class="weatherTitleButton">CLIMA</button>
-        <div class="weatherWidgetContainer">
-            <!-- Clima en Santiago -->
-            <div class="weatherCard" id="weather-santiago">
-                <p class="weatherCity" id="city-name-santiago">Nombre Ciudad</p>
-                <p class="weatherDescription" id="weather-description-santiago">Descripcion Clima</p>
-                <svg
-                    class="weatherIcon"
-                    version="1.1"
-                    x="0px"
-                    y="0px"
-                    width="50px"
-                    height="50px"
-                    viewBox="0 0 100 100"
-                    xml:space="preserve"
-                >
-                    <image
-                    id="weather-icon-santiago"
-                    width="100"
-                    height="100"
-                    x="0"
-                    y="0"
-                    href=""
-                    ></image>
-                </svg>
-            <p class="weatherTemp" id="temperature-santiago">XX°</p>
-            <div class="minMaxContainer">
-                <div class="min">
-                <p class="minHeading">Min</p>
-                <p class="minTemp" id="min-temp-santiago">XX°</p>
-                </div>
-                <div class="max">
-                <p class="maxHeading">Max</p>
-                <p class="maxTemp" id="max-temp-santiago">XX°</p>
-                </div>
-            </div>
-            </div>
-        
-            <!-- Clima en Viña del Mar -->
-            <div class="weatherCard" id="weather-vina">
-            <p class="weatherCity" id="city-name-vina">City Name</p>
-            <p class="weatherDescription" id="weather-description-vina">Weather Description</p>
-            <svg
-                class="weatherIcon"
-                version="1.1"
-                x="0px"
-                y="0px"
-                width="50px"
-                height="50px"
-                viewBox="0 0 100 100"
-                xml:space="preserve"
-            >
-                <image
-                id="weather-icon-vina"
-                width="100"
-                height="100"
-                x="0"
-                y="0"
-                href=""
-                ></image>
-            </svg>
-            <p class="weatherTemp" id="temperature-vina">XX°</p>
-            <div class="minMaxContainer">
-                <div class="min">
-                <p class="minHeading">Min</p>
-                <p class="minTemp" id="min-temp-vina">XX°</p>
-                </div>
-                <div class="max">
-                <p class="maxHeading">Max</p>
-                <p class="maxTemp" id="max-temp-vina">XX°</p>
-                </div>
-            </div>
-            </div>
-        
-            <!-- Clima en Valparaíso -->
-            <div class="weatherCard" id="weather-valparaiso">
-            <p class="weatherCity" id="city-name-valparaiso">City Name</p>
-            <p class="weatherDescription" id="weather-description-valparaiso">Weather Description</p>
-            <svg
-                class="weatherIcon"
-                version="1.1"
-                x="0px"
-                y="0px"
-                width="50px"
-                height="50px"
-                viewBox="0 0 100 100"
-                xml:space="preserve"
-            >
-                <image
-                id="weather-icon-valparaiso"
-                width="100"
-                height="100"
-                x="0"
-                y="0"
-                href=""
-                ></image>
-            </svg>
-            <p class="weatherTemp" id="temperature-valparaiso">XX°</p>
-            <div class="minMaxContainer">
-                <div class="min">
-                <p class="minHeading">Min</p>
-                <p class="minTemp" id="min-temp-valparaiso">XX°</p>
-                </div>
-                <div class="max">
-                <p class="maxHeading">Max</p>
-                <p class="maxTemp" id="max-temp-valparaiso">XX°</p>
-                </div>
-            </div>
-            </div>
-        </div>
-    </div>
+    {% include 'noticiero/includes/apiClima.html' %}
 
-    <!-- Espacio entre footer  -->
+    <!-- Espacio entre *  -->
     <div class="spacer" style="height: 50px;"></div>
       
     <!-- Tarjetas de Noticias -->
@@ -348,10 +237,7 @@
         </section>
     </div>
 
-    <div class="sismologiaRectangle">
-        <button class="sismologiaTitleButton" onclick="cargarSismos()">Sismología</button>
-        <div id="sismosContainer"></div>
-    </div>
+    {% include 'noticiero/includes/apiSismologia.html' %}
 
     <!-- Espacio entre footer  -->
     <div class="spacer" style="height: 50px;"></div>
@@ -360,119 +246,15 @@
     <div class="spacer" style="height: 50px;"></div>
 
     <!-- Pie de página -->
-    <footer></footer>
+    <!-- Incluir el footer desde el directorio includes -->
+    {% include 'noticiero/includes/footer.html' %}
 
     <!-- Scripts -->
     <script src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/scriptApi.js' %}"></script>
 
-    <!-- Loader para categoria.html-->
-    <div id="loader-categoria" class="loader">
-    <div class="square" id="sq1"></div>
-    <div class="square" id="sq2"></div>
-    <div class="square" id="sq3"></div>
-    <div class="square" id="sq4"></div>
-    <div class="square" id="sq5"></div>
-    <div class="square" id="sq6"></div>
-    <div class="square" id="sq7"></div>
-    <div class="square" id="sq8"></div>
-    <div class="square" id="sq9"></div>
-        </div>
-        <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                // Ocultar el loader al cargar la página
-                document.getElementById("loader-categoria").style.display = "none";
-        
-                // Obtener el enlace de categoría
-                var enlaceCategoria = document.getElementById("enlace-categoria");
-        
-                // Agregar un evento de clic al enlace
-                enlaceCategoria.addEventListener("click", function() {
-                    // Mostrar el loader al hacer clic en el enlace
-                    document.getElementById("loader-categoria").style.display = "block";
-                });
-            });
-        </script>
-    <!-- Loader para contacto.html -->
-    <div id="loader-contacto" class="loader">
-        <div class="square" id="sq1"></div>
-        <div class="square" id="sq2"></div>
-        <div class="square" id="sq3"></div>
-        <div class="square" id="sq4"></div>
-        <div class="square" id="sq5"></div>
-        <div class="square" id="sq6"></div>
-        <div class="square" id="sq7"></div>
-        <div class="square" id="sq8"></div>
-        <div class="square" id="sq9"></div>
-        </div>
-        <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                // Ocultar el loader al cargar la página
-                document.getElementById("loader-contacto").style.display = "none";
-        
-                // Obtener el enlace para contacto.html
-                var enlaceContacto = document.getElementById("enlace-contacto");
-        
-                // Agregar un evento de clic al enlace
-                enlaceContacto.addEventListener("click", function() {
-                    // Mostrar el loader al hacer clic en el enlace
-                    document.getElementById("loader-contacto").style.display = "block";
-                });
-            });
-        </script>
-    <!-- Loader para UneNosotros.html -->
-    <div id="loader-UneNosotros" class="loader">
-        <div class="square" id="sq1"></div>
-        <div class="square" id="sq2"></div>
-        <div class="square" id="sq3"></div>
-        <div class="square" id="sq4"></div>
-        <div class="square" id="sq5"></div>
-        <div class="square" id="sq6"></div>
-        <div class="square" id="sq7"></div>
-        <div class="square" id="sq8"></div>
-        <div class="square" id="sq9"></div>
-        </div>
-        <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Ocultar el loader al cargar la página
-            document.getElementById("loader-UneNosotros").style.display = "none";
-    
-            // Obtener el enlace para contacto.html
-            var enlaceContacto = document.getElementById("enlace-UneNosotros");
-    
-            // Agregar un evento de clic al enlace
-            enlaceContacto.addEventListener("click", function() {
-                // Mostrar el loader al hacer clic en el enlace
-                document.getElementById("loader-UneNosotros").style.display = "block";
-            });
-        });
-        </script>
-    <!-- Loader para sobreNosotros.html -->
-    <div id="loader-sobreNosotros" class="loader">
-        <div class="square" id="sq1"></div>
-        <div class="square" id="sq2"></div>
-        <div class="square" id="sq3"></div>
-        <div class="square" id="sq4"></div>
-        <div class="square" id="sq5"></div>
-        <div class="square" id="sq6"></div>
-        <div class="square" id="sq7"></div>
-        <div class="square" id="sq8"></div>
-        <div class="square" id="sq9"></div>
-        </div>
-        <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                // Ocultar el loader al cargar la página
-                document.getElementById("loader-sobreNosotros").style.display = "none";
-        
-                // Obtener el enlace para contacto.html
-                var enlaceContacto = document.getElementById("enlace-sobreNosotros");
-        
-                // Agregar un evento de clic al enlace
-                enlaceContacto.addEventListener("click", function() {
-                    // Mostrar el loader al hacer clic en el enlace
-                    document.getElementById("loader-sobreNosotros").style.display = "block";
-                });
-            });
-        </script>
+
+    <!-- Loader Buscare otro-->
     
 </body>
 </html>

@@ -12,7 +12,7 @@ class Genero(models.Model):
 
 class Noticiero(models.Model):
     rut = models.CharField(primary_key=True, max_length=10)
-    nombre = models.CharField(max_length=20)
+    nombre = models.CharField(max_length=20) 
     apellido_paterno = models.CharField(max_length=20)
     apellido_materno = models.CharField(max_length=20)
     fecha_nacimiento = models.DateField(blank=False, null=False)

@@ -25,8 +25,8 @@
 </head>
 <body style="background-color: #DBE0E3;">
     <!-- Encabezado con Navbar -->
-    <header>
-    </header>
+    <!-- Incluir el header desde el directorio includes -->
+    {% include 'noticiero/includes/header.html' %}
 
 <main>
     <!-- Noticia 1 -->
@@ -72,8 +72,8 @@
 <div class="spacer" style="height: 50px;"></div>
     
     <!-- Pie de página -->
-    <footer>
-    </footer>
+    <!-- Incluir el footer desde el directorio includes -->
+    {% include 'noticiero/includes/footer.html' %}
 
     <!-- Scripts de Bootstrap -->
     <script src="{% static 'js/script.js' %}"></script>

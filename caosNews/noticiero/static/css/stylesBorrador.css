@@ -1,0 +1,24 @@
+table.sismologia td:first-child, table.sismologia th:first-child {
+    text-align: left;
+    padding-left: 3%;
+    width: 64%;
+}
+
+article table td, article table th {
+    padding: 8px 0;
+    vertical-align: middle;
+}
+table td, table th {
+    text-align: center;
+}
+table th {
+    font-weight: 700;
+}
+
+article {
+    float: right;
+    width: 61%;
+    padding: 0 2% 20px 0;
+    margin: 0;
+}
+

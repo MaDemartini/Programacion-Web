@@ -1,0 +1,94 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caos News - Unete</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <link rel="icon" href="{% static 'Img/Logo/Logo.png' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+        .search-form {
+            margin-right: auto;
+        }
+        .search-button {
+            color: white;
+            background-color: #720312;
+        }
+        .noticia-card {
+            background-color: #f8f9fa; /* Color de fondo para resaltar las noticias */
+        }
+    </style>
+</head>
+<body style="background-color: #f0f0f0;">
+    <!-- Encabezado con Navbar -->
+    <!-- Incluir el header desde el directorio includes -->
+    {% include 'noticiero/includes/header.html' %}
+
+    <!-- Sección de uneNosotros -->
+    <form id="joinForm">
+        <section class="container mt-5 form-section" id="contacto">
+            <h2 class="text-center">Únete a Nosotros</h2>
+            <form>
+                <!-- Campo para Nombre -->
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre(s)</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
+                </div>
+
+                <!-- Campo para Apellidos -->
+                <div class="mb-3">
+                    <label for="apellidos" class="form-label">Apellidos (Paterno y Materno)</label>
+                    <input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="Ingresa tus apellidos" required>
+                </div>
+
+                <!-- Campo para Correo Electrónico -->
+                <div class="mb-3">
+                    <label for="email" class="form-label">Correo Electrónico</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="tucorreo@example.com" required>
+                </div>
+
+                <!-- Campo para Celular -->
+                <div class="mb-3">
+                    <label for="celular" class="form-label">Celular</label>
+                    <input type="tel" class="form-control" id="celular" name="celular" placeholder="Ingresa tu número de celular" required pattern="[0-9]{9,10}">
+                </div>
+
+                <!-- Fecha de Nacimiento -->
+                <div class="mb-3">
+                    <label for="fecha-nacimiento" class="form-label">Fecha de Nacimiento</label>
+                    <input type="date" class="form-control" id="fecha-nacimiento" name="fecha-nacimiento" required>
+                </div>
+
+                <!-- Campo para Mensaje -->
+                <div class="mb-3">
+                    <label for="mensaje" class="form-label">Mensaje</label>
+                    <textarea class="form-control" id="mensaje" name="mensaje" rows="3" placeholder="Escribe tu mensaje aquí" required></textarea>
+                </div>
+
+                <!-- Botón de envío -->
+                <button type="submit" class="custom-btn btn-1">Enviar</button>
+            
+            </form>
+        </section>
+    </form>
+
+<div class="spacer" style="height: 50px;"></div>
+<div class="spacer" style="height: 50px;"></div>
+    
+    <!-- Pie de página -->
+    <!-- Incluir el footer desde el directorio includes -->
+    {% include 'noticiero/includes/footer.html' %}
+        
+    <!-- Scripts de Bootstrap -->
+    <script src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/validaciones.js' %}"></script>
+
+   
+    <!-- Loader Buscare otro-->
+        
+</body>
+</html>
