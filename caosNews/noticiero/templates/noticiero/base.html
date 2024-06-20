@@ -11,27 +11,32 @@
     {% bootstrap_javascript %}
     <link rel="icon" href="{% static 'Img/Logo/Logo.png' %}">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/stylesIncludes.css' %}">
+    <link rel="stylesheet" href="{% static 'css/stylesVistas.css' %}">
     {% block extra_head %}{% endblock %}
 </head>
 <body style="background-color: #DBE0E3;">
 
-<!-- Header -->
-{% include 'header.html' %}
-<!-- Modals -->
-{% include 'modals/iniciar_sesion.html' %}
-{% include 'modals/registrar.html' %}
+    <!-- Loader -->
+    {% include 'includes/loader.html' %}
 
-<!-- Content -->
-<div class="container-fluid">
-    {% block content %}
-    {% endblock %}
-</div>
+    <!-- Header -->
+    {% include 'header.html' %}
+    <!-- Modals -->
+    {% include 'modals/iniciar_sesion.html' %}
+    {% include 'modals/registrar.html' %}
 
-<!-- Footer -->
-{% include 'footer.html' %}
+    <!-- Content -->
+    <div class="container-fluid" id="main-content" style="display: none;">
+        {% block content %}
+        {% endblock %}
+    </div>
 
-<!-- Scripts -->
-<script src="{% static 'js/script.js' %}"></script>
-<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <!-- Footer -->
+    {% include 'footer.html' %}
+
+    <!-- Scripts -->
+    <script src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 </body>
 </html>

@@ -13,22 +13,26 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-// Cuando se hace clic en un enlace para ir a categoria.html
-document.getElementById('enlace-categoria').addEventListener('click', function(event) {
-  // Previene la acción por defecto del enlace
-  event.preventDefault();
 
-  // Muestra el loader
-  document.querySelector('.loader').style.display = 'block';
+// Loader
+document.addEventListener("DOMContentLoaded", function() {
+  // Mostrar el loader al cargar la página
+  var loader = document.querySelector('.loader');
+  loader.style.display = 'block';
 
-  // Simula un retraso antes de redireccionar (por ejemplo, 1 segundo)
+  // Deshabilitar el scroll del body
+  document.body.classList.add('body-scroll-disabled');
+
+  // Simulación de carga (ejemplo: ocultar después de 2 segundos)
   setTimeout(function() {
-    // Redirecciona a categoria.html
-    window.location.href = 'categoria.html';
-  }, 1000); // 1000 milisegundos = 1 segundo
+    loader.style.display = 'none';
+    document.getElementById('main-content').style.display = 'block';
 
-  return false;
+    // Habilitar el scroll del body nuevamente
+    document.body.classList.remove('body-scroll-disabled');
+  }, 2000);
 });
+
 
 
 

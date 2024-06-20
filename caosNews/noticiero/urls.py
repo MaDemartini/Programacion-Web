@@ -9,7 +9,6 @@ urlpatterns = [
     path('sobreNosotros/', views.sobreNosotros, name='sobreNosotros'),
     path('UneNosotros/', views.UneNosotros, name='UneNosotros'),
     path('carro/', views.carro, name='carro'),
-    path('registro/', views.registro, name='registro'),
 
     # Noticias específicas
     path('noticiaAntarticarealidadvirtual/', views.noticiaAntarticarealidadvirtual, name='noticiaAntarticarealidadvirtual'),

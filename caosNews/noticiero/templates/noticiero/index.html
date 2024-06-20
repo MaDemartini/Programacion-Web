@@ -11,6 +11,8 @@
     <link rel="icon" href="{% static 'Img/Logo/Logo.png' %}">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}"> <!-- Hoja de estilos -->
     <link rel="stylesheet" href="{% static 'css/stylesApi.css' %}">
+    <link rel="stylesheet" href="{% static 'css/stylesIncludes.css' %}">
+
     
     <style>
         .search-form {
@@ -27,6 +29,9 @@
 </head>
 <body>
 
+    <!-- Loader -->
+    {% include 'noticiero/includes/loader.html' %}
+
     <!-- Modal de Bienvenida -->
     <div class="modal fade" id="welcomeModal" tabindex="-1" aria-labelledby="welcomeModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -38,7 +43,7 @@
                 <div class="modal-body">
                     ¡Gracias por visitar nuestra plataforma de noticias! Aquí encontrarás las últimas noticias sobre seguridad, economía, política, tecnología y mucho más. Navega por nuestro sitio para descubrir lo último en noticias y eventos importantes.                </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="custom-btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 </div>
             </div>
         </div>
@@ -190,6 +195,8 @@
         </div>
         </section>
     
+        
+
     <!-- Clima -->
     {% include 'noticiero/includes/apiClima.html' %}
 

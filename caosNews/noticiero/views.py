@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Genero, Noticiero
 from .forms import GeneroForm, NoticieroForm    
+import time
 # Create your views here.
 
 
@@ -119,17 +120,20 @@ def sobreNosotros(request):
     return render(request, 'noticiero/vistas/sobreNosotros.html', context)
 
 def UneNosotros(request):
-    context = {}
-    return render(request, 'noticiero/vistas/UneNosotros.html', context)
+    if request.method == 'POST':
+        form = NoticieroForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')  # Redirige a la página 'index' después de guardar correctamente
+    else:
+        form = NoticieroForm()
+    
+    context = {'form': form}
+    return render(request, 'noticiero/vistas/uneNosotros.html', context)
 
 def carro(request):
     context = {}
     return render(request, 'noticiero/vistas/carro.html', context)
-
-def registro(request):
-    context = {}
-    return render(request, 'noticiero/vistas/registro.html', context)
-
 
 # INDEX PRINCIPAL
 def index(request):
@@ -139,10 +143,9 @@ def index(request):
 
 # crud sql orm
 def listadoSQL(request):
-    noticiero= Noticiero.objects.raw('SELECT * FROM noticiero_noticiero')
-    print(noticiero)
-    context = {"noticiero":noticiero}
-    return render (request, 'noticiero/listadoSQL.html', context)
+    noticieros = Noticiero.objects.raw('SELECT * FROM noticiero_noticiero')
+    context = {'noticieros': noticieros}
+    return render(request, 'noticiero/listadoSQL.html', context)
 
 def crud(request):
     noticiero = Noticiero.objects.all()

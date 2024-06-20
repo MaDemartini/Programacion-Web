@@ -1,0 +1,20 @@
+/* uneNosotros */
+
+/* Estilos para centrar el formulario vertical y horizontalmente */
+.centered-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0; /* Agrega margen superior e inferior de 50px */
+    height: auto; /* Ajusta la altura según el contenido */
+    background-color: #f8f9fa; /* Color de fondo opcional */
+}
+
+.custom-card {
+    width: 80%; /* Ancho máximo de la tarjeta */
+    max-width: 500px; /* Máximo ancho de la tarjeta para pantallas grandes */
+    padding: 20px; /* Espaciado interior de la tarjeta */
+    border-radius: 10px; /* Borde redondeado */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    background-color: #ffffff; /* Fondo blanco */
+}

@@ -8,7 +8,8 @@
     {% bootstrap_css %}
     {% bootstrap_javascript %}
     <link rel="icon" href="{% static 'Img/Logo/Logo.png' %}">
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}"> <!-- Hoja de estilos -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"> 
+    <link rel="stylesheet" href="{% static 'css/stylesIncludes.css' %}">
     <style>
          .search-form {
             margin-right: auto;
@@ -23,6 +24,9 @@
     </style>
 </head>
 <body>
+
+    <!-- Loader -->
+    {% include 'noticiero/includes/loader.html' %}
 
     <!-- Incluir el header desde el directorio includes -->
     {% include 'noticiero/includes/header.html' %}

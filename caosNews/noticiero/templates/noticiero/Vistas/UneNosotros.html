@@ -4,12 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Caos News - Unete</title>
+    <title>Caos News - Une Nosotros</title>
     {% load bootstrap5 %}
     {% bootstrap_css %}
     {% bootstrap_javascript %}
     <link rel="icon" href="{% static 'Img/Logo/Logo.png' %}">
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"> 
+    <link rel="stylesheet" href="{% static 'css/stylesIncludes.css' %}"> 
+    <link rel="stylesheet" href="{% static 'css/stylesVistas.css' %}"> 
     <style>
         .search-form {
             margin-right: auto;
@@ -23,72 +25,113 @@
         }
     </style>
 </head>
-<body style="background-color: #f0f0f0;">
-    <!-- Encabezado con Navbar -->
+<body>
+
+    <!-- Loader -->
+    {% include 'noticiero/includes/loader.html' %}
+
     <!-- Incluir el header desde el directorio includes -->
     {% include 'noticiero/includes/header.html' %}
-
-    <!-- Sección de uneNosotros -->
-    <form id="joinForm">
-        <section class="container mt-5 form-section" id="contacto">
-            <h2 class="text-center">Únete a Nosotros</h2>
-            <form>
-                <!-- Campo para Nombre -->
-                <div class="mb-3">
-                    <label for="nombre" class="form-label">Nombre(s)</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
-                </div>
-
-                <!-- Campo para Apellidos -->
-                <div class="mb-3">
-                    <label for="apellidos" class="form-label">Apellidos (Paterno y Materno)</label>
-                    <input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="Ingresa tus apellidos" required>
-                </div>
-
-                <!-- Campo para Correo Electrónico -->
-                <div class="mb-3">
-                    <label for="email" class="form-label">Correo Electrónico</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="tucorreo@example.com" required>
-                </div>
-
-                <!-- Campo para Celular -->
-                <div class="mb-3">
-                    <label for="celular" class="form-label">Celular</label>
-                    <input type="tel" class="form-control" id="celular" name="celular" placeholder="Ingresa tu número de celular" required pattern="[0-9]{9,10}">
-                </div>
-
-                <!-- Fecha de Nacimiento -->
-                <div class="mb-3">
-                    <label for="fecha-nacimiento" class="form-label">Fecha de Nacimiento</label>
-                    <input type="date" class="form-control" id="fecha-nacimiento" name="fecha-nacimiento" required>
-                </div>
-
-                <!-- Campo para Mensaje -->
-                <div class="mb-3">
-                    <label for="mensaje" class="form-label">Mensaje</label>
-                    <textarea class="form-control" id="mensaje" name="mensaje" rows="3" placeholder="Escribe tu mensaje aquí" required></textarea>
-                </div>
-
-                <!-- Botón de envío -->
-                <button type="submit" class="custom-btn btn-1">Enviar</button>
-            
-            </form>
-        </section>
-    </form>
-
-<div class="spacer" style="height: 50px;"></div>
-<div class="spacer" style="height: 50px;"></div>
+        
+    <!-- Espacio entre  -->
+    <div class="spacer" style="height: 120px;"></div>
     
-    <!-- Pie de página -->
-    <!-- Incluir el footer desde el directorio includes -->
-    {% include 'noticiero/includes/footer.html' %}
-        
-    <!-- Scripts de Bootstrap -->
-    <script src="{% static 'js/script.js' %}"></script>
-    <script src="{% static 'js/validaciones.js' %}"></script>
 
-   
-    <!-- Loader Buscare otro-->
-        
+    <!-- Sección de UneNosotros -->
+    <section class="centered-container">
+        <div class="custom-card">
+            <h2 class="card-title text-center mb-4">
+                Únete a Nosotros
+            </h2>
+            <form method="post">
+                {% csrf_token %}
+                <div class="space-y-4">
+                    <div>
+                        <label class="form-label">
+                            Rut
+                        </label>
+                        <input type="text" class="form-control" name="rut" required>
+                    </div>
+                    <div>
+                        <label class="form-label">
+                            Nombre
+                        </label>
+                        <input type="text" class="form-control" name="nombre" placeholder="Ingresa tu nombre" required>
+                    </div>
+                    <div>
+                        <label class="form-label">
+                            Apellido Paterno
+                        </label>
+                        <input type="text" class="form-control" name="apellido_paterno" placeholder="Ingresa tu apellido paterno" required>
+                    </div>
+                    <div>
+                        <label class="form-label">
+                            Apellido Materno
+                        </label>
+                        <input type="text" class="form-control" name="apellido_materno" placeholder="Ingresa tu apellido materno" required>
+                    </div>
+                    <div>
+                        <label class="form-label">
+                            Fecha de Nacimiento
+                        </label>
+                        <input type="date" class="form-control" name="fecha_nacimiento" required>
+                    </div>
+                    <div>
+                        <label class="form-label">
+                            Id Genero
+                        </label>
+                        <select class="form-select" name="id_genero" required>
+                            <option value="" disabled selected>Selecciona género</option>
+                            <!-- Aquí debes incluir opciones dinámicas si es necesario -->
+                            <option value="1">Masculino</option>
+                            <option value="2">Femenino</option>
+                            <option value="3">Otro</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="form-label">
+                            Teléfono
+                        </label>
+                        <input type="tel" class="form-control" name="telefono" placeholder="Ingresa tu número de teléfono" required pattern="[0-9]{9,10}">
+                    </div>
+                    <div>
+                        <label class="form-label">
+                            Email
+                        </label>
+                        <input type="email" class="form-control" name="email" placeholder="tucorreo@example.com" required>
+                    </div>
+                    <div>
+                        <label class="form-label">
+                            Dirección
+                        </label>
+                        <input type="text" class="form-control" name="direccion" placeholder="Ingresa tu dirección">
+                    </div>
+                    <div>
+                        <label class="form-label">
+                            Activo
+                        </label>
+                        <input type="number" class="form-control" name="activo" placeholder="1 o 0" required>
+                    </div><br>
+                    <div class="text-center">
+                        <button class="custom-btn btn-secondary">
+                            Enviar
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+  <!-- Espacio entre footer  -->
+  <div class="spacer" style="height: 50px;"></div>
+  <div class="spacer" style="height: 50px;"></div>
+
+  <!-- Incluir el footer desde el directorio includes -->
+  {% include 'noticiero/includes/footer.html' %}
+
+   <!-- Scripts -->
+   <script src="{% static 'js/script.js' %}"></script>
+   <script src="{% static 'js/validaciones.js' %}"></script>
+
 </body>
 </html>
