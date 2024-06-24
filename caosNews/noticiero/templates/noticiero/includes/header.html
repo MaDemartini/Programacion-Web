@@ -1,5 +1,6 @@
 {% load static %}
 
+<!-- Navbar -->
 <nav class="navbar navbar-expand-lg bg-black p">
     <div class="container-fluid">
         <a class="navbar-brand" href="{% url 'index' %}" id="enlace-index">
@@ -24,7 +25,11 @@
                 <li class="nav-item dropdown bg-bordeaux">
                     <a class="nav-link text-white dropdown-toggle" href="#unete" role="button" data-bs-toggle="dropdown" aria-expanded="false">Únete</a>
                     <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Iniciar Sesión</a></li>
+                        {% if user.is_authenticated %}
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#confirmLogoutModal">Cerrar sesión</a></li>
+                        {% else %}
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Iniciar Sesión</a></li>
+                        {% endif %}
                         <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal2">Registrarse</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="{% url 'UneNosotros' %}" id="enlace-UneNosotros">Únete a Nosotros</a></li>
@@ -35,27 +40,36 @@
             
             <form class="d-flex search-form" role="search">
                 <div class="InputContainer">
-                  <input placeholder="¿Qué buscas?" id="input" class="input search-input" name="text" type="text" aria-label="Search">
+                    <input placeholder="¿Qué buscas?" id="input" class="input search-input" name="text" type="text" aria-label="Search">
                 </div>
                 <button class="custom-btn btn-1 search-button" type="submit">Buscar</button>
-              </form>
-              
-            <a href="{% url 'carro' %}" class="CartBtnCustom">
-                <span class="IconContainer">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512" fill="rgb(17, 17, 17)" class="cart">
-                        <path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 
-                        32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 
-                        53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 
-                        19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 
-                        0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H
-                        24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 
-                        0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z">
-                        </path>
+            </form>
+            
+            {% if user.is_authenticated %}
+                <button class="buttonSubir">
+                    <svg class="svgIcon" viewBox="0 0 384 512">
+                    <path
+                        d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"
+                    ></path>
                     </svg>
-                </span>
-                <p class="text">Add to Cart</p>
-            </a>
-                  
+                </button>
+                
+                <a href="{% url 'carro' %}" class="CartBtnCustom">
+                    <span class="IconContainer">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512" fill="rgb(17, 17, 17)" class="cart">
+                            <path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 
+                            32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 
+                            53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 
+                            19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 
+                            0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H
+                            24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 
+                            0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z">
+                            </path>
+                        </svg>
+                    </span>
+                    <p class="text">Add to Cart</p>
+                </a>
+            {% endif %}
         </div>
     </div>
 </nav>
@@ -69,20 +83,20 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form class="login-form">
+                <form class="login-form" method="post" action="{% url 'login' %}">
+                    {% csrf_token %}
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Correo Electrónico</label>
-                        <input type="email" class="form-control login-input" id="exampleInputEmail1">
+                        <label for="username" class="form-label">Nombre de Usuario</label>
+                        <input type="text" class="form-control login-input" id="username" name="username" required>
                     </div>
                     <div class="mb-3">
-                        <label for="contraseña" class="form-label">Contraseña</label>
-                        <input type="password" class="form-control login-input" id="contraseña" required>
+                        <label for="password" class="form-label">Contraseña</label>
+                        <input type="password" class="form-control login-input" id="password" name="password" required>
                     </div>
                     <div class="text-center">
                         <button type="submit" class="custom-btn btn-1 login-form-btn">Iniciar Sesión</button>
                     </div>
                 </form>
-                <hr>
                 <p class="text-center">O inicia sesión con:</p>
                 <div class="d-grid gap-2">
                     <button class="btn btn-outline-danger login-social-btn" type="button">
@@ -94,11 +108,12 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="custom-btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
             </div>
         </div>
     </div>
 </div>
+
 
 <!-- Modal de Registro -->
 <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -109,23 +124,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form class="register-form">
-                    <div class="mb-3">
-                        <label for="nombre" class="form-label">Nombre</label>
-                        <input type="text" class="form-control register-input" id="nombre" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Correo Electrónico</label>
-                        <input type="email" class="form-control register-input" id="exampleInputEmail1">
-                    </div>
-                    <div class="mb-3">
-                        <label for="contraseña" class="form-label">Contraseña</label>
-                        <input type="password" class="form-control register-input" id="contraseña" required>
-                    </div>
-                    <div class="text-center">
-                        <button type="submit" class="custom-btn btn-1 register-form-btn">Registrarse</button>
-                    </div>
-                </form>
+                {% include 'registration/register.html' %}
                 <hr>
                 <p class="text-center">O registra con:</p>
                 <div class="d-grid gap-2">
@@ -138,8 +137,29 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="custom-btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
             </div>
         </div>
     </div>
 </div>
+
+<!-- Modal de Confirmación de Cerrar Sesión -->
+<div class="modal fade" id="confirmLogoutModal" tabindex="-1" aria-labelledby="confirmLogoutModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmLogoutModalLabel">Confirma el Cierre de Sesión</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>¿Estás seguro de que deseas cerrar sesión?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <a href="{% url 'logout' %}" class="btn btn-danger">Cerrar sesión</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+

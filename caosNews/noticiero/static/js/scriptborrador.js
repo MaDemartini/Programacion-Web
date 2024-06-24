@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         <li class="nav-item dropdown bg-bordeaux">
                             <a class="nav-link text-white dropdown-toggle" href="#unete" role="button" data-bs-toggle="dropdown" aria-expanded="false">Únete</a>
                             <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Iniciar Sesión</a></li>
+                                <li><a class="dropdown-item" href="/accounts/login" data-bs-toggle="modal" data-bs-target="#exampleModal">Iniciar Sesión</a></li>
                                 <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal2">Registrarse</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="{% url 'UneNosotros' %}" id="enlace-UneNosotros">Únete a Nosotros</a></li>

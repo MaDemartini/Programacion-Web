@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}"> <!-- Hoja de estilos -->
     <link rel="stylesheet" href="{% static 'css/stylesApi.css' %}">
     <link rel="stylesheet" href="{% static 'css/stylesIncludes.css' %}">
+    <link rel="stylesheet" href="{% static 'css/stylesIcon.css' %}">
 
     
     <style>
@@ -107,6 +108,7 @@
                                 <h5 class="card-title">Familia de carabinero asesinado a Yolvi González: "No tiene idea lo que se le viene"</h5>
                                 <p class="card-text">El antisocial, de nacionalidad venezolana, mostró una actitud desafiante e incluso sonrió tras su detención por el crimen del teniente Emmanuel Sánchez.</p>
                                 <p class="card-text"><small class="text-body-secondary">Autor: Ana Espinoza Contreras| Fecha: 11 de Abril, 2024 | Categoría: Seguridad</small></p>
+                                {% include 'noticiero/includes/icon/iconGuardarPubli.html' with article_id='noticiasYolviGonzalez' %}
                             </div>
                         </a>
                     </div>
@@ -121,6 +123,7 @@
                                 <h5 class="card-title">Hallazgo de cuerpo en Ñuñoa: Arzobispado afirma que mujer que dejó restos en la calle “no es religiosa”.</h5>
                                 <p class="card-text">De acuerdo al organismo de la Iglesia Católica solo la hija de la mujer de 80 años pertenece a su Arquidiócesis.</p>
                                 <p class="card-text"><small class="text-body-secondary">Autor: Luis Cerda | Fecha: 10 de Abril, 2024 | Categoría: Seguridad</small></p>
+                                {% include 'noticiero/includes/icon/iconGuardarPubli.html' with article_id='Monjanunoa' %}
                             </div>
                         </a>
                     </div>
@@ -135,6 +138,7 @@
                                 <h5 class="card-title">Chile sufre dura caída: los 10 mejores países del mundo para hacer negocios</h5>
                                 <p class="card-text">El ránking de los mejores lugares del mundo para hacer negocios elaborado trae cambios para Argentina y Chile.</p>
                                 <p class="card-text"><small class="text-body-secondary">Autor: BBC News Mundo | Fecha: 12 de abril de 2024 | Categoría: Economía</small></p>
+                                {% include 'noticiero/includes/icon/iconGuardarPubli.html' with article_id='noticiaFiltracion' %}
                             </div>
                         </a>
                     </div>
@@ -147,53 +151,59 @@
                             <img src="{% static 'Img/Noticias/ronaldpolitico.jpg' %}" class="img-fluid rounded-start" alt="ronaldpolitico">
                             <div class="card-body">
                                 <h5 class="card-title">Diputados piden romper relaciones con Venezuela: "Chile debe tener consecuencia con su tradición democrática"</h5>
-                                <p class="card-text">Desde la UDI al Partido Socialista, los parlamentarios emplazaron al Ejecutivo a exigir la extradición de los sospechosos del asesinato del exmilitar.</p>
+                                <p class="card-text">Desde la UDI al Partido Socialista, los parlamentarios emplazaron al Ejecutivo a exigir la extradición de los sospechosos.</p>
                                 <p class="card-text"><small class="text-body-secondary">Autor: Pedro Uribe Cuevas | Fecha: 12 de abril de 2024 | Categoría: Política</small></p>
+                                {% include 'noticiero/includes/icon/iconGuardarPubli.html' with article_id='ronaldpolitico' %}
                             </div>
                         </a>
                     </div>
                 </div>
-
         </div>
+    </section>    
     <!-- Tarjetas de Noticias -->
+    <section class="container-fluid mt-5" style="padding-left: 15px; padding-right: 15px;">
+
         <div class="container mt-5">
-        <!-- Tarjetas de Noticias Secundarias -->
-        <div class="card-group">
-            <!-- Noticia 1 -->
-            <div class="card mb-4">
-                <a href="{% url 'noticiaFiltracion' %}" style="text-decoration: none; color: black;">
-                    <img src="{% static 'Img/Noticias/filtracion.jpeg' %}" class="card-img-top" alt="noticiaFiltracion" style="height: 200px; object-fit: cover;">
-                    <div class="card-body">
-                        <h5>Acabamos de descubrir la mayor filtración de datos de la historia: 26.000 millones de cuentas, al descubierto</h5>
-                        <p>La madre de todas las filtraciones de datos.</p>
-                    </div>
-                </a>
-            </div>
-            
-            <!-- Noticia 2 -->
-            <div class="card mb-4">
-                <a href="{% url 'noticiaAntarticarealidadvirtual' %}" style="text-decoration: none; color: black;">
-                    <img src="{% static 'Img/Noticias/Antarticarealidadvirtual.jpg' %}" class="card-img-top" alt="noticiaAntartica" style="height: 200px; object-fit: cover;">
-                    <div class="card-body">
-                        <h5>Una experiencia inmersiva en la Antártida gracias a la realidad virtual</h5>
-                        <p>Una fundación británica ha reunido datos geográficos, fotografías, IA y la narración de un explorador para trasladar al usuario a una base antártica.</p>
-                    </div>
-                </a>
-            </div>
-            
-            <!-- Noticia 3 -->
-            <div class="card mb-4">
-                <a href="{% url 'noticiaSteam' %}" style="text-decoration: none; color: black;">
-                    <img src="{% static 'Img/Noticias/FundadorSteam.jpeg' %}" class="card-img-top" alt="noticiaSteam" style="height: 200px; object-fit: cover;">
-                    <div class="card-body">
-                        <h5>El fundador de Steam pidió en 2011 que alguien hackeara su cuenta. Nadie lo ha conseguido (y con razón)</h5>
-                        <p>"Mi usuario es gaben@valvesoftware.com y mi contraseña es MoolyFTW", confesó Gabe Newell en 2011.</p>
-                    </div>
-                </a>
+            <!-- Tarjetas de Noticias Secundarias -->
+            <div class="card-group">
+                <!-- Noticia 1 -->
+                <div class="card mb-4">
+                    <a href="{% url 'noticiaFiltracion'}" style="text-decoration: none; color: black;">
+                        <img src="{% static 'Img/Noticias/filtracion.jpeg' %}" class="card-img-top" alt="noticiaFiltracion" style="height: 200px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5>Acabamos de descubrir la mayor filtración de datos de la historia: 26.000 millones de cuentas, al descubierto</h5>
+                            <p>La madre de todas las filtraciones de datos.</p>
+                            {% include 'noticiero/includes/icon/iconGuardarPubli.html' with article_id='noticiaFiltracion' %}
+                        </div>
+                    </a>
+                </div>
+                    
+                <!-- Noticia 2 -->
+                <div class="card mb-4">
+                    <a href="{% url 'noticiaAntarticarealidadvirtual' %}" style="text-decoration: none; color: black;">
+                        <img src="{% static 'Img/Noticias/Antarticarealidadvirtual.jpg' %}" class="card-img-top" alt="noticiaAntartica" style="height: 200px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5>Una experiencia inmersiva en la Antártida gracias a la realidad virtual</h5>
+                            <p>Una fundación británica ha reunido datos geográficos, fotografías, IA y la narración de un explorador para trasladar al usuario a una base antártica.</p>
+                            {% include 'noticiero/includes/icon/iconGuardarPubli.html' with article_id='noticiaAntartica' %}
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Noticia 3 -->
+                <div class="card mb-4">
+                    <a href="{% url 'noticiaSteam' %}" style="text-decoration: none; color: black;">
+                        <img src="{% static 'Img/Noticias/FundadorSteam.jpeg' %}" class="card-img-top" alt="noticiaSteam" style="height: 200px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5>El fundador de Steam pidió en 2011 que alguien hackeara su cuenta. Nadie lo ha conseguido (y con razón)</h5>
+                            <p>"Mi usuario es gaben@valvesoftware.com y mi contraseña es MoolyFTW", confesó Gabe Newell en 2011.</p>
+                        </div>
+                        {% include 'noticiero/includes/icon/iconGuardarPubli.html' with article_id='noticiaSteam' %}
+                    </a>
+                </div>
             </div>
         </div>
-        </div>
-        </section>
+    </section>
     
         
 
@@ -204,45 +214,49 @@
     <div class="spacer" style="height: 50px;"></div>
       
     <!-- Tarjetas de Noticias -->
-    <div class="container mt-5">
-        <!-- Tarjetas de Noticias Secundarias -->
-        <div class="card-group">
-            <!-- Noticia 1 -->
-            <div class="card mb-4">
-                <a href="{% url 'noticiaFiltracion'}" style="text-decoration: none; color: black;">
-                    <img src="{% static 'Img/Noticias/filtracion.jpeg' %}" class="card-img-top" alt="noticiaFiltracion" style="height: 200px; object-fit: cover;">
-                    <div class="card-body">
-                        <h5>Acabamos de descubrir la mayor filtración de datos de la historia: 26.000 millones de cuentas, al descubierto</h5>
-                        <p>La madre de todas las filtraciones de datos.</p>
-                    </div>
-                </a>
-            </div>
-            
-            <!-- Noticia 2 -->
-            <div class="card mb-4">
-                <a href="{% url 'noticiaAntarticarealidadvirtual' %}" style="text-decoration: none; color: black;">
-                    <img src="{% static 'Img/Noticias/Antarticarealidadvirtual.jpg' %}" class="card-img-top" alt="noticiaAntartica" style="height: 200px; object-fit: cover;">
-                    <div class="card-body">
-                        <h5>Una experiencia inmersiva en la Antártida gracias a la realidad virtual</h5>
-                        <p>Una fundación británica ha reunido datos geográficos, fotografías, IA y la narración de un explorador para trasladar al usuario a una base antártica.</p>
-                    </div>
-                </a>
-            </div>
-            
-            <!-- Noticia 3 -->
-            <div class="card mb-4">
-                <a href="{% url 'noticiaSteam' %}" style="text-decoration: none; color: black;">
-                    <img src="{% static 'Img/Noticias/FundadorSteam.jpeg' %}" class="card-img-top" alt="noticiaSteam" style="height: 200px; object-fit: cover;">
-                    <div class="card-body">
-                        <h5>El fundador de Steam pidió en 2011 que alguien hackeara su cuenta. Nadie lo ha conseguido (y con razón)</h5>
-                        <p>"Mi usuario es gaben@valvesoftware.com y mi contraseña es MoolyFTW", confesó Gabe Newell en 2011.</p>
-                    </div>
-                </a>
+    <section class="container-fluid mt-5" style="padding-left: 15px; padding-right: 15px;">
+
+        <div class="container mt-5">
+            <!-- Tarjetas de Noticias Secundarias -->
+            <div class="card-group">
+                <!-- Noticia 1 -->
+                <div class="card mb-4">
+                    <a href="{% url 'noticiaFiltracion'}" style="text-decoration: none; color: black;">
+                        <img src="{% static 'Img/Noticias/filtracion.jpeg' %}" class="card-img-top" alt="noticiaFiltracion" style="height: 200px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5>Acabamos de descubrir la mayor filtración de datos de la historia: 26.000 millones de cuentas, al descubierto</h5>
+                            <p>La madre de todas las filtraciones de datos.</p>
+                            {% include 'noticiero/includes/icon/iconGuardarPubli.html' with article_id='noticiaFiltracion' %}
+                        </div>
+                    </a>
+                </div>
+                    
+                <!-- Noticia 2 -->
+                <div class="card mb-4">
+                    <a href="{% url 'noticiaAntarticarealidadvirtual' %}" style="text-decoration: none; color: black;">
+                        <img src="{% static 'Img/Noticias/Antarticarealidadvirtual.jpg' %}" class="card-img-top" alt="noticiaAntartica" style="height: 200px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5>Una experiencia inmersiva en la Antártida gracias a la realidad virtual</h5>
+                            <p>Una fundación británica ha reunido datos geográficos, fotografías, IA y la narración de un explorador para trasladar al usuario a una base antártica.</p>
+                            {% include 'noticiero/includes/icon/iconGuardarPubli.html' with article_id='noticiaAntartica' %}
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Noticia 3 -->
+                <div class="card mb-4">
+                    <a href="{% url 'noticiaSteam' %}" style="text-decoration: none; color: black;">
+                        <img src="{% static 'Img/Noticias/FundadorSteam.jpeg' %}" class="card-img-top" alt="noticiaSteam" style="height: 200px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5>El fundador de Steam pidió en 2011 que alguien hackeara su cuenta. Nadie lo ha conseguido (y con razón)</h5>
+                            <p>"Mi usuario es gaben@valvesoftware.com y mi contraseña es MoolyFTW", confesó Gabe Newell en 2011.</p>
+                        </div>
+                        {% include 'noticiero/includes/icon/iconGuardarPubli.html' with article_id='noticiaSteam' %}
+                    </a>
+                </div>
             </div>
         </div>
-        </div>
-        </section>
-    </div>
+    </section>
 
     {% include 'noticiero/includes/apiSismologia.html' %}
 

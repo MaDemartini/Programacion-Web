@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caos News - Une Nosotros</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <link rel="icon" href="{% static 'Img/Logo/Logo.png' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"> 
+    <link rel="stylesheet" href="{% static 'css/stylesIncludes.css' %}"> 
+    <link rel="stylesheet" href="{% static 'css/stylesVistas.css' %}"> 
+    <style>
+        .search-form {
+            margin-right: auto;
+        }
+        .search-button {
+            color: white;
+            background-color: #720312;
+        }
+        .noticia-card {
+            background-color: #f8f9fa; /* Color de fondo para resaltar las noticias */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Loader -->
+    {% include 'noticiero/includes/loader.html' %}
+
+    <!-- Incluir el header desde el directorio includes -->
+    {% include 'noticiero/includes/header.html' %}
+        
+
+    <!-- Sección de Registro -->
+    <section class="centered-container">
+        <div class="custom-card">
+            <h2 class="card-title text-center mb-4">
+                Registrarse
+            </h2>
+            <form method="post">
+                {% csrf_token %}
+                <div class="space-y-4">
+                    <div>
+                        <label class="form-label">
+                            Nombre
+                        </label>
+                        <input type="text" class="form-control" name="nombre" placeholder="Ingresa tu nombre" required>
+                    </div>
+                    <div>
+                        <label class="form-label">
+                            Email
+                        </label>
+                        <input type="email" class="form-control" name="email" placeholder="tucorreo@example.com" required>
+                    </div>
+                    <div>
+                        <label for="contraseña" class="form-label">Contraseña</label>
+                        <input type="password" name="password" class="form-control register-input" id="contraseña" required>
+                    </div><br>
+                    <div class="text-center">
+                        <button class="custom-btn btn-secondary">
+                            Enviar
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+  <!-- Espacio entre footer  -->
+  <div class="spacer" style="height: 50px;"></div>
+  <div class="spacer" style="height: 50px;"></div>
+
+  <!-- Incluir el footer desde el directorio includes -->
+  {% include 'noticiero/includes/footer.html' %}
+
+</body>
+</html>

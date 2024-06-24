@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}"> 
     <link rel="stylesheet" href="{% static 'css/stylesIncludes.css' %}"> 
     <link rel="stylesheet" href="{% static 'css/stylesVistas.css' %}"> 
+    <link rel="stylesheet" href="{% static 'css/stylesIcon.css' %}">
     <style>
         .search-form {
             margin-right: auto;
@@ -33,10 +34,9 @@
     <!-- Incluir el header desde el directorio includes -->
     {% include 'noticiero/includes/header.html' %}
         
-    <!-- Espacio entre  -->
-    <div class="spacer" style="height: 120px;"></div>
     
-
+    <div class="container">
+    {% include 'noticiero/includes/icon/cuboAnimado.html' %}
     <!-- Sección de UneNosotros -->
     <section class="centered-container">
         <div class="custom-card">
@@ -50,7 +50,7 @@
                         <label class="form-label">
                             Rut
                         </label>
-                        <input type="text" class="form-control" name="rut" required>
+                        <input type="text" class="form-control" name="rut" placeholder="Ingresa tu rut" required>
                     </div>
                     <div>
                         <label class="form-label">
@@ -121,6 +121,9 @@
             </form>
         </div>
     </section>
+    {% include 'noticiero/includes/icon/cardAnimada.html' %}
+    </div>
+
 
   <!-- Espacio entre footer  -->
   <div class="spacer" style="height: 50px;"></div>

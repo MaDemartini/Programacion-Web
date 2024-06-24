@@ -134,7 +134,8 @@ nav {
 }
 
 .search-button {
-  margin-left: 5px; /* Ajuste de margen para separar el botón del cuadro de búsqueda */
+  margin-right: 75px;
+  margin-left: 5px; /* Ajuste de margen entre el cuadro de búsqueda y el botón */
 }
 
 .InputContainer {
@@ -186,8 +187,9 @@ nav {
   word-wrap: break-word;
   text-align: center;
   font-weight: bold;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Courier New';
   max-width: 190px;
+  color:#000000;
 }
 
 
@@ -227,6 +229,66 @@ nav ul li a:hover {
   color: #fff; /*color del texto al pasar el cursor */
 }
 
+/* buttonSubir */
+.buttonSubir {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgb(20, 20, 20);
+  right: 5%;
+  border: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 0px 4px rgba(180, 160, 255, 0.253);
+  cursor: pointer;
+  transition-duration: 0.3s;
+  overflow: hidden;
+  position: relative;
+}
+
+.svgIcon {
+  width: 12px;
+  transition-duration: 0.3s;
+}
+
+.svgIcon path {
+  fill: white;
+}
+
+.buttonSubir:hover {
+  width: 140px;
+  border-radius: 50px;
+  transition-duration: 0.3s;
+  background-color: rgb(181, 160, 255);
+  align-items: center;
+}
+
+.buttonSubir:hover .svgIcon {
+  /* width: 20px; */
+  transition-duration: 0.3s;
+  transform: translateY(-200%);
+}
+
+.buttonSubir::before {
+  position: absolute;
+  bottom: -20px;
+  content: "Subir Noticia";
+  color: white;
+  transition-duration: .3s;
+  font-size: 0px;
+}
+
+.buttonSubir:hover::before {
+  font-size: 13px;
+  opacity: 1;
+  bottom: unset;
+  /* transform: translateY(-30px); */
+  transition-duration: 0.3s;
+}
+
+
 /* Carro */
 .CartBtnCustom {
   width: 150px;
@@ -244,6 +306,8 @@ nav ul li a:hover {
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.103);
   position: relative;
   text-decoration: none; /* Remover subrayado del enlace */
+  margin-left: 5px; /* Ajuste de margen entre el cuadro de búsqueda y el botón */
+
 }
 
 .IconContainer {
@@ -485,3 +549,316 @@ nav ul li a:hover {
 .loader:not(.active) .logo {
   animation: none !important;
 }
+
+
+
+/*Loader carro*/
+.loaderCarro {
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+
+.truckWrapper {
+  width: 200px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  justify-content: flex-end;
+  overflow-x: hidden;
+}
+/* truck upper body */
+.truckBody {
+  width: 130px;
+  height: fit-content;
+  margin-bottom: 6px;
+  animation: motion 1s linear infinite;
+}
+/* truck suspension animation*/
+@keyframes motion {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(3px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+/* truck's tires */
+.truckTires {
+  width: 130px;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 10px 0px 15px;
+  position: absolute;
+  bottom: 0;
+}
+.truckTires svg {
+  width: 24px;
+}
+
+.road {
+  width: 100%;
+  height: 1.5px;
+  background-color: #282828;
+  position: relative;
+  bottom: 0;
+  align-self: flex-end;
+  border-radius: 3px;
+}
+.road::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 100%;
+  background-color: #282828;
+  right: -50%;
+  border-radius: 3px;
+  animation: roadAnimation 1.4s linear infinite;
+  border-left: 10px solid white;
+}
+.road::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 100%;
+  background-color: #282828;
+  right: -65%;
+  border-radius: 3px;
+  animation: roadAnimation 1.4s linear infinite;
+  border-left: 4px solid white;
+}
+
+.lampPost {
+  position: absolute;
+  bottom: 0;
+  right: -90%;
+  height: 90px;
+  animation: roadAnimation 1.4s linear infinite;
+}
+
+@keyframes roadAnimation {
+  0% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(-350px);
+  }
+}
+
+/* Card carro */
+.cardCarro {
+  width: 190px;
+  height: 254px;
+  overflow: visible;
+  cursor: pointer;
+  position: relative;
+}
+
+.cardCarro::before, .content {
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px 1px #00000022;
+  transition: transform 300ms, box-shadow 200ms;
+}
+
+.cardCarro::before {
+  position: absolute;
+  content: ' ';
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: #ee9933;
+  transform: rotateZ(5deg);
+}
+
+.descriptionCarro {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.infoCarro {
+  color: #00000066;
+}
+
+.priceCarro::before {
+  content: '$';
+}
+
+.priceCarro {
+  font-weight: bold;
+  color: #ee9933;
+}
+
+.descriptionCarro p {
+  margin-bottom: 10px;
+}
+
+.cardCarro .content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: rotateZ(-5deg);
+}
+
+.content .img {
+  width: 150px;
+  height: fit-content;
+}
+
+.cardCarro:hover::before, .cardCarro:hover .content {
+  transform: rotateZ(0deg);
+}
+
+.cardCarro:active::before, .cardCarro:active .content {
+  box-shadow: none;
+}
+
+
+/* cardCarroVenta */
+.cardCarroVenta {
+  position:absolute; /* Esto posiciona el elemento de forma fija */
+  top: 180px; /* Distancia desde la parte superior */
+  right: 20px; /* Distancia desde el borde derecho */
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1.5rem;
+  background-color: rgba(0, 0, 0, 1);
+  padding: 1.5rem;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.3);
+}
+
+
+.priceCarroVenta {
+  font-size: 3rem;
+  line-height: 1;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 1);
+}
+
+.listsCarroVenta {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  grid-row-gap: 0.75rem;
+  row-gap: 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: rgba(255, 255, 255, 1);
+}
+
+.listCarroVenta {
+  display: flex;
+  align-items: center;
+}
+
+.listCarroVenta svg {
+  height: 1rem;
+  width: 1rem;
+}
+
+.listCarroVenta span {
+  margin-left: 1rem;
+}
+
+.actionCarroVenta {
+  margin-top: 2rem;
+  width: 100%;
+  border: 2px solid  rgba(255, 255, 255, 1);
+  border-radius: 9999px;
+  background-color: rgba(255, 255, 255, 1);
+  padding: 0.625rem 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  font-size: 0.875rem;
+  color: rgba(0, 0, 0, 1);
+  outline: none;
+  text-decoration: none;
+  transition: all .2s ease;
+}
+
+.actionCarroVenta:hover {
+  color: rgba(255, 255, 255, 1);
+  background-color: transparent;
+}
+
+
+
+/* Buttom Delete Carro */
+.deleteButton {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  background-color: transparent;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.deleteButton svg {
+  width: 44%;
+}
+.deleteButton:hover {
+  background-color: rgb(237, 56, 56);
+  overflow: visible;
+}
+.bin path {
+  transition: all 0.2s;
+}
+.deleteButton:hover .bin path {
+  fill: #fff;
+}
+.deleteButton:active {
+  transform: scale(0.98);
+}
+.tooltip {
+  --tooltip-color: rgb(41, 41, 41);
+  position: absolute;
+  top: -40px;
+  background-color: var(--tooltip-color);
+  color: white;
+  border-radius: 5px;
+  font-size: 12px;
+  padding: 8px 12px;
+  font-weight: 600;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.105);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.5s;
+}
+.tooltip::before {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  transform: rotate(45deg);
+  content: "";
+  background-color: var(--tooltip-color);
+  bottom: -10%;
+}
+.deleteButton:hover .tooltip {
+  opacity: 1;
+}
+
+
+
