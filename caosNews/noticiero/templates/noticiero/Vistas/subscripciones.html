@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caos News - Une Nosotros</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <link rel="icon" href="{% static 'Img/Logo/Logo.png' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/stylesIncludes.css' %}">
+    <link rel="stylesheet" href="{% static 'css/stylesVistas.css' %}">
+    <link rel="stylesheet" href="{% static 'css/stylesIcon.css' %}">
+    <style>
+        .search-form {
+            margin-right: auto;
+        }
+        .search-button {
+            color: white;
+            background-color: #720312;
+        }
+        .noticia-card {
+            background-color: #f8f9fa; /* Color de fondo para resaltar las noticias */
+        }
+        .card-subscripcion {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .card-subscripcion h3 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Loader -->
+    {% include 'noticiero/includes/loader.html' %}
+    
+    <!-- Incluir el header desde el directorio includes -->
+    {% include 'noticiero/includes/header.html' %}
+        
+    <!-- Espacio entre  -->
+    <div class="spacer" style="height: 120px;"></div>
+
+    <!-- Sección de suscripciones -->
+    <section class="container mt-5" id="suscripciones">
+        <div>
+            <h2 class="text-left">Comparte tus Ideas!</h2>
+            <hr>
+            <p>24/48 Horas estimada de respuesta ☺</p>
+            <div class="row">
+                <!-- Card para suscripción Creador -->
+                <div class="col-md-6">
+                    <div class="card-subscripcion">
+                        <h3>Suscripción Creador</h3>
+                        <p>Detalles de la suscripción Creador.</p>
+                        <form method="post" action="{% url 'subscribe_as_creator' %}">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <button type="submit" class="btn btn-primary">Enviar Solicitud</button>
+                        </form>
+                    </div>
+                </div>
+                <!-- Card para suscripción Creador+ -->
+                <div class="col-md-6">
+                    <div class="card-subscripcion">
+                        <h3>Suscripción Creador+</h3>
+                        <p>Detalles de la suscripción Creador+.</p>
+                        <form method="post" action="{% url 'agregar_al_carrito' 1 %}"> <!-- 1 es el id de la suscripción "Creador+" -->
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-success">Agregar Creador+ al Carrito</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Espacio entre footer  -->
+    <div class="spacer" style="height: 50px;"></div>
+    <div class="spacer" style="height: 50px;"></div>
+    
+    <!-- Incluir el footer desde el directorio includes -->
+    {% include 'noticiero/includes/footer.html' %}
+    
+    <!-- Scripts -->
+    <script src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/validaciones.js' %}"></script>
+</body>
+</html>

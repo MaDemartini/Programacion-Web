@@ -1,0 +1,154 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <title>Caso News - CRUD</title>
+    <link rel="icon" href="{% static 'Img/Logo/Logo.png' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/stylesIncludes.css' %}">
+    <link rel="stylesheet" href="{% static 'css/stylesVistas.css' %}">
+    <link rel="stylesheet" href="{% static 'css/stylesIcon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/stylesCrud.css' %}">
+    <style>
+        .search-form {
+            margin-right: auto;
+        }
+        .search-button {
+            color: white;
+            background-color: #720312;
+        }
+        .noticia-card {
+            background-color: #f8f9fa; 
+        }
+    </style>
+    {% block extra_head %}{% endblock %}
+</head>
+<body style="background-color: #DBE0E3;">
+    
+    <!-- Incluir el header desde el directorio includes -->
+    {% include 'noticiero/includes/header.html' %}
+
+    <div class="container mt-4">
+        <div class="cardCrud-1">
+            <h2 class="card-title">Usuarios Registrados</h2>
+            <div class="table-responsive">
+                <table class="crud-table">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Email</th>
+                            <th>Grupo</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for user in users %}
+                        <tr>
+                            <td>{{ user.username }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>
+                                {% for group in user.groups.all %}
+                                {{ group.name }}
+                                {% endfor %}
+                            </td>
+                            <td>
+                                <a href="{% url 'user_edit' user.pk %}" class="custom-btn btn search-button">Editar</a>
+                                <a href="{% url 'user_delete' user.pk %}" class="custom-btn btn search-button">Eliminar</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="cardCrud-1">
+            <h2 class="card-title">Información del Noticiero</h2>
+            <div class="table-responsive">
+                <table class="crud-table">
+                    <thead>
+                        <tr>
+                            <th>RUT</th>
+                            <th>Nombre</th>
+                            <th>Apellido Paterno</th>
+                            <th>Apellido Materno</th>
+                            <th>Fecha Nacimiento</th>
+                            <th>Género</th>
+                            <th>Teléfono</th>
+                            <th>Email</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for noticiero in noticieros %}
+                        <tr>
+                            <td>{{ noticiero.rut }}</td>
+                            <td>{{ noticiero.nombre }}</td>
+                            <td>{{ noticiero.apellido_paterno }}</td>
+                            <td>{{ noticiero.apellido_materno }}</td>
+                            <td>{{ noticiero.fecha_nacimiento }}</td>
+                            <td>{{ noticiero.id_genero.genero }}</td>
+                            <td>{{ noticiero.telefono }}</td>
+                            <td>{{ noticiero.email }}</td>
+                            <td>
+                                <a href="{% url 'noticiero_edit' noticiero.rut %}" class="custom-btn btn search-button">Editar</a>
+                                <a href="{% url 'noticiero_delete' noticiero.rut %}" class="custom-btn btn search-button">Eliminar</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <a href="{% url 'noticiero_add' %}" class="custom-btn btn search-button">Agregar Noticiero</a>
+        </div>
+
+        <div class="cardCrud-1">
+            <h2 class="card-title">Suscripciones</h2>
+            <div class="table-responsive">
+                <table class="crud-table">
+                    <thead>
+                        <tr>
+                            <th>Usuario</th>
+                            <th>Es Creador</th>
+                            <th>Activo</th>
+                            <th>Fecha de Creación</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for subscription in subscriptions %}
+                        <tr>
+                            <td>{{ subscription.user.username }}</td>
+                            <td>{{ subscription.is_creator }}</td>
+                            <td>{{ subscription.is_active }}</td>
+                            <td>{{ subscription.created_at }}</td>
+                            <td>
+                                <a href="{% url 'subscription_edit' subscription.pk %}" class="custom-btn btn search-button">Editar</a>
+                                <a href="{% url 'subscription_delete' subscription.pk %}" class="custom-btn btn search-button">Eliminar</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Espacio entre footer -->
+    <div class="spacer" style="height: 50px;"></div>
+
+    <!-- Incluir el footer desde el directorio includes -->
+    {% include 'noticiero/includes/footer.html' %}
+
+    <!-- Scripts de Bootstrap -->
+    <script src="{% static 'js/script.js' %}"></script>
+
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

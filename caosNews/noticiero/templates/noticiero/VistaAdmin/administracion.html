@@ -1,0 +1,109 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <title>Caso News - Administración</title>
+    <link rel="icon" href="{% static 'Img/Logo/Logo.png' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/stylesIncludes.css' %}">
+    <link rel="stylesheet" href="{% static 'css/stylesVistas.css' %}">
+    <link rel="stylesheet" href="{% static 'css/stylesIcon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/stylesCrud.css' %}">
+    <style>
+        .search-form {
+            margin-right: auto;
+        }
+        .search-button {
+            color: white;
+            background-color: #720312;
+        }
+        .noticia-card {
+            background-color: #f8f9fa; 
+        }
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .cardCrud-1 {
+            flex: 1 1 calc(25% - 20px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: white;
+        }
+        .cardCrud-1 h2 {
+            background-color: #4c4c4c;
+            color: white;
+            padding: 8px;
+            margin: 0;
+        }
+        .cardCrud-1 p {
+            padding: 15px;
+        }
+        .cardCrud-1 a {
+            display: block;
+            text-align: center;
+            margin: 15px;
+            padding: 10px;
+            background-color: #720312;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+    {% block extra_head %}{% endblock %}
+</head>
+<body style="background-color: #DBE0E3;">
+
+    <!-- Incluir el header desde el directorio includes -->
+    {% include 'noticiero/includes/header.html' %}
+
+    <div class="container mt-4">
+        <h1>Panel de Administración</h1>
+        <div class="card-container">
+            <div class="cardCrud-1">
+                <h2>Gestión de Usuarios</h2>
+                <p>Administra los usuarios registrados en el sistema.</p>
+                <a href="{% url 'admin:auth_user_changelist' %}">Ver todos los usuarios</a>
+                <a href="{% url 'admin:auth_user_add' %}">Agregar nuevo usuario</a>
+            </div>
+            <div class="cardCrud-1">
+                <h2>Gestión de Suscripciones</h2>
+                <p>Administra las suscripciones de los usuarios.</p>
+                <a href="{% url 'admin:noticiero_subscription_changelist' %}">Ver todas las suscripciones</a>
+                <a href="{% url 'admin:noticiero_subscription_add' %}">Agregar nueva suscripción</a>
+            </div>
+            <div class="cardCrud-1">
+                <h2>Gestión de Noticias</h2>
+                <p>Administra las noticias publicadas.</p>
+                <a href="{% url 'admin:noticiero_noticia_changelist' %}">Ver todas las noticias</a>
+                <a href="{% url 'admin:noticiero_noticia_add' %}">Agregar nueva noticia</a>
+            </div>
+            <div class="cardCrud-1">
+                <h2>Gestión de Géneros</h2>
+                <p>Administra los géneros de las noticias.</p>
+                <a href="{% url 'admin:noticiero_genero_changelist' %}">Ver todos los géneros</a>
+                <a href="{% url 'admin:noticiero_genero_add' %}">Agregar nuevo género</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Espacio entre footer -->
+    <div class="spacer" style="height: 50px;"></div>
+
+    <!-- Incluir el footer desde el directorio includes -->
+    {% include 'noticiero/includes/footer.html' %}
+
+    <!-- Scripts de Bootstrap -->
+    <script src="{% static 'js/script.js' %}"></script>
+
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

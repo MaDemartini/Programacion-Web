@@ -1,0 +1,64 @@
+{% extends 'noticiero/base.html' %}
+
+{% block title %}Agregar Noticiero - Caos News{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="custom-card">
+        <h2 class="text-center">Ingresa Usuario</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div class="space-y-4">
+                <div>
+                    <label class="form-label">Rut</label>
+                    <input type="text" class="form-control" name="rut" placeholder="Ingresa tu rut" required>
+                </div>
+                <div>
+                    <label class="form-label">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" placeholder="Ingresa tu nombre" required>
+                </div>
+                <div>
+                    <label class="form-label">Apellido Paterno</label>
+                    <input type="text" class="form-control" name="apellido_paterno" placeholder="Ingresa tu apellido paterno" required>
+                </div>
+                <div>
+                    <label class="form-label">Apellido Materno</label>
+                    <input type="text" class="form-control" name="apellido_materno" placeholder="Ingresa tu apellido materno" required>
+                </div>
+                <div>
+                    <label class="form-label">Fecha de Nacimiento</label>
+                    <input type="date" class="form-control" name="fecha_nacimiento" required>
+                </div>
+                <div>
+                    <label class="form-label">Id Genero</label>
+                    <select class="form-select" name="id_genero" required>
+                        <option value="" disabled selected>Selecciona género</option>
+                        <option value="1">Masculino</option>
+                        <option value="2">Femenino</option>
+                        <option value="3">Otro</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="form-label">Teléfono</label>
+                    <input type="tel" class="form-control" name="telefono" placeholder="Ingresa tu número de teléfono" required pattern="[0-9]{9,10}">
+                </div>
+                <div>
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-control" name="email" placeholder="tucorreo@example.com" required>
+                </div>
+                <div>
+                    <label class="form-label">Dirección</label>
+                    <input type="text" class="form-control" name="direccion" placeholder="Ingresa tu dirección">
+                </div>
+                <div>
+                    <label class="form-label">Activo</label>
+                    <input type="number" class="form-control" name="activo" placeholder="1 o 0" required>
+                </div><br>
+                <div class="text-center">
+                    <button class="custom-btn btn-secondary">Enviar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

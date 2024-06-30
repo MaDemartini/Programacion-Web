@@ -1,0 +1,15 @@
+{% extends 'noticiero/base.html' %}
+
+{% block content %}
+<section class="container mt-5">
+    <h2>Eliminar Item</h2>
+    <div>
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+        <a href="{% url 'ver_carrito' %}" class="btn btn-primary">Ver Carrito</a>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'noticiero/base.html' %}
+{% load static %}
+
+{% block title %}Perfil de Usuario - Caos News{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card-perfil">
+                <div class="card-header">Perfil de Usuario</div>
+
+                <div class="card-body">
+                    <div class="form-group row">
+                        <label for="nombre" class="col-md-4 col-form-label text-md-right">Nombre:</label>
+                        <div class="col-md-6">
+                            <input id="nombre" type="text" class="form-control" name="nombre" value="{{ user.username }}" readonly>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="email" class="col-md-4 col-form-label text-md-right">Email:</label>
+                        <div class="col-md-6">
+                            <input id="email" type="email" class="form-control" name="email" value="{{ user.email }}" readonly>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="grupo" class="col-md-4 col-form-label text-md-right">Grupo:</label>
+                        <div class="col-md-6">
+                            {% for group in user.groups.all %}
+                                <input id="grupo" type="text" class="form-control" name="grupo" value="{{ group.name }}" readonly>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        
+        {% if is_creator_or_staff %}
+            <div class="col-md-4">
+                <a href="{% url 'lista_noticias' %}" class="custom-btn btn-1 search-button">Lista de mis Noticias</a>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

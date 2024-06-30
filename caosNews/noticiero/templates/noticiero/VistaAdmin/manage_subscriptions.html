@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrar Suscripciones - Caos News</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <link rel="icon" href="{% static 'Img/Logo/Logo.png' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"> 
+    <link rel="stylesheet" href="{% static 'css/stylesIncludes.css' %}"> 
+    <link rel="stylesheet" href="{% static 'css/stylesVistas.css' %}"> 
+    <link rel="stylesheet" href="{% static 'css/stylesIcon.css' %}">
+    <style>
+        .search-form {
+            margin-right: auto;
+        }
+        .search-button {
+            color: white;
+            background-color: #720312;
+        }
+        .noticia-card {
+            background-color: #f8f9fa; /* Color de fondo para resaltar las noticias */
+        }
+    </style> 
+</head>
+<body>
+    <!-- Loader -->
+    {% include 'noticiero/includes/loader.html' %}
+
+    <!-- Incluir el header desde el directorio includes -->
+    {% include 'noticiero/includes/header.html' %}
+        
+    <!-- Espacio entre  -->
+    <div class="spacer" style="height: 120px;"></div>
+
+    <!-- Sección de administración de suscripciones -->
+    <section class="container mt-5">
+        <div>
+            <h2 class="text-left">Administrar Suscripciones</h2><hr>
+            <div class="mb-3">
+                <div>
+                    <div>
+                        <div class="md-6 mb-4">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Usuario</th>
+                                        <th>Fecha de Solicitud</th>
+                                        <th>Acción</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for subscription in subscriptions %}
+                                    <tr>
+                                        <td>{{ subscription.user.username }}</td>
+                                        <td>{{ subscription.created_at }}</td>
+                                        <td>
+                                            <form method="post">
+                                                {% csrf_token %}
+                                                <input type="hidden" name="subscription_id" value="{{ subscription.id }}">
+                                                <button type="submit" name="action" value="approve" class="btn btn-success">Aprobar</button>
+                                                <button type="submit" name="action" value="reject" class="btn btn-danger">Rechazar</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        <br>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </section>
+     
+    <!-- Espacio entre footer  -->
+    <div class="spacer" style="height: 50px;"></div>
+    <div class="spacer" style="height: 50px;"></div>
+
+    <!-- Incluir el footer desde el directorio includes -->
+    {% include 'noticiero/includes/footer.html' %}
+
+    <!-- Scripts -->
+    <script src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/validaciones.js' %}"></script>
+    
+</body>
+</html>

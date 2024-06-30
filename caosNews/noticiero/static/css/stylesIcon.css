@@ -160,8 +160,8 @@
 /* card Animada */
 .cardAnimada1 {
   position: relative; /* Cambiado de relative a absolute */
-  right: -75%; /* Ajusta la distancia desde el borde derecho de la página */
-  top: -50%; /* Centra verticalmente la tarjeta */
+  right: -68%; /* Ajusta la distancia desde el borde derecho de la página */
+  top: -60%; /* Centra verticalmente la tarjeta */
   transform: translateY(-50%); /* Asegura el centrado vertical */
   width: 19em;
   height: 25em;

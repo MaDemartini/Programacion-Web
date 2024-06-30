@@ -36,6 +36,36 @@
                         <li><a class="dropdown-item" href="{% url 'sobreNosotros' %}" id="enlace-sobreNosotros">¿Quiénes somos?</a></li>
                     </ul>
                 </li>
+                <li class="nav-item bg-bordeaux">
+                    <a class="nav-link text-white" href="{% url 'subscripciones' %}" data-toggle="modal" data-target="#modalSubscripciones">Subscripciones</a>
+                </li>             
+                {% if user.is_authenticated %}              
+                <li class="nav-item bg-bordeaux">
+                    <a class="nav-link text-white" href="{% url 'perfil' %}" id="enlace-Perfil">Perfil</a>
+                </li>
+                {% endif %}
+
+
+                {% if user.is_authenticated and user.is_staff %}
+                <li class="nav-item bg-bordeaux">
+                    <a class="nav-link text-white" href="{% url 'administracion' %}" id="enlace-enlace-administracion">Administración</a>
+                </li>
+
+                <li class="nav-item dropdown bg-bordeaux">
+                    <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">♥</a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="{% url 'lista_noticias' %}" id="enlace-noticias_list">Lista Noticias</a></li>
+                        <li><a class="dropdown-item" href="#" id="enlace-sobreNosotros">Lista Imagenes</a></li>  
+                        <li><a class="dropdown-item" href="{% url 'user_list' %}" id="enlace-user_list">Lista Perfiles</a></li>
+                        <li><a class="dropdown-item" href="{% url 'noticiero_list' %}" id="enlace-noticiero_list">Lista Noticieros</a></li>
+                        <li><a class="dropdown-item" href="{% url 'subscription_list' %}" id="enlace-subscription_list">Lista Subscripciones</a></li>
+                        <li><a class="dropdown-item" href="{% url 'manage_subscriptions' %}" id="enlace-manage_subscriptions">Subscripciones Pendientes</a></li>
+                        <li><a class="dropdown-item" href="{% url 'crud' %}" id="enlace-crud">Crud</a></li>
+
+                    </ul>
+                </li>
+                {% endif %}
+
             </ul>
             
             <form class="d-flex search-form" role="search">
@@ -46,14 +76,26 @@
             </form>
             
             {% if user.is_authenticated %}
-                <button class="buttonSubir">
+                {% if user.is_staff or user.subscription.is_creator %}
+                    <a href="{% url 'subirNoticias' %}" class="buttonSubir">
                     <svg class="svgIcon" viewBox="0 0 384 512">
-                    <path
+                        <path
                         d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"
-                    ></path>
+                        ></path>
                     </svg>
-                </button>
-                
+                    </a>
+                {% else %}
+                    <a href="#modalsubs" data-bs-toggle="modal" data-bs-target="#modalsubsModal" class="buttonSubir">
+                    <svg class="svgIcon" viewBox="0 0 384 512">
+                        <path
+                        d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"
+                        ></path>
+                    </svg>
+                    </a>
+                {% endif %}
+            {% endif %}
+
+            {% if user.is_authenticated %}
                 <a href="{% url 'carro' %}" class="CartBtnCustom">
                     <span class="IconContainer">
                         <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512" fill="rgb(17, 17, 17)" class="cart">
@@ -162,4 +204,76 @@
     </div>
 </div>
 
+<!-- Modal de Suscripción -->
+<div class="modal fade" id="modalsubsModal" tabindex="-1" aria-labelledby="modalsubsLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content login-form-container">
+            <div class="modal-header">
+                <h5 class="modal-title login-title" id="modalsubsLabel">Necesitas una suscripción</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p class="cookieDescription">Para subir noticias, necesitas tener una suscripción activa en nuestro sitio.</p>
+            </div>
+            <div class="modal-footer">
+                <a href="{% url 'subscripciones' %}" class="btn btn-primary">Ver suscripciones</a>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="custom-btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
 
+
+<!-- Modal de Subcripciones  -->
+<div class="modal fade" id="modalSubscripciones" tabindex="-1" aria-labelledby="modalSubscripcionesLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content subs-form-container">
+            <div class="modal-header">
+                <h5 class="modal-title register-title" id="modalSubscripcionesLabel"> Elige tu plan de suscripción</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                    {% for subscripcion in subscripciones %}
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="cardCarroVenta">
+                                    <p class="priceCarroVenta">$ {{ subscripcion.precio }}</p>
+                                    <p>{{ subscripcion.titulo }}</p>
+                                    <ul class="listsCarroVenta">
+                                        <li class="listCarroVenta">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path fill="#ffffff" d="M21.5821 5.54289C21.9726 5.93342 21.9726 6.56658 21.5821 6.95711L10.2526 18.2867C9.86452 18.6747 9.23627 18.6775 8.84475 18.293L2.29929 11.8644C1.90527 11.4774 1.89956 10.8443 2.28655 10.4503C2.67354 10.0562 3.30668 10.0505 3.70071 10.4375L9.53911 16.1717L20.1679 5.54289C20.5584 5.15237 21.1916 5.15237 21.5821 5.54289Z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>
+                                            <span>{{ subscripcion.duracion }}</span>
+                                        </li>
+                                        <li class="listCarroVenta">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path fill="#ffffff" d="M21.5821 5.54289C21.9726 5.93342 21.9726 6.56658 21.5821 6.95711L10.2526 18.2867C9.86452 18.6747 9.23627 18.6775 8.84475 18.293L2.29929 11.8644C1.90527 11.4774 1.89956 10.8443 2.28655 10.4503C2.67354 10.0562 3.30668 10.0505 3.70071 10.4375L9.53911 16.1717L20.1679 5.54289C20.5584 5.15237 21.1916 5.15237 21.5821 5.54289Z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>
+                                            <span>{{ subscripcion.funciones }}</span>
+                                        </li>
+                                        <li class="listCarroVenta">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path fill="#ffffff" d="M21.5821 5.54289C21.9726 5.93342 21.9726 6.56658 21.5821 6.95711L10.2526 18.2867C9.86452 18.6747 9.23627 18.6775 8.84475 18.293L2.29929 11.8644C1.90527 11.4774 1.89956 10.8443 2.28655 10.4503C2.67354 10.0562 3.30668 10.0505 3.70071 10.4375L9.53911 16.1717L20.1679 5.54289C20.5584 5.15237 21.1916 5.15237 21.5821 5.54289Z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>
+                                            <span>{{ subscripcion.caracteristicas }}</span>
+                                        </li>
+                                        <li class="listCarroVenta">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path fill="#ffffff" d="M21.5821 5.54289C21.9726 5.93342 21.9726 6.56658 21.5821 6.95711L10.2526 18.2867C9.86452 18.6747 9.23627 18.6775 8.84475 18.293L2.29929 11.8644C1.90527 11.4774 1.89956 10.8443 2.28655 10.4503C2.67354 10.0562 3.30668 10.0505 3.70071 10.4375L9.53911 16.1717L20.1679 5.54289C20.5584 5.15237 21.1916 5.15237 21.5821 5.54289Z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>
+                                            <span>{{ subscripcion.compatibilidad }}</span>
+                                        </li>
+                                        <li class="listCarroVenta">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path fill="#ffffff" d="M21.5821 5.54289C21.9726 5.93342 21.9726 6.56658 21.5821 6.95711L10.2526 18.2867C9.86452 18.6747 9.23627 18.6775 8.84475 18.293L2.29929 11.8644C1.90527 11.4774 1.89956 10.8443 2.28655 10.4503C2.67354 10.0562 3.30668 10.0505 3.70071 10.4375L9.53911 16.1717L20.1679 5.54289C20.5584 5.15237 21.1916 5.15237 21.5821 5.54289Z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>
+                                            <span>{{ subscripcion.soporte }}</span>
+                                        </li>
+                                    </ul>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                        <a href="#" class="btn btn-primary">Hacer compra</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>

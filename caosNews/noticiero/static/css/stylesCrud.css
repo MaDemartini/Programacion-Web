@@ -1,0 +1,36 @@
+.cardCrud-1 {
+    background-color: #f8f9fa; /* Color de fondo de las tarjetas CRUD */
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Centrar el contenido dentro de la tarjeta */
+}
+
+.crud-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.crud-table th,
+.crud-table td {
+    padding: 12px 10px; /* Ajuste de espaciado para que el texto esté centrado verticalmente */
+    text-align: center; /* Centrar el texto dentro de las celdas */
+    border-bottom: 1px solid #dee2e6;
+}
+
+.crud-table th {
+    background-color: #424445;
+    color: white;
+    font-weight: bold;
+}
+
+.crud-table td {
+    vertical-align: middle;
+}
+
+.crud-table a {
+    margin-right: 10px;
+}

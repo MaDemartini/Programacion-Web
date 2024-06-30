@@ -1,0 +1,51 @@
+{% extends 'noticiero/base.html' %}
+
+{% block title %}Listado de Noticieros - Caos News{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="cardCrud-1">
+        <h2 class="card-title">Listado de Noticieros</h2>
+        <a href="{% url 'noticiero_add' %}" class="custom-btn btn search-button mb-3">Agregar Noticiero</a>
+        <div class="table-responsive">
+            <table class="crud-table">
+                <thead>
+                    <tr>
+                        <th>RUT</th>
+                        <th>Nombre</th>
+                        <th>Apellido Paterno</th>
+                        <th>Apellido Materno</th>
+                        <th>Fecha Nacimiento</th>
+                        <th>Género</th>
+                        <th>Teléfono</th>
+                        <th>Email</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for noticiero in noticieros %}
+                    <tr>
+                        <td>{{ noticiero.rut }}</td>
+                        <td>{{ noticiero.nombre }}</td>
+                        <td>{{ noticiero.apellido_paterno }}</td>
+                        <td>{{ noticiero.apellido_materno }}</td>
+                        <td>{{ noticiero.fecha_nacimiento }}</td>
+                        <td>{{ noticiero.id_genero.genero }}</td>
+                        <td>{{ noticiero.telefono }}</td>
+                        <td>{{ noticiero.email }}</td>
+                        <td>
+                            <a href="{% url 'noticiero_edit' noticiero.rut %}" class="custom-btn btn search-button">Editar</a>
+                            <a href="{% url 'noticiero_delete' noticiero.rut %}" class="custom-btn btn search-button">Eliminar</a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="9">No hay noticieros disponibles.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

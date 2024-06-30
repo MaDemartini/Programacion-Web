@@ -14,18 +14,29 @@
     <link rel="stylesheet" href="{% static 'css/stylesIncludes.css' %}">
     <link rel="stylesheet" href="{% static 'css/stylesVistas.css' %}">
     <link rel="stylesheet" href="{% static 'css/stylesIcon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/stylesCrud.css' %}">
+    <style>
+        .search-form {
+            margin-right: auto;
+        }
+        .search-button {
+            color: white;
+            background-color: #720312;
+        }
+        .noticia-card {
+            background-color: #f8f9fa; /* Color de fondo para resaltar las noticias */
+        }
+    </style>
     {% block extra_head %}{% endblock %}
 </head>
 <body style="background-color: #DBE0E3;">
 
     <!-- Loader -->
-    {% include 'includes/loader.html' %}
+    {% include 'noticiero/includes/loader.html' %}
 
     <!-- Header -->
-    {% include 'header.html' %}
-    <!-- Modals -->
-    {% include 'modals/iniciar_sesion.html' %}
-    {% include 'modals/registrar.html' %}
+    {% include 'noticiero/includes/header.html' %}
+
 
     <!-- Content -->
     <div class="container-fluid" id="main-content" style="display: none;">
@@ -34,10 +45,11 @@
     </div>
 
     <!-- Footer -->
-    {% include 'footer.html' %}
+    {% include 'noticiero/includes/footer.html' %}
 
     <!-- Scripts -->
     <script src="{% static 'js/script.js' %}"></script>
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+
 </body>
 </html>

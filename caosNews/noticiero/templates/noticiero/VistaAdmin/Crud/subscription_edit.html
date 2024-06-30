@@ -1,0 +1,23 @@
+{% extends 'noticiero/base.html' %}
+
+{% block title %}Editar Suscripción - Caos News{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="custom-card">
+        <h2 class="text-center">Editar Subscripción</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="is_creator">Es Creador:</label>
+                <input type="checkbox" id="is_creator" name="is_creator" {% if subscription.is_creator %}checked{% endif %}>
+            </div>
+            <div class="mb-3">
+                <label for="is_active">Activo:</label>
+                <input type="checkbox" id="is_active" name="is_active" {% if subscription.is_active %}checked{% endif %}>
+            </div>
+            <button type="submit" class="custom-btn btn search-button">Guardar</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

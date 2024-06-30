@@ -1,63 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar Sesión</title>
-    <!-- Agrega tus estilos personalizados si es necesario -->
-</head>
-<body>
-    <h2>Iniciar Sesión</h2>
-    <div class="modal fade show" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-modal="true" role="dialog" style="display: block;">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content login-form-container">
-                <div class="modal-header">
-                    <h5 class="modal-title login-title" id="exampleModalLabel">Iniciar Sesión</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+{% extends 'noticiero/base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="card1 login-card">
+        <div class="card-header">
+            <h2 class="card-title login-title">Iniciar Sesión</h2>
+        </div>
+        <div class="card-body">
+            <form class="login-form" method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="username" class="form-label">Nombre de Usuario</label>
+                    <input type="text" class="form-control login-input" id="username" name="username" required>
                 </div>
-                <div class="modal-body">
-                    <form class="login-form" method="post" action="{% url 'login' %}">
-                        {% csrf_token %}
-                        {% if form.errors %}
-                            <div class="alert alert-danger" role="alert">
-                                {% for field in form %}
-                                    {% for error in field.errors %}
-                                        <p>{{ error }}</p>
-                                    {% endfor %}
-                                {% endfor %}
-                                {% for error in form.non_field_errors %}
-                                    <p>{{ error }}</p>
-                                {% endfor %}
-                            </div>
-                        {% endif %}
-                        <div class="mb-3">
-                            <label for="username" class="form-label">Nombre de Usuario</label>
-                            <input type="text" class="form-control login-input" id="username" name="username" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="password" class="form-label">Contraseña</label>
-                            <input type="password" class="form-control login-input" id="password" name="password" required>
-                        </div>
-                        <div class="text-center">
-                            <button type="submit" class="custom-btn btn-1 login-form-btn">Iniciar Sesión</button>
-                        </div>
-                    </form>
-                    <hr>
-                    <p class="text-center">O inicia sesión con:</p>
-                    <div class="d-grid gap-2">
-                        <button class="btn btn-outline-danger login-social-btn" type="button">
-                            <span class="login-google-icon"></span> Google
-                        </button>
-                        <button class="btn btn-outline-primary login-social-btn" type="button">
-                            <span class="login-apple-icon"></span> iCloud
-                        </button>
-                    </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control login-input" id="password" name="password" required>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="custom-btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <div class="text-center">
+                    <button type="submit" class="custom-btn btn-1 login-form-btn">Iniciar Sesión</button>
                 </div>
+            </form>
+            <hr>
+            <p class="text-center">O inicia sesión con:</p>
+            <div class="d-grid gap-2">
+                <button class="btn btn-outline-danger login-social-btn" type="button">
+                    <span class="login-google-icon"></span> Google
+                </button>
+                <button class="btn btn-outline-primary login-social-btn" type="button">
+                    <span class="login-apple-icon"></span> iCloud
+                </button>
             </div>
         </div>
+        <div class="card-footer">
+            <button type="button" class="custom-btn btn-secondary" aria-label="Close">Cerrar</button>
+        </div>
     </div>
-</body>
-</html>
+</div>
+{% endblock %}

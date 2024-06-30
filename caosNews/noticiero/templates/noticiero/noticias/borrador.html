@@ -1,0 +1,48 @@
+
+ <!--  Generar un subscripciones.html para entrar a subscripciones, en el cuál tiene que tener 2 o 3:
+    - Investigador (Solo te deja visualizar y buscar noticias, como un usuario normal)
+    - Creador (Te deja hacer lo mismo que Investigador + crear;eliminar;editar noticias propias)
+    - Creador plus+
+
+Al crear subscripciones.html tiene que estar en el navbar, el cual me mostrara 3 cards Investigador;Creador;Creador Plus+
+
+Colocar un manejo de carro, el cuál mantenga el diseño ya echo en carro.html, pero que se agreguen los productos de subscripciones.html -->
+
+
+
+<!--  <div class="mb-3">
+                           <label for="categoria" class="form-label">Categoría</label>
+                            <select class="form-control" id="categoria" name="categoria" required>
+                                <option value="">Selecciona una categoría</option> 
+                                {% for categoria in form.fields.categoria.queryset %}
+                                    <option value="{{ categoria.id }}">{{ categoria.nombre }}</option>
+                                {% endfor %} 
+                            </select>
+                        </div> 
+                        
+                        
+                        
+                        
+                        
+                        
+                        @creator_or_staff_required
+def subirNoticias(request):
+    if not request.user.is_staff and request.user.groups.filter(name='Creador').exists():
+        noticias_activas = Noticia.objects.filter(creador=request.user).count()
+        if noticias_activas >= 5:
+            raise PermissionDenied("No puedes tener más de 5 noticias activas.")
+    
+    if request.method == 'POST':
+        form = NoticiaForm(request.POST, request.FILES)
+        if form.is_valid():
+            noticia = form.save(commit=False)
+            noticia.creador = request.user
+            noticia.save()
+            return redirect('lista_noticias')
+    else:
+        form = NoticiaForm()
+
+    context = {
+        'form': form,
+    }
+    return render(request, 'noticiero/vistas/subirNoticias.html', context)-->

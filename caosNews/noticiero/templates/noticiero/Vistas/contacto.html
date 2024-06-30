@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}"> 
     <link rel="stylesheet" href="{% static 'css/stylesIncludes.css' %}"> 
     <link rel="stylesheet" href="{% static 'css/stylesVistas.css' %}"> 
+    <link rel="stylesheet" href="{% static 'css/stylesIcon.css' %}"> 
     <style>
         .search-form {
             margin-right: auto;
@@ -35,37 +36,33 @@
             
         <!-- Espacio entre  -->
         <div class="spacer" style="height: 120px;"></div>
-        
-        
-    
-    <!-- { % for noticiero in noticiero %}
-        
-        {{noticiero.rut}}, {{noticiero.nombre}}, {{noticiero.apellido_paterno}},
-        {{noticiero.apellido_materno}}, {{noticiero.id_genero.genero}}, <br>
 
-    { % endfor %} -->
-
-
+        
     <!-- Sección de contacto -->
     <section class="container mt-5" id="contacto">
-        <h2 class="text-center">Contáctanos</h2>
-        <form>
-            <div class="mb-3">
-                <label for="nombre" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
-            </div>
-            <div class="mb-3">
-                <label for="email" class="form-label">Correo Electrónico</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="tucorreo@example.com" required>
-            </div>
-            <div class="mb-3">
-                <label for="mensaje" class="form-label">Mensaje</label>
-                <textarea class="form-control" id="mensaje" name="mensaje" rows="3" placeholder="Escribe tu mensaje aquí" required></textarea>
-            </div>
-            <button type="submit" class="custom-btn btn-1">Enviar</button>
-        </form>
+        <div class="custom-card">
+            <h2 class="text-center">Contáctanos</h2>
+            <form>
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Correo Electrónico</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="tucorreo@example.com" required>
+                </div>
+                <div class="mb-3">
+                    <label for="mensaje" class="form-label">Mensaje</label>
+                    <textarea class="form-control" id="mensaje" name="mensaje" rows="3" placeholder="Escribe tu mensaje aquí" required></textarea>
+                </div>
+                <button type="submit" class="custom-btn btn-1">Enviar</button>
+            </form>
+        </div>
     </section>
-        
+    
+    <div class="container2">
+        {% include 'noticiero/includes/icon/cardAnimada.html' %}
+    </div>
     
       <!-- Espacio entre footer  -->
       <div class="spacer" style="height: 50px;"></div>

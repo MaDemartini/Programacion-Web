@@ -1,0 +1,44 @@
+{% extends 'noticiero/base.html' %}
+
+{% block title %}Usuarios Registrados - Caos News{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="cardCrud-1">
+        <h2 class="card-title">Usuarios Registrados</h2>
+        <div class="table-responsive">
+            <table class="crud-table">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th>Grupo</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                    <tr>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>
+                            {% for group in user.groups.all %}
+                            {{ group.name }}
+                            {% endfor %}
+                        </td>
+                        <td>
+                            <a href="{% url 'user_edit' user.pk %}" class="custom-btn btn search-button">Editar</a>
+                            <a href="{% url 'user_delete' user.pk %}" class="custom-btn btn search-button">Eliminar</a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="4">No hay usuarios registrados.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

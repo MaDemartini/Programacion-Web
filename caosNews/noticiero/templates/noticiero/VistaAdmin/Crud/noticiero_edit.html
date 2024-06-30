@@ -1,0 +1,64 @@
+{% extends 'noticiero/base.html' %}
+
+{% block title %}Editar Noticiero - Caos News{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="custom-card">
+        <h2 class="text-center">Editar Noticiero</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div class="space-y-4">
+                <div>
+                    <label class="form-label">Rut</label>
+                    <input type="text" class="form-control" name="rut" value="{{ noticiero.rut }}" required>
+                </div>
+                <div>
+                    <label class="form-label">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" value="{{ noticiero.nombre }}" required>
+                </div>
+                <div>
+                    <label class="form-label">Apellido Paterno</label>
+                    <input type="text" class="form-control" name="apellido_paterno" value="{{ noticiero.apellido_paterno }}" required>
+                </div>
+                <div>
+                    <label class="form-label">Apellido Materno</label>
+                    <input type="text" class="form-control" name="apellido_materno" value="{{ noticiero.apellido_materno }}" required>
+                </div>
+                <div>
+                    <label class="form-label">Fecha de Nacimiento</label>
+                    <input type="date" class="form-control" name="fecha_nacimiento" value="{{ noticiero.fecha_nacimiento }}" required>
+                </div>
+                <div>
+                    <label class="form-label">Id Genero</label>
+                    <select class="form-select" name="id_genero" required>
+                        <option value="" disabled>Selecciona género</option>
+                        <option value="1" {% if noticiero.id_genero == 1 %}selected{% endif %}>Masculino</option>
+                        <option value="2" {% if noticiero.id_genero == 2 %}selected{% endif %}>Femenino</option>
+                        <option value="3" {% if noticiero.id_genero == 3 %}selected{% endif %}>Otro</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="form-label">Teléfono</label>
+                    <input type="tel" class="form-control" name="telefono" value="{{ noticiero.telefono }}" required pattern="[0-9]{9,10}">
+                </div>
+                <div>
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-control" name="email" value="{{ noticiero.email }}" required>
+                </div>
+                <div>
+                    <label class="form-label">Dirección</label>
+                    <input type="text" class="form-control" name="direccion" value="{{ noticiero.direccion }}">
+                </div>
+                <div>
+                    <label class="form-label">Activo</label>
+                    <input type="number" class="form-control" name="activo" value="{{ noticiero.activo }}" required>
+                </div><br>
+                <div class="text-center">
+                    <button class="custom-btn btn-1 search-button">Guardar Cambios</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

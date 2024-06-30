@@ -1,0 +1,14 @@
+{% extends 'noticiero/base.html' %}
+
+{% block title %}Editar Género - Caos News{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Editar Género</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="custom-btn btn search-button">Guardar Cambios</button>
+    </form>
+</div>
+{% endblock %}

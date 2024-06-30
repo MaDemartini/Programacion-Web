@@ -1,0 +1,46 @@
+{% extends 'noticiero/base.html' %}
+
+{% block title %}Editar Usuario - Caos News{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="custom-card">
+        <h2 class="text-center">Editar Usuario</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Nombre de usuario</label>
+                        <input type="text" class="form-control" id="username" name="username" value="{{ user.username }}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Correo electrónico</label>
+                        <input type="email" class="form-control" id="email" name="email" value="{{ user.email }}" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="first_name" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="first_name" name="first_name" value="{{ user.first_name }}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="last_name" class="form-label">Apellido</label>
+                        <input type="text" class="form-control" id="last_name" name="last_name" value="{{ user.last_name }}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="group" class="form-label">Grupo</label>
+                        <select class="form-select" id="group" name="group" required>
+                            <option value="" disabled>Selecciona grupo</option>
+                            {% for group in groups %}
+                            <option value="{{ group.name }}" {% if group in user.groups.all %}selected{% endif %}>{{ group.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="custom-btn btn search-button">Guardar Cambios</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
